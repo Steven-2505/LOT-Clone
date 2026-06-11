@@ -1,17 +1,51 @@
 <script setup>
 import Header from "./Header.vue";
-import bg from "../assets/bg.mp4";
+import "../style.css";
+import { ref, shallowRef } from "vue";
+import banner2 from "../assets/banner2.png";
+import nifehub from "../assets/nifehub.svg";
+import nex from "../assets/nex.svg";
+import ndashboard from "../assets/ndashboard.svg";
+import iconTimeline from "../assets/icon-timeline.svg";
+const timeline = iconTimeline;
+import Nifehub from "./nifehub.vue";
+import Nex from "./nex.vue";
+import Ndashboard from "./ndashboard.vue";
+import NifehubApp from "./nifehubApp.vue";
+import NexApp from "./nexApp.vue";
+import NdashboardApp from "./ndashboardApp.vue";
+
+const activeCard = ref("nifehub");
+const currentComponent = shallowRef(Nifehub); // ✅ lưu component object, không phải string
+
+function selectCard(name, component) {
+  activeCard.value = name;
+  currentComponent.value = component;
+}
+
+const activeApp = ref("ndashboardApp");
+const currentComponentApp = shallowRef(NdashboardApp); // ✅ lưu component object, không phải string
+
+function selectApp(name, component) {
+  activeApp.value = name;
+  currentComponentApp.value = component;
+}
 </script>
 
 <template>
-  <div class="video-container">
+  <div
+    data-aos-easing="ease"
+    data-aos-duration="400"
+    data-aos-delay="0"
+    class="video-container"
+  >
     <Header> </Header>
     <video autoplay muted loop playsinline>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>
     <section class="w-full relative header-content">
       <div
-        class="relative z-[3] text-white m-auto px-10 pt-24 flex flex-col items-center justify-center"
+        class="relative z-3 text-white m-auto px-10 pt-24 flex flex-col items-center justify-center"
       >
         <div
           class="font-['Saira'] text-transparent bg-clip-text pt-20 text-center inset-0 uppercase lg:text-[65px] text-[32px] font-bold custom-text-gradient"
@@ -54,11 +88,13 @@ import bg from "../assets/bg.mp4";
       </span>
     </div>
   </div>
-  <section>
-    <div>
-      <section
-        class="text-center bg-black from-[#000000] to-[#1E1E1E] pt-60px pb-60px"
-      >
+  <section class="bg-black">
+    <div
+      class="text-center bg-black from-[#000000] to-[#1E1E1E] pt-60px pb-60px aos-init aos-animate"
+      data-aos="fade-right"
+      data-aos-duration="2000"
+    >
+      <section>
         <div class="px-6 md:px-10 mx-auto z-10 relative">
           <div class="text-[#EBC47C] text-center text-[25px] font-['Saira']">
             Who We Are
@@ -76,7 +112,7 @@ import bg from "../assets/bg.mp4";
           <div class="w-fit m-auto mt-10 max-w-full display-ruby">
             <div class="relative border-multiple">
               <div
-                class="w-[120px] h-[120px] bg-[#FFDE9C] rounded-full flex items-center justify-center"
+                class="w-30 h-30 bg-[#FFDE9C] rounded-full flex items-center justify-center"
               >
                 <svg
                   width="79"
@@ -162,10 +198,10 @@ import bg from "../assets/bg.mp4";
                     );
                   "
                 >
-                  <span class="title-info">50+</span
+                  <span class="title-info pl-20px">50+</span
                   ><span class="flex pt-1 content-infor">Thành viên IT</span
                   ><img
-                    class="sm:w-[40px] w-[30px]"
+                    class="sm:w-10 w-7.5"
                     src="../assets/about-icon.svg"
                     alt=""
                   />
@@ -184,10 +220,10 @@ import bg from "../assets/bg.mp4";
                     );
                   "
                 >
-                  <span class="title-info">100+</span
+                  <span class="title-info pl-20px">100+</span
                   ><span class="flex pt-1 content-infor">Đối tác</span
                   ><img
-                    class="sm:w-[40px] w-[30px]"
+                    class="sm:w-10 w-7.5"
                     src="../assets/about-icon.svg"
                     alt=""
                   />
@@ -205,11 +241,13 @@ import bg from "../assets/bg.mp4";
                   "
                 >
                   <img
-                    class="sm:w-[40px] w-[30px]"
+                    class="sm:w-10 w-7.5"
                     src="../assets/about-icon.svg"
                     alt=""
                   /><span class="title-info">5</span
-                  ><span class="flex pt-1 content-infor">Năm sản xuất</span>
+                  ><span class="flex pt-1 content-infor pr-20px"
+                    >Năm sản xuất</span
+                  >
                 </div>
               </div>
               <div
@@ -226,11 +264,11 @@ import bg from "../assets/bg.mp4";
                   "
                 >
                   <img
-                    class="sm:w-[40px] w-[30px]"
+                    class="sm:w-10 w-7.5"
                     src="../assets/about-icon.svg"
                     alt=""
                   /><span class="title-info">24/7</span
-                  ><span class="flex sm:pt-1 content-infor"
+                  ><span class="flex sm:pt-1 content-infor pr-20px"
                     >Đội ngũ hỗ trợ</span
                   >
                 </div>
@@ -252,23 +290,169 @@ import bg from "../assets/bg.mp4";
                 Hệ thống 360 Vr độc quyền <br />
               </div>
               <div
-                class="text-transparent bg-clip-text uppercase pt-20px lg:text-[65px] text-[32px] font-bold custom-text-gradient text-center"
+                class="text-transparent bg-clip-text uppercase pt-20px pb-60px lg:text-[65px] text-[32px] font-bold custom-text-gradient text-center"
               >
                 cho đối tác
               </div>
             </div>
           </div>
           <div
-            class="relative z-0 h-[800px] aos-init aos-animate"
+            class="relative z-0 h-200 aos-init aos-animate"
             data-aos="fade-up"
             data-aos-duration="2500"
           >
             <div
               class="bg-2"
-              style="
-                background-image: url(&quot;/images/demo/nifehub/banner2.png&quot;);
-              "
+              :style="{ backgroundImage: `url(${banner2})` }"
             ></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!--Phần quánh trình hình thành app -->
+    <div data-aos="fade-up" data-aos-duration="2500" class="bg-black pb-60px">
+      <div class="max-w-7xl mx-auto w-full px-10">
+        <div class="grid grid-cols-9 grid-rows-3 gap-3 pt-8 px-10">
+          <div
+            class="relative grow overplay-display cursor-pointer"
+            :class="{ active: activeCard === 'nifehub' }"
+            @click="selectCard('nifehub', Nifehub)"
+          >
+            <div
+              class="grid-item flex flex-col items-center gap-2 bg-[#232323] min-h-33.5 p-2 rounded-md justify-center"
+            >
+              <div
+                class="shadow-[0_5px_20px_3px_#FFD25F] line bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
+              ></div>
+              <img width="50px" :src="nifehub" alt="" />
+              <div class="text-[14px]">N-HUB</div>
+            </div>
+          </div>
+
+          <!-- th NEX -->
+          <div
+            class="grow col-start-1 row-start-2 relative overplay-display cursor-pointer"
+            :class="{ active: activeCard === 'nex' }"
+            @click="selectCard('nex', Nex)"
+          >
+            <div
+              class="grid-item flex flex-col items-center gap-2 bg-[#232323] p-2 min-h-33.5 p-4 rounded-md justify-center"
+            >
+              <img width="50px" :src="nex" alt="" />
+              <div class="text-[14px]">NEX</div>
+              <div
+                class="line bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Card NEX-DASHBOARD -->
+          <div
+            class="col-start-1 row-start-3 relative overplay-display cursor-pointer grow"
+            :class="{ active: activeCard === 'ndashboard' }"
+            @click="selectCard('ndashboard', Ndashboard)"
+          >
+            <div
+              class="grid-item flex flex-col items-center gap-2 bg-[#232323] p-2 min-h-33.5 rounded-md justify-center"
+            >
+              <img width="80px" :src="ndashboard" alt="" />
+              <div class="text-[14px] xl:whitespace-nowrap">NEX-DASHBOARD</div>
+              <div
+                class="line bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Dynamic component bên phải -->
+          <div
+            class="col-span-8 row-span-3 col-start-2 row-start-1 bg-[#232323] pt-4 rounded-lg relative overflow-hidden"
+          >
+            <component :is="currentComponent" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!--Phần Sản Phẩm Cty -->
+      <section data-v-ab0c01a8="" class="py-10 md:py-16 overflow-hidden">
+        <div data-v-ab0c01a8="" class="mx-auto">
+          <div
+            data-v-ab0c01a8=""
+            class="container mx-auto px-10 aos-init aos-animate"
+            data-aos="fade-left"
+            data-aos-duration="2500"
+          >
+            <div
+              data-v-ab0c01a8=""
+              class="text-[#FFE2AB] text-center mb-8 font-medium text-[20px]"
+            >
+              TRẢI NGHIỆM SẢN PHẨM CỦA CHÚNG TÔI
+            </div>
+            <div
+              data-v-ab0c01a8=""
+              class="flex lg:justify-center m-auto gap-2 md:gap-4 md:px-0 container pb-10 aos-init aos-animate"
+              data-aos="fade-left"
+              data-aos-duration="2500"
+              style="overflow: auto"
+            >
+              <div
+                :class="{ active: activeApp === 'ndashboardApp' }"
+                @click="selectApp('ndashboardApp', NdashboardApp)"
+                data-v-ab0c01a8=""
+                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play bg-[#ffff] shadow-[0_0px_14px_4px_#ffff] active"
+              >
+                <div data-v-ab0c01a8="" class="">
+                  <div data-v-ab0c01a8="" class="flex items-center gap-3">
+                    <img
+                      data-v-ab0c01a8=""
+                      class="py-6 px-14 p-12"
+                      :src="ndashboard"
+                      alt=""
+                      style="min-width: 180px"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                :class="{ active: activeApp === 'nifehubApp' }"
+                @click="selectApp('nifehubApp', NifehubApp)"
+                data-v-ab0c01a8=""
+                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+              >
+                <div data-v-ab0c01a8="" class="">
+                  <div data-v-ab0c01a8="" class="flex items-center gap-3">
+                    <img
+                      data-v-ab0c01a8=""
+                      class="py-6 px-14 p-12"
+                      :src="nifehub"
+                      alt=""
+                      style="min-width: 180px"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                :class="{ active: activeApp === 'nexApp' }"
+                @click="selectApp('nexApp', NexApp)"
+                data-v-ab0c01a8=""
+                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+              >
+                <div data-v-ab0c01a8="" class="">
+                  <div data-v-ab0c01a8="" class="flex items-center gap-3">
+                    <img
+                      data-v-ab0c01a8=""
+                      class="py-6 px-14 p-12"
+                      :src="nex"
+                      alt=""
+                      style="min-width: 180px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <component :is="currentComponentApp" />
           </div>
         </div>
       </section>

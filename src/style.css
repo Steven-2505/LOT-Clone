@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --sans: "Saira", system-ui, sans-serif;
+  --heading: "Saira", system-ui, sans-serif;
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -54,6 +56,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   line-height: 1.2;
 }
 
@@ -273,7 +276,6 @@ code {
 #app {
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -421,9 +423,9 @@ code {
     border-right-color: var(--border);
   }
 }
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -511,13 +513,93 @@ code {
 .mb-100px {
   margin-bottom: 100px;
 }
-element.style {
-  background-image: url(./assets/banner2.png);
-}
 .bg-2 {
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   width: 100%;
   height: 100%;
+}
+
+.pr-20px {
+  padding-right: 20px;
+}
+.pl-20px {
+  padding-left: 20px;
+}
+
+.overplay-display.active:after {
+  background: unset;
+}
+.overplay-display:after {
+  transition: all 0.6s linear;
+  content: "";
+  background: #0009;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+.mx-auto {
+  margin-inline: auto;
+}
+.pt-4 {
+  pading-top: calc(var(--spacing) * 4);
+}
+.pl-8 {
+  padding-left: calc(var(--spacing) * 8);
+}
+
+.-mt-25 {
+  margin-top: -100px;
+}
+.mx1-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.swiper-horizontal {
+  touch-action: pan-y;
+}
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  );
+  box-sizing: content-box;
+}
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.background-content-group {
+  position: relative;
+  background: #262626;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: 10rem 8px 8px 10rem;
+  border: 1px solid #bfb89f;
+}
+.px-app {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
