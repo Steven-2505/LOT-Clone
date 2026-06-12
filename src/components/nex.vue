@@ -17,7 +17,7 @@ import iconTimeline from "../assets/icon-timeline.svg";
             Giai đoạn 1: Khởi đầu và định hình
           </p>
           <ul
-            class="list-disc pl-4 text-[12px] text-white font-['helvetica'] leading-6 space-y-1"
+            class="list-disc pl-4 text-[15px] text-white font-['helvetica'] leading-6 space-y-1"
           >
             <li>
               Dự án được khởi xướng vào tháng 5/2021 với ý tưởng phát triển nền
@@ -39,7 +39,7 @@ import iconTimeline from "../assets/icon-timeline.svg";
             Giai đoạn 2: Mở rộng trong nước
           </p>
           <ul
-            class="list-disc pl-4 text-[12px] text-white font-['helvetica'] leading-6 space-y-1"
+            class="list-disc pl-4 text-[15px] text-white font-['helvetica'] leading-6 space-y-1"
           >
             <li>
               Đến tháng 5/2024, NEX NOW đạt 20,000 người dùng và chính thức ra
@@ -61,7 +61,7 @@ import iconTimeline from "../assets/icon-timeline.svg";
             Giai đoạn 3: Vươn xa và củng cố vị thế
           </p>
           <ul
-            class="list-disc pl-4 text-[12px] text-white font-['helvetica'] leading-6 space-y-1"
+            class="list-disc pl-4 text-[15px] text-white font-['helvetica'] leading-6 space-y-1"
           >
             <li>
               NEX NOW mở rộng ra thị trường quốc tế vào tháng 8/2026, bắt đầu

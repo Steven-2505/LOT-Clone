@@ -1,12 +1,14 @@
 <script setup>
 import Header from "./Header.vue";
 import "../style.css";
-import { ref, shallowRef } from "vue";
+import { ref, shallowRef, onMounted } from "vue";
 import banner2 from "../assets/banner2.png";
 import nifehub from "../assets/nifehub.svg";
 import nex from "../assets/nex.svg";
 import ndashboard from "../assets/ndashboard.svg";
 import iconTimeline from "../assets/icon-timeline.svg";
+import Slidehome from "./Slidehome.vue";
+import footer from "./footer.vue";
 const timeline = iconTimeline;
 import Nifehub from "./nifehub.vue";
 import Nex from "./nex.vue";
@@ -14,9 +16,19 @@ import Ndashboard from "./ndashboard.vue";
 import NifehubApp from "./nifehubApp.vue";
 import NexApp from "./nexApp.vue";
 import NdashboardApp from "./ndashboardApp.vue";
+import ImageCompare from "image-compare-viewer";
+import "image-compare-viewer/dist/image-compare-viewer.min.css";
+import Baocao from "./Chucnang/baocao.vue";
+import Thanhtoan from "./Chucnang/thanhtoan.vue";
+import Ngoaituyen from "./Chucnang/ngoaituyen.vue";
+import Pos from "./Chucnang/pos.vue";
+import Qlnv from "./Chucnang/qlnv.vue";
+import Tuychinhmatbang from "./Chucnang/tuychinhmatbang.vue";
+import Tuychinhmenu from "./Chucnang/tuychinhmenu.vue";
+import Footer from "./footer.vue";
 
 const activeCard = ref("nifehub");
-const currentComponent = shallowRef(Nifehub); // ✅ lưu component object, không phải string
+const currentComponent = shallowRef(Nifehub);
 
 function selectCard(name, component) {
   activeCard.value = name;
@@ -24,12 +36,25 @@ function selectCard(name, component) {
 }
 
 const activeApp = ref("ndashboardApp");
-const currentComponentApp = shallowRef(NdashboardApp); // ✅ lưu component object, không phải string
+const currentComponentApp = shallowRef(NdashboardApp);
 
 function selectApp(name, component) {
   activeApp.value = name;
   currentComponentApp.value = component;
 }
+
+const activeChucnang = ref("baocao");
+const currentComponentChucnang = shallowRef(Baocao);
+
+function selectChucnang(name, component) {
+  activeChucnang.value = name;
+  currentComponentChucnang.value = component;
+}
+
+const compareEl = ref(null);
+onMounted(() => {
+  new ImageCompare(compareEl.value).mount();
+});
 </script>
 
 <template>
@@ -374,22 +399,19 @@ function selectApp(name, component) {
     </div>
     <div>
       <!--Phần Sản Phẩm Cty -->
-      <section data-v-ab0c01a8="" class="py-10 md:py-16 overflow-hidden">
-        <div data-v-ab0c01a8="" class="mx-auto">
+      <section class="py-10 md:py-16 overflow-hidden">
+        <div class="mx-auto">
           <div
-            data-v-ab0c01a8=""
             class="container mx-auto px-10 aos-init aos-animate"
             data-aos="fade-left"
             data-aos-duration="2500"
           >
             <div
-              data-v-ab0c01a8=""
               class="text-[#FFE2AB] text-center mb-8 font-medium text-[20px]"
             >
               TRẢI NGHIỆM SẢN PHẨM CỦA CHÚNG TÔI
             </div>
             <div
-              data-v-ab0c01a8=""
               class="flex lg:justify-center m-auto gap-2 md:gap-4 md:px-0 container pb-10 aos-init aos-animate"
               data-aos="fade-left"
               data-aos-duration="2500"
@@ -398,13 +420,11 @@ function selectApp(name, component) {
               <div
                 :class="{ active: activeApp === 'ndashboardApp' }"
                 @click="selectApp('ndashboardApp', NdashboardApp)"
-                data-v-ab0c01a8=""
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play bg-[#ffff] shadow-[0_0px_14px_4px_#ffff] active"
+                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
-                <div data-v-ab0c01a8="" class="">
-                  <div data-v-ab0c01a8="" class="flex items-center gap-3">
+                <div class="">
+                  <div class="flex items-center gap-3">
                     <img
-                      data-v-ab0c01a8=""
                       class="py-6 px-14 p-12"
                       :src="ndashboard"
                       alt=""
@@ -416,13 +436,11 @@ function selectApp(name, component) {
               <div
                 :class="{ active: activeApp === 'nifehubApp' }"
                 @click="selectApp('nifehubApp', NifehubApp)"
-                data-v-ab0c01a8=""
                 class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
-                <div data-v-ab0c01a8="" class="">
-                  <div data-v-ab0c01a8="" class="flex items-center gap-3">
+                <div class="">
+                  <div class="flex items-center gap-3">
                     <img
-                      data-v-ab0c01a8=""
                       class="py-6 px-14 p-12"
                       :src="nifehub"
                       alt=""
@@ -434,13 +452,11 @@ function selectApp(name, component) {
               <div
                 :class="{ active: activeApp === 'nexApp' }"
                 @click="selectApp('nexApp', NexApp)"
-                data-v-ab0c01a8=""
                 class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
-                <div data-v-ab0c01a8="" class="">
-                  <div data-v-ab0c01a8="" class="flex items-center gap-3">
+                <div class="">
+                  <div class="flex items-center gap-3">
                     <img
-                      data-v-ab0c01a8=""
                       class="py-6 px-14 p-12"
                       :src="nex"
                       alt=""
@@ -457,5 +473,1192 @@ function selectApp(name, component) {
         </div>
       </section>
     </div>
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2500"
+      class="aos-init aos-animate"
+    >
+      <div>
+        <div class="container mx-auto">
+          <div
+            class="text-[32px] w-1/2 mx-auto text-center text-white mt-4 text-transparent w-fit bg-clip-text uppercase lg:text-[48px] text-[18px] font-bold leading-normal custom-text-gradient"
+          >
+            Hệ thống Quản lý Doanh nghiệp &amp; POS <br />
+            Tất cả trong một cho nhà hàng, spa, quán bar, khách sạn.
+          </div>
+          <img class="m-auto my-5" src="../assets/divider-home.svg" alt="" />
+          <div
+            class="text-[#FFF1D8] text-center font-bold lg:text-[36px] text-[24px] uppercase"
+          >
+            Chế độ tối - Chế độ sáng
+          </div>
+        </div>
+        <div
+          ref="compareEl"
+          id="image-compare"
+          class="lg:my-28 my-20 icv icv__icv--horizontal standard"
+        >
+          <img
+            width="100%"
+            src="../assets/banner-light.png"
+            style="min-height: 180px; object-fit: cover"
+            class="icv__img icv__img-a"
+          />
+          <div
+            class="icv__wrapper"
+            style="width: 50%; height: 50%; transition: 100ms ease-out"
+          >
+            <img
+              width="100%"
+              src="../assets/banner-dark.png"
+              style="min-height: 180px; object-fit: cover"
+              class="icv__img icv__img-b"
+            />
+          </div>
+          <div
+            class="icv__control"
+            style="
+              width: 50px;
+              left: calc(50% - 25px);
+              transition: 100ms ease-out;
+            "
+          >
+            <div
+              class="icv__control-line"
+              style="
+                width: 2px;
+                background: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 15px;
+              "
+            ></div>
+            <div class="icv__theme-wrapper">
+              <div
+                class="icv__arrow-wrapper"
+                style="transform: translateX(8px)"
+              >
+                <svg
+                  height="15"
+                  width="15"
+                  style="
+                    transform: scale(1.5) rotateZ(180deg);
+                    height: 20px;
+                    width: 20px;
+
+                    -webkit-filter: drop-shadow(
+                      0px 3px 5px rgba(0, 0, 0, 0.33)
+                    );
+                    filter: drop-shadow(0px -3px 5px rgba(0, 0, 0, 0.33));
+                  "
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-name="Layer 1"
+                  viewBox="0 0 15 15"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    stroke="#FFFFFF"
+                    stroke-linecap="round"
+                    stroke-width="0"
+                    d="M4.5 1.9L10 7.65l-5.5 5.4"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                class="icv__arrow-wrapper"
+                style="transform: translateX(-8px)"
+              >
+                <svg
+                  height="15"
+                  width="15"
+                  style="
+                    transform: scale(1.5) rotateZ(0deg);
+                    height: 20px;
+                    width: 20px;
+
+                    -webkit-filter: drop-shadow(
+                      0px 3px 5px rgba(0, 0, 0, 0.33)
+                    );
+                    filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.33));
+                  "
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-name="Layer 1"
+                  viewBox="0 0 15 15"
+                >
+                  <path
+                    fill="#FFFFFF"
+                    stroke="#FFFFFF"
+                    stroke-linecap="round"
+                    stroke-width="0"
+                    d="M4.5 1.9L10 7.65l-5.5 5.4"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div
+              class="icv__control-line"
+              style="
+                width: 2px;
+                background: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 15px;
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2500"
+      class="aos-init aos-animate"
+    >
+      <div class="grid-gradient">
+        <div class="container mx-auto xl:px-10 px-6 mt-10 py-6">
+          <div class="xl:flex">
+            <div class="xl:flex grow w-full justify-end">
+              <div class="flex flex-col gap-6">
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-1">
+                    <div
+                      :class="{ active: activeChucnang === 'baocao' }"
+                      @click="selectChucnang('baocao', Baocao)"
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img width="100%" src="../assets/report.svg" alt="" />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            báo cáo
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            Hệ thống cung cấp khả năng tích hợp thông tin từ các
+                            giao dịch đặt lịch
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-2">
+                    <div
+                      :class="{ active: activeChucnang === 'thanhtoan' }"
+                      @click="selectChucnang('thanhtoan', Thanhtoan)"
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img
+                            width="100%"
+                            src="../assets/payment.svg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            thanh toán
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            NEX-DASHBOARD hỗ trợ chủ shop kiểm tra chi tiết
+                            doanh thu dựa trên mã
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-3">
+                    <div
+                      :class="{ active: activeChucnang === 'ngoaituyen' }"
+                      @click="selectChucnang('ngoaituyen', Ngoaituyen)"
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img width="100%" src="../assets/mode.svg" alt="" />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            chế độ ngoại tuyến
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            Tính năng OFFLINE MODE cho phép hệ thống xử lý các
+                            giao dịch
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-4">
+                    <div
+                      :class="{ active: activeChucnang === 'pos' }"
+                      @click="selectChucnang('pos', Pos)"
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img width="100%" src="../assets/pos.svg" alt="" />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            Tích hợp POS
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            Tích hợp POS giúp hệ thống kết nối và đồng bộ dữ
+                            liệu từ các giao dịch bán lẻ
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-5">
+                    <div
+                      :class="{ active: activeChucnang === 'qlnv' }"
+                      @click="selectChucnang('qlnv', Qlnv)"
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img width="100%" src="../assets/staff.svg" alt="" />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            Quản lý nhân viên
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            Tính năng STAFF MANAGEMENT cung cấp các công cụ quản
+                            lý nhân sự toàn diện
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-6">
+                    <div
+                      :class="{ active: activeChucnang === 'tuychinhmatbang' }"
+                      @click="
+                        selectChucnang('tuychinhmatbang', Tuychinhmatbang)
+                      "
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img width="100%" src="../assets/floor.svg" alt="" />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            tùy chỉnh mặt bằng
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            Tính năng CUSTOM FLOOR PLAN cho phép doanh nghiệp tự
+                            thiết kế mặt bằng cửa hàng một cách linh hoạt.
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="xl:block hidden">
+                  <div class="col-start-1 row-start-7">
+                    <div
+                      :class="{ active: activeChucnang === 'tuychinhmenu' }"
+                      @click="selectChucnang('tuychinhmenu', Tuychinhmenu)"
+                      class="overplayitem flex items-center gap-8 flex-wrap xl:flex-nowrap"
+                    >
+                      <div
+                        class="overplay-item before:rounded-full cursor-pointer"
+                      >
+                        <div
+                          class="rounded-full border-[#c8bd96] w-fit border p-7 drop-shadow-2xl max-w-[100px]"
+                        >
+                          <img width="100%" src="../assets/menu.svg" alt="" />
+                        </div>
+                      </div>
+                      <div
+                        class="item-description overplay-item cursor-pointer p-10px"
+                      >
+                        <div class="pl-10px">
+                          <div
+                            class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                          >
+                            tùy chỉnh menu
+                          </div>
+                          <div
+                            class="max-w-[360px] mt-1 line-clamp-1 text-white"
+                          >
+                            Tính năng MENU CUSTOMIZE hỗ trợ doanh nghiệp dễ dàng
+                            tùy chỉnh danh sách sản phẩm
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-end">
+                          <span
+                            class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize custom-text-gradient"
+                            >Tìm hiểu thêm</span
+                          ><span
+                            ><svg
+                              width="42"
+                              height="26"
+                              viewBox="0 0 42 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_15987_32778)">
+                                <path
+                                  d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                                  fill="url(#paint0_radial_15987_32778)"
+                                ></path>
+                              </g>
+                              <defs>
+                                <filter
+                                  id="filter0_d_15987_32778"
+                                  x="0.158203"
+                                  y="0.113281"
+                                  width="41"
+                                  height="25.7734"
+                                  filterUnits="userSpaceOnUse"
+                                  color-interpolation-filters="sRGB"
+                                >
+                                  <feFlood
+                                    flood-opacity="0"
+                                    result="BackgroundImageFix"
+                                  ></feFlood>
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  ></feColorMatrix>
+                                  <feOffset></feOffset>
+                                  <feGaussianBlur
+                                    stdDeviation="5"
+                                  ></feGaussianBlur>
+                                  <feComposite
+                                    in2="hardAlpha"
+                                    operator="out"
+                                  ></feComposite>
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                                  ></feColorMatrix>
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_15987_32778"
+                                  ></feBlend>
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_15987_32778"
+                                    result="shape"
+                                  ></feBlend>
+                                </filter>
+                                <radialGradient
+                                  id="paint0_radial_15987_32778"
+                                  cx="0"
+                                  cy="0"
+                                  r="1"
+                                  gradientUnits="userSpaceOnUse"
+                                  gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                                >
+                                  <stop
+                                    offset="0.00502064"
+                                    stop-color="white"
+                                  ></stop>
+                                  <stop
+                                    offset="0.775"
+                                    stop-color="#DBCEA0"
+                                  ></stop>
+                                  <stop
+                                    offset="0.98"
+                                    stop-color="#C9BE97"
+                                  ></stop>
+                                </radialGradient>
+                              </defs></svg
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="xl:!block !hidden !mx-[40px] self-stretch">
+                <div
+                  style="
+                    width: 1px;
+                    height: 100%;
+                    background: radial-gradient(
+                      8.22% 183.39% at 56.67% 28.46%,
+                      #fff 0.5%,
+                      #dbcea0 77.5%,
+                      #c9be97 98%
+                    );
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="xl:hidden block">
+              <div
+                class="swiper swiper-initialized swiper-horizontal !ps-4 !py-3"
+              >
+                <div
+                  class="swiper-wrapper"
+                  style="transition-duration: 0ms; transition-delay: 0ms"
+                >
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl shadow-[0_0px_13px_10px_#ffd25f3d]"
+                    >
+                      <img width="100%" src="../assets/report.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl"
+                    >
+                      <img width="100%" src="../assets/payment.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl"
+                    >
+                      <img width="100%" src="../assets/mode.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl"
+                    >
+                      <img width="100%" src="../assets/pos.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl"
+                    >
+                      <img width="100%" src="../assets/staff.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl"
+                    >
+                      <img width="100%" src="../assets/floor.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl"
+                    >
+                      <img width="100%" src="../assets/menu.svg" alt="" />
+                    </div>
+                    <!---->
+                  </div>
+                </div>
+                <!----><!----><!---->
+              </div>
+              <div class="item-description mt-4">
+                <div class="overplay">
+                  <div
+                    class="text-[#c9be97] uppercase xl:text-[16px] text-[14px] font-bold"
+                  >
+                    report
+                  </div>
+                  <div class="max-w-[360px] mt-1 min-h-[45px] text-[12px]">
+                    <div class="line-clamp-1 text-white">
+                      Hệ thống cung cấp khả năng tích hợp thông tin từ các giao
+                      dịch đặt lịch
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 justify-end see-lern">
+                  <span
+                    class="font-bold text-[14px] bg-clip-text text-transparent learn-text drop-shadow-2xl capitalize"
+                    >Learn more</span
+                  ><span
+                    ><svg
+                      width="41"
+                      height="26"
+                      viewBox="0 0 41 26"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g filter="url(#filter0_d_16272_22032)">
+                        <path
+                          d="M31 13L26 10.1132V15.8868L31 13ZM10 13.5L26.5 13.5V12.5L10 12.5V13.5Z"
+                          fill="url(#paint0_radial_16272_22032)"
+                        ></path>
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_16272_22032"
+                          x="0"
+                          y="0.113281"
+                          width="41"
+                          height="25.7734"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          ></feFlood>
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          ></feColorMatrix>
+                          <feOffset></feOffset>
+                          <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+                          <feComposite
+                            in2="hardAlpha"
+                            operator="out"
+                          ></feComposite>
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                          ></feColorMatrix>
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_16272_22032"
+                          ></feBlend>
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_16272_22032"
+                            result="shape"
+                          ></feBlend>
+                        </filter>
+                        <radialGradient
+                          id="paint0_radial_16272_22032"
+                          cx="0"
+                          cy="0"
+                          r="1"
+                          gradientUnits="userSpaceOnUse"
+                          gradientTransform="translate(21.9007 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                        >
+                          <stop offset="0.00502064" stop-color="white"></stop>
+                          <stop offset="0.775" stop-color="#DBCEA0"></stop>
+                          <stop offset="0.98" stop-color="#C9BE97"></stop>
+                        </radialGradient>
+                      </defs></svg
+                  ></span>
+                </div>
+              </div>
+            </div>
+            <div class="xl:m-0 mt-6 w-full">
+              <component :is="currentComponentChucnang" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <Slidehome></Slidehome>
+    </div>
+    <Footer></Footer>
   </section>
 </template>
