@@ -1,5 +1,6 @@
 <script setup>
 import Header from "./Header.vue";
+import header2 from "./header2.vue";
 import "../style.css";
 import { ref, shallowRef, onMounted } from "vue";
 import banner2 from "../assets/banner2.png";
@@ -64,7 +65,8 @@ onMounted(() => {
     data-aos-delay="0"
     class="video-container"
   >
-    <Header> </Header>
+    <!--<Header> </Header>-->
+    <header2></header2>
     <video autoplay muted loop playsinline>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>
