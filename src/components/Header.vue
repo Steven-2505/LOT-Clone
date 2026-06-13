@@ -3,8 +3,29 @@ import logo from "../assets/logo.svg";
 import iconheader from "../assets/icon-header.svg";
 import iconvi from "../assets/icon-vi.svg";
 import iconen from "../assets/icon-en.svg";
-
 import { ref, onMounted, onUnmounted } from "vue";
+
+const servicesOpen = ref(false);
+
+function toggleServices() {
+  servicesOpen.value = !servicesOpen.value;
+}
+
+function handleClickOutside(e) {
+  if (!e.target.closest(".services-menu-wrapper")) {
+    servicesOpen.value = false;
+  }
+}
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+  window.addEventListener("click", closeDropdown);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
+  window.removeEventListener("click", closeDropdown);
+});
 
 // Reactive state to manage menu visibility
 const isOpen = ref(false);
@@ -20,34 +41,28 @@ const closeDropdown = (element) => {
     isOpen.value = false;
   }
 };
-
-// Life cycle hooks to catch global clicks for closing "on click outside"
-onMounted(() => {
-  window.addEventListener("click", closeDropdown);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("click", closeDropdown);
-});
 </script>
 <template>
   <header class="navbar">
     <div class="navbar-inner">
-      <div class="logo">
+      <RouterLink class="logo" to="/">
         <img :src="logo" alt="Logo" />
-      </div>
+      </RouterLink>
 
       <nav class="navbar-menu">
-        <a class="menu" href="https://lotviet.com/vi/about-us">Về LOT</a>
+        <RouterLink class="menu" to="/About-us">Về LOT</RouterLink>
         <img :src="iconheader" alt="" />
-        <a
-          class="menu"
-          href="https://lotviet.com/vi/environment"
-          target="_blank"
-          >Hệ Sinh Thái LOT</a
-        >
+        <RouterLink to="/environment">Hệ Sinh Thái LOT</RouterLink>
         <img :src="iconheader" alt="" />
-        <a class="menu" href="https://lotviet.com/vi/contact">Dịch Vụ</a>
+        <div class="relative flex items-center services-menu-wrapper">
+          <span
+            class="cursor-pointer"
+            data-name="services"
+            @click="toggleServices"
+          >
+            Dịch vụ</span
+          >
+        </div>
         <img :src="iconheader" alt="" />
         <a class="menu" href="https://lotviet.com/vi/recruitment">Tuyển Dụng</a>
         <img :src="iconheader" alt="" />
@@ -114,4 +129,314 @@ onUnmounted(() => {
       </div>
     </div>
   </header>
+  <Teleport to="body">
+    <div class="services-dropdown" v-show="servicesOpen">
+      <div class="services-dropdown-container">
+        <div class="services-dropdown-header">DỊCH VỤ LOT SOFTWARE</div>
+        <div class="services-dropdown-content">
+          <div class="services-column">
+            <a href="/vi/services/email-server" class="service-item"
+              ><img
+                src="../assets/icondichvu/bg-content.svg"
+                alt="Quản trị email server"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">Quản trị email server</div>
+                <div class="service-subtitle">
+                  Quản lý và bảo mật email server.
+                </div>
+              </div></a
+            ><a href="/vi/services/system-analysis" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-system-analysis.svg"
+                alt="Phân tích, thiết kế hệ thống"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">Phân tích, thiết kế hệ thống</div>
+                <div class="service-subtitle">
+                  Phân tích, thiết kế kiến trúc phần mềm.
+                </div>
+              </div></a
+            ><a href="/vi/services/cdn-infrastructure" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-cdn-infrastructure.svg"
+                alt="Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)
+                </div>
+                <div class="service-subtitle">
+                  Xây dựng hạ tầng CDN, phân phối nội dung nhanh.
+                </div>
+              </div></a
+            ><a
+              href="/vi/services/international-datacenter"
+              class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-international-datacenter.svg"
+                alt="Hạ tầng dịch vụ datacenter quốc tế"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Hạ tầng dịch vụ datacenter quốc tế
+                </div>
+                <div class="service-subtitle">
+                  Cung cấp datacenter quốc tế hiệu suất cao.
+                </div>
+              </div></a
+            ><a href="/vi/services/smart-alert-ai" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-smart-alert-ai.svg"
+                alt="Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI
+                </div>
+                <div class="service-subtitle">
+                  Giám sát an toàn, dự đoán rủi ro
+                </div>
+              </div></a
+            >
+          </div>
+          <div class="services-column">
+            <a href="/vi/services/domestic-datacenter" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-domestic-datacenter.svg"
+                alt="Hạ tầng dịch vụ datacenter nội địa"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Hạ tầng dịch vụ datacenter nội địa
+                </div>
+                <div class="service-subtitle">
+                  Xây dựng datacenter tại Việt Nam.
+                </div>
+              </div></a
+            ><a href="/vi/services/data-collection" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-data-collection.svg"
+                alt="Giải pháp thu thập dữ liệu phục vụ xây dựng cơ sở dữ liệu số"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Giải pháp thu thập dữ liệu phục vụ xây dựng cơ sở dữ liệu số
+                </div>
+                <div class="service-subtitle">
+                  Công cụ thu thập dữ liệu cho CSDL số.
+                </div>
+              </div></a
+            ><a href="/vi/services/system-integration" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-system-integration.svg"
+                alt="Dịch vụ tích hợp hệ thống"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">Dịch vụ tích hợp hệ thống</div>
+                <div class="service-subtitle">
+                  Tích hợp hệ thống, tối ưu quy trình.
+                </div>
+              </div></a
+            ><a href="/vi/services/wireframe-design" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-wireframe-design.svg"
+                alt="Dịch vụ thiết kế wireframe / mockup / prototype chuyên nghiệp"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Dịch vụ thiết kế wireframe / mockup / prototype chuyên nghiệp
+                </div>
+                <div class="service-subtitle">
+                  Thiết kế UI/UX, wireframe, mockup.
+                </div>
+              </div></a
+            ><a href="/vi/services/ios-development" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-ios-development.svg"
+                alt="Dịch vụ phát triển ứng dụng dành cho IOS"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Dịch vụ phát triển ứng dụng dành cho IOS
+                </div>
+                <div class="service-subtitle">Phát triển ứng dụng cho iOS.</div>
+              </div></a
+            >
+          </div>
+          <div class="services-column">
+            <a href="/vi/services/android-development" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-android-development.svg"
+                alt="Dịch vụ phát triển ứng dụng dành cho Android"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Dịch vụ phát triển ứng dụng dành cho Android
+                </div>
+                <div class="service-subtitle">
+                  Phát triển ứng dụng cho Android.
+                </div>
+              </div></a
+            ><a href="/vi/services/cloud-platform" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-cloud-platform.svg"
+                alt="Dịch vụ nền tảng điện toán đám mây (CLOUD)"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Dịch vụ nền tảng điện toán đám mây (CLOUD)
+                </div>
+                <div class="service-subtitle">
+                  Triển khai và quản lý dịch vụ đám mây.
+                </div>
+              </div></a
+            ><a href="/vi/services/technical-support" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-technical-support.svg"
+                alt="Dịch vụ hỗ trợ kỹ thuật"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">Dịch vụ hỗ trợ kỹ thuật</div>
+                <div class="service-subtitle">Hỗ trợ kỹ thuật 24/7.</div>
+              </div></a
+            ><a href="/vi/services/cloud-computing" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-cloud-computing.svg"
+                alt="Dịch vụ điện toán đám mây"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">Dịch vụ điện toán đám mây</div>
+                <div class="service-subtitle">
+                  Tư vấn, triển khai giải pháp đám mây.
+                </div>
+              </div></a
+            ><a href="/vi/services/website-maintenance" class="service-item"
+              ><img
+                src="../assets/icondichvu/icon-website-maintenance.svg"
+                alt="Dịch vụ chăm sóc website chuyên nghiệp"
+                class="service-icon"
+              />
+              <div class="service-text">
+                <div class="service-title">
+                  Dịch vụ chăm sóc website chuyên nghiệp
+                </div>
+                <div class="service-subtitle">
+                  Bảo trì, tối ưu và bảo mật website.
+                </div>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </Teleport>
 </template>
+<style scoped>
+.services-dropdown {
+  position: fixed;
+  top: 110px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - 80px);
+  max-width: 1600px;
+  z-index: 9999;
+}
+.services-dropdown-container {
+  background: rgba(15, 15, 15, 0.75);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  border-radius: 12px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px #0000004d;
+}
+.services-dropdown-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+.services-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.service-item:hover,
+.service-item.active {
+  background: #ffffff0d;
+  transform: translate(5px);
+}
+.service-item {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.service-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.service-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.service-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.service-title {
+  font-family: Saira, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  color: #fff;
+}
+.service-subtitle {
+  font-family:
+    SVN-Helvetica Now Display,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  color: #fffc;
+}
+.services-menu-wrapper {
+  position: static;
+}
+.services-dropdown-header {
+  font-family: Saira, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: left;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid rgb(86, 79, 64);
+}
+</style>

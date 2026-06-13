@@ -1,6 +1,5 @@
 <script setup>
 import Header from "./Header.vue";
-import header2 from "./header2.vue";
 import "../style.css";
 import { ref, shallowRef, onMounted } from "vue";
 import banner2 from "../assets/banner2.png";
@@ -65,22 +64,21 @@ onMounted(() => {
     data-aos-delay="0"
     class="video-container"
   >
-    <!--<Header> </Header>-->
-    <header2></header2>
+    <Header> </Header>
     <video autoplay muted loop playsinline>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>
     <section class="w-full relative header-content">
       <div
-        class="relative z-3 text-white m-auto px-10 pt-24 flex flex-col items-center justify-center"
+        class="relative z-3 text-white m-auto px-10 flex flex-col items-center justify-center"
       >
         <div
-          class="font-['Saira'] text-transparent bg-clip-text pt-20 text-center inset-0 uppercase lg:text-[65px] text-[32px] font-bold custom-text-gradient"
+          class="font-['Saira'] text-transparent bg-clip-text pt-20 text-center inset-0 uppercase lg:text-[56px] text-[32px] font-bold custom-text-gradient"
         >
           LOT SOFTWARE
         </div>
         <div
-          class="font-['Saira'] text-transparent bg-clip-text pt-12px text-center uppercase lg:text-[65px] text-[36px] font-bold custom-text-gradient"
+          class="font-['Saira'] text-transparent bg-clip-text pt-12px text-center uppercase lg:text-[56px] text-[36px] font-bold custom-text-gradient"
         >
           Xây dựng con đường thành công của bạn
         </div>
@@ -312,12 +310,12 @@ onMounted(() => {
                 Dẫn đầu công nghệ
               </div>
               <div
-                class="text-transparent bg-clip-text uppercase pt-12px lg:text-[65px] text-[32px] font-bold custom-text-gradient text-center"
+                class="text-transparent bg-clip-text uppercase pt-12px lg:text-[56px] text-[32px] font-bold custom-text-gradient text-center"
               >
                 Hệ thống 360 Vr độc quyền <br />
               </div>
               <div
-                class="text-transparent bg-clip-text uppercase pt-20px pb-60px lg:text-[65px] text-[32px] font-bold custom-text-gradient text-center"
+                class="text-transparent bg-clip-text uppercase pt-20px pb-60px lg:text-[56px] text-[32px] font-bold custom-text-gradient text-center"
               >
                 cho đối tác
               </div>

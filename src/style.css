@@ -127,7 +127,6 @@ p {
 .navbar {
   margin: auto;
   width: fit-content;
-  position: sticky;
   top: 0;
   z-index: 100;
   padding: 16px 24px;
@@ -146,7 +145,7 @@ p {
 }
 
 .navbar-menu {
-  font-size: 22px;
+  font-size: 18px;
   align-items: center;
   gap: 1.25rem;
   font-family: Saira;
@@ -490,9 +489,17 @@ code {
 .mb-20px {
   margin-bottom: 20px;
 }
-
+.mt-20px {
+  margin-top: 20px;
+}
+.mt-40px {
+  margin-top: 40px;
+}
+.mb-60px {
+  margin-bottom: 60px;
+}
 .pt-20 {
-  padding-top: 250px;
+  padding-top: 120px;
 }
 .pt-12px {
   padding-top: 12px;
@@ -596,8 +603,7 @@ code {
   background: #262626;
   padding: 20px;
   overflow: hidden;
-  border-radius: 10rem 8px 8px 10rem;
-  border: 1px solid #bfb89f;
+  border-radius: calc(10rem - 2px) 6px 6px calc(10rem - 2px);
 }
 .px-app {
   padding-left: 2.5rem;
@@ -691,4 +697,169 @@ code {
   justify-content: center;
   margin: var(--p-divider-vertical-margin);
   padding: var(--p-divider-vertical-padding);
+}
+.services-dropdown {
+  position: fixed;
+  top: 110px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - 80px);
+  max-width: 1600px;
+  z-index: 9999;
+}
+.services-dropdown-container {
+  background: rgba(15, 15, 15, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px #0000004d;
+}
+.services-dropdown-content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+.services-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.service-item:hover,
+.service-item.active {
+  background: #ffffff0d;
+  transform: translate(5px);
+}
+.service-item {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.service-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.service-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.service-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.service-title {
+  font-family: Saira, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  color: #fff;
+}
+.service-subtitle {
+  font-family:
+    SVN-Helvetica Now Display,
+    Helvetica,
+    sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  color: #fffc;
+}
+.services-menu-wrapper {
+  position: static;
+}
+.services-dropdown-header {
+  font-family: Saira, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: left;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid rgb(86, 79, 64);
+}
+.grid-section:after {
+  content: "";
+  background: url("./assets/slideabout/slideabout.svg");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.next-arrow {
+  top: -7%;
+  z-index: 9;
+  right: 50px;
+}
+
+.border-custom {
+  padding: 2px;
+  border-radius: 10rem 8px 8px 10rem;
+  background: linear-gradient(90.06deg, #bfb89f 0.05%, transparent 100%);
+}
+.bg-circle.bg-circle:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/sun.svg);
+}
+.my-swiper {
+  overflow: hidden;
+}
+.item-active {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.item-active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: ocpacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.item-active:hover::before {
+  opacity: 0;
+}
+.person-item::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  filter: blur(55px);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+.item-active:hover .person-item::after {
+  opacity: 1;
 }

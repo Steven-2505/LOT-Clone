@@ -1,9 +1,8 @@
 <script setup>
-import Home from "./components/Home.vue";
 import AboutUs from "./components/About-us.vue";
+import Header from "./components/Header.vue";
 </script>
 
 <template>
-  <!--<Home />-->
-  <About-us></About-us>
+  <RouterView></RouterView>
 </template>
