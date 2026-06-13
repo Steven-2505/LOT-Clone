@@ -1,16 +1,16 @@
 <script setup>
 import Header from "./Header.vue";
 import AppFooter from "./footer.vue";
-import NifehubApp from "./nifehubApp.vue";
-import NexApp from "./nexApp.vue";
-import NdashboardApp from "./ndashboardApp.vue";
+import Nhub from "./environment/nhub.vue";
+import Nexnow from "./environment/nexnow.vue";
+import Nexdash from "./environment/nexdash.vue";
 import { ref, shallowRef, onMounted } from "vue";
 import nifehub from "../assets/nifehub.svg";
 import nex from "../assets/nex.svg";
 import ndashboard from "../assets/ndashboard.svg";
 
-const activeApp = ref("ndashboardApp");
-const currentComponentApp = shallowRef(NdashboardApp);
+const activeApp = ref("nhub");
+const currentComponentApp = shallowRef(Nhub);
 
 function selectApp(name, component) {
   activeApp.value = name;
@@ -54,7 +54,7 @@ function selectApp(name, component) {
   </div>
   <section class="bg-black">
     <div
-      class="text-center bg-black from-[#000000] to-[#1E1E1E] pt-60px pb-60px aos-init aos-animate"
+      class="text-center bg-black from-[#000000] to-[#1E1E1E] aos-init aos-animate"
       data-aos="fade-right"
       data-aos-duration="2000"
     >
@@ -63,22 +63,17 @@ function selectApp(name, component) {
           <div
             class="container mx-auto px-10 aos-init aos-animate"
             data-aos="fade-left"
-            data-aos-duration="2500"
+            data-aos-duration="1500"
           >
-            <div
-              class="text-[#FFE2AB] text-center mb-8 font-medium text-[20px]"
-            >
-              TRẢI NGHIỆM SẢN PHẨM CỦA CHÚNG TÔI
-            </div>
             <div
               class="flex lg:justify-center m-auto gap-2 md:gap-4 md:px-0 container pb-10 aos-init aos-animate"
               data-aos="fade-left"
-              data-aos-duration="2500"
+              data-aos-duration="1500"
               style="overflow: auto"
             >
               <div
-                :class="{ active: activeApp === 'ndashboardApp' }"
-                @click="selectApp('ndashboardApp', NdashboardApp)"
+                :class="{ active: activeApp === 'nexdash' }"
+                @click="selectApp('nexdash', Nexdash)"
                 class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
@@ -93,8 +88,8 @@ function selectApp(name, component) {
                 </div>
               </div>
               <div
-                :class="{ active: activeApp === 'nifehubApp' }"
-                @click="selectApp('nifehubApp', NifehubApp)"
+                :class="{ active: activeApp === 'nhub' }"
+                @click="selectApp('nhub', Nhub)"
                 class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
@@ -109,8 +104,8 @@ function selectApp(name, component) {
                 </div>
               </div>
               <div
-                :class="{ active: activeApp === 'nexApp' }"
-                @click="selectApp('nexApp', NexApp)"
+                :class="{ active: activeApp === 'nexnow' }"
+                @click="selectApp('nexnow', Nexnow)"
                 class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">

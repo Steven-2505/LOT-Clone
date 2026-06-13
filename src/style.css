@@ -797,7 +797,7 @@ code {
   height: 100%;
   position: absolute;
   background-size: cover;
-  background-repeat: no-repeat !important;
+  background-repeat: no-repeat;
   top: 0;
   left: 0;
   z-index: 0;
@@ -862,4 +862,48 @@ code {
 }
 .item-active:hover .person-item::after {
   opacity: 1;
+}
+.section-time:after {
+  content: "";
+  background: url("./assets/slideabout/slideabout.svg");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.section-time {
+  transform: scale(0.85);
+  position: relative;
+}
+.line-vertical {
+  border-right: 1px solid;
+  border-image: radial-gradient(circle, #ffeac1 0%, #211600 100%) 1;
+}
+.item-nth {
+  border: 1px solid rgba(255, 236, 197, 0.5019607843);
+}
+.lg\:flex-row {
+  flex-direction: row;
+}
+.bg-\[\#171717\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+}
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.item-nth:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+.p-8 {
+  padding: 2rem;
+}
+.w-full {
+  width: 100%;
 }
