@@ -64,11 +64,11 @@ const closeDropdown = (element) => {
           >
         </div>
         <img :src="iconheader" alt="" />
-        <a class="menu" href="https://lotviet.com/vi/recruitment">Tuyển Dụng</a>
+        <RouterLink class="menu" to="/tuyendung">Tuyển Dụng</RouterLink>
         <img :src="iconheader" alt="" />
-        <a class="menu" href="https://lotviet.com/vi/blogs">Tin Tức</a>
+        <a class="menu" href="https://lotviet.com/blogs">Tin Tức</a>
         <img :src="iconheader" alt="" />
-        <a class="menu" href="https://lotviet.com/vi/contact">Liên hệ</a>
+        <RouterLink class="menu" to="/lienhe">Liên Hệ</RouterLink>
         <img :src="iconheader" alt="" />
       </nav>
       <div class="flex items-center gap-3">
@@ -135,31 +135,35 @@ const closeDropdown = (element) => {
         <div class="services-dropdown-header">DỊCH VỤ LOT SOFTWARE</div>
         <div class="services-dropdown-content">
           <div class="services-column">
-            <a href="/vi/services/email-server" class="service-item"
+            <a href="/services/email-server" class="service-item"
               ><img
                 src="../assets/icondichvu/bg-content.svg"
                 alt="Quản trị email server"
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">Quản trị email server</div>
+                <Routerlink class="service-title" to="/"
+                  >Quản trị email server</Routerlink
+                >
                 <div class="service-subtitle">
                   Quản lý và bảo mật email server.
                 </div>
               </div></a
-            ><a href="/vi/services/system-analysis" class="service-item"
+            ><a href="/services/system-analysis" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-system-analysis.svg"
                 alt="Phân tích, thiết kế hệ thống"
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">Phân tích, thiết kế hệ thống</div>
+                <Routerlink class="service-title" to="/"
+                  >Phân tích, thiết kế hệ thống</Routerlink
+                >
                 <div class="service-subtitle">
                   Phân tích, thiết kế kiến trúc phần mềm.
                 </div>
               </div></a
-            ><a href="/vi/services/cdn-infrastructure" class="service-item"
+            ><a href="/services/cdn-infrastructure" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-cdn-infrastructure.svg"
                 alt="Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)"
@@ -173,9 +177,7 @@ const closeDropdown = (element) => {
                   Xây dựng hạ tầng CDN, phân phối nội dung nhanh.
                 </div>
               </div></a
-            ><a
-              href="/vi/services/international-datacenter"
-              class="service-item"
+            ><a href="/services/international-datacenter" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-international-datacenter.svg"
                 alt="Hạ tầng dịch vụ datacenter quốc tế"
@@ -189,7 +191,7 @@ const closeDropdown = (element) => {
                   Cung cấp datacenter quốc tế hiệu suất cao.
                 </div>
               </div></a
-            ><a href="/vi/services/smart-alert-ai" class="service-item"
+            ><a href="/services/smart-alert-ai" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-smart-alert-ai.svg"
                 alt="Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI"
@@ -206,7 +208,7 @@ const closeDropdown = (element) => {
             >
           </div>
           <div class="services-column">
-            <a href="/vi/services/domestic-datacenter" class="service-item"
+            <a href="/services/domestic-datacenter" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-domestic-datacenter.svg"
                 alt="Hạ tầng dịch vụ datacenter nội địa"
@@ -220,7 +222,7 @@ const closeDropdown = (element) => {
                   Xây dựng datacenter tại Việt Nam.
                 </div>
               </div></a
-            ><a href="/vi/services/data-collection" class="service-item"
+            ><a href="/services/data-collection" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-data-collection.svg"
                 alt="Giải pháp thu thập dữ liệu phục vụ xây dựng cơ sở dữ liệu số"
@@ -234,7 +236,7 @@ const closeDropdown = (element) => {
                   Công cụ thu thập dữ liệu cho CSDL số.
                 </div>
               </div></a
-            ><a href="/vi/services/system-integration" class="service-item"
+            ><a href="/services/system-integration" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-system-integration.svg"
                 alt="Dịch vụ tích hợp hệ thống"
@@ -246,7 +248,7 @@ const closeDropdown = (element) => {
                   Tích hợp hệ thống, tối ưu quy trình.
                 </div>
               </div></a
-            ><a href="/vi/services/wireframe-design" class="service-item"
+            ><a href="/services/wireframe-design" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-wireframe-design.svg"
                 alt="Dịch vụ thiết kế wireframe / mockup / prototype chuyên nghiệp"
@@ -260,7 +262,7 @@ const closeDropdown = (element) => {
                   Thiết kế UI/UX, wireframe, mockup.
                 </div>
               </div></a
-            ><a href="/vi/services/ios-development" class="service-item"
+            ><a href="/services/ios-development" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-ios-development.svg"
                 alt="Dịch vụ phát triển ứng dụng dành cho IOS"
@@ -275,7 +277,7 @@ const closeDropdown = (element) => {
             >
           </div>
           <div class="services-column">
-            <a href="/vi/services/android-development" class="service-item"
+            <a href="/services/android-development" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-android-development.svg"
                 alt="Dịch vụ phát triển ứng dụng dành cho Android"
@@ -289,7 +291,7 @@ const closeDropdown = (element) => {
                   Phát triển ứng dụng cho Android.
                 </div>
               </div></a
-            ><a href="/vi/services/cloud-platform" class="service-item"
+            ><a href="/services/cloud-platform" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-cloud-platform.svg"
                 alt="Dịch vụ nền tảng điện toán đám mây (CLOUD)"
@@ -303,7 +305,7 @@ const closeDropdown = (element) => {
                   Triển khai và quản lý dịch vụ đám mây.
                 </div>
               </div></a
-            ><a href="/vi/services/technical-support" class="service-item"
+            ><a href="/services/technical-support" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-technical-support.svg"
                 alt="Dịch vụ hỗ trợ kỹ thuật"
@@ -313,7 +315,7 @@ const closeDropdown = (element) => {
                 <div class="service-title">Dịch vụ hỗ trợ kỹ thuật</div>
                 <div class="service-subtitle">Hỗ trợ kỹ thuật 24/7.</div>
               </div></a
-            ><a href="/vi/services/cloud-computing" class="service-item"
+            ><a href="/services/cloud-computing" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-cloud-computing.svg"
                 alt="Dịch vụ điện toán đám mây"
@@ -325,7 +327,7 @@ const closeDropdown = (element) => {
                   Tư vấn, triển khai giải pháp đám mây.
                 </div>
               </div></a
-            ><a href="/vi/services/website-maintenance" class="service-item"
+            ><a href="/services/website-maintenance" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-website-maintenance.svg"
                 alt="Dịch vụ chăm sóc website chuyên nghiệp"

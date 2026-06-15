@@ -1,0 +1,17 @@
+<svg width="625" height="18" viewBox="0 0 625 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line y1="8.4707" x2="270" y2="8.4707" stroke="url(#paint0_linear_26379_23285)"/>
+<rect x="288" y="8.9707" width="12.6863" height="12.6863" rx="2.64298" transform="rotate(-45 288 8.9707)" fill="#EDE7D1"/>
+<rect x="307.527" y="8.9707" width="6.92247" height="6.92247" rx="1.44218" transform="rotate(-45 307.527 8.9707)" fill="#EDE7D1"/>
+<rect x="318.902" y="8.9707" width="12.6863" height="12.6863" rx="2.64298" transform="rotate(-45 318.902 8.9707)" fill="#EDE7D1"/>
+<line x1="354.844" y1="8.4707" x2="624.844" y2="8.4707" stroke="url(#paint1_linear_26379_23285)"/>
+<defs>
+<linearGradient id="paint0_linear_26379_23285" x1="0" y1="9.4707" x2="270" y2="9.4707" gradientUnits="userSpaceOnUse">
+<stop stop-color="#999999" stop-opacity="0.21"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1_linear_26379_23285" x1="354.844" y1="9.4707" x2="624.844" y2="9.4707" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#999999" stop-opacity="0.21"/>
+</linearGradient>
+</defs>
+</svg>

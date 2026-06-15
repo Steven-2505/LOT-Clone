@@ -52,7 +52,7 @@ function selectApp(name, component) {
       </div>
     </section>
   </div>
-  <section class="bg-black">
+  <section class="bg-black px-evi">
     <div
       class="text-center bg-black from-[#000000] to-[#1E1E1E] aos-init aos-animate"
       data-aos="fade-right"

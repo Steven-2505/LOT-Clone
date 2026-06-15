@@ -4,6 +4,11 @@ import App from "./App.vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import router from "./router";
+import PrimeVue from "primevue/config";
 
 AOS.init();
-createApp(App).use(router).mount("#app");
+
+const app = createApp(App);
+app.use(router);
+app.use(PrimeVue);
+app.mount("#app");
