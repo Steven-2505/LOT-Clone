@@ -1,582 +1,920 @@
 <script setup>
 import Header from "../Header.vue";
-import Mailservice from "../../assets/mailservice/email-server.png";
 import Footer from "../footer.vue";
-import { ref } from "vue";
 import Select from "primevue/select";
-
+import { ref, onMounted } from "vue";
+import { animate, stagger } from "animejs";
 const selectedJob = ref(null);
 
-const jobOptions = [
-  { label: "UXUI", value: "uxui" },
-  { label: "DEV", value: "dev" },
-  { label: "Nhân viên kinh doanh", value: "business" },
-];
+onMounted(() => {
+  animateSticker();
+});
+function animateSticker() {
+  import("animejs").then(({ animate }) => {
+    document.querySelectorAll(".sticker").forEach((el, i) => {
+      const x = 40 + Math.random() * 40;
+      const y = 40 + Math.random() * 40;
+      const dir = i % 2 === 0 ? 1 : -1;
+
+      animate(el, {
+        translateX: [
+          { to: 0, duration: 3000, easing: "inOutSine" },
+          { to: dir * x, duration: 3000, easing: "inOutSine" },
+          { to: 0, duration: 3000, easing: "inOutSine" },
+        ],
+        translateY: [
+          { to: -y, duration: 3000, easing: "inOutSine" },
+          { to: 0, duration: 3000, easing: "inOutSine" },
+          { to: 0, duration: 3000, easing: "inOutSine" },
+        ],
+        loop: true,
+        delay: i * 500,
+      });
+    });
+  });
+}
 </script>
 <template>
-  <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <body
+    data-aos-easing="ease"
+    data-aos-duration="400"
+    data-aos-delay="0"
+    class="overlay-hiden"
+  >
     <div id="app" data-v-app="">
-      <div class="font-['Saira']" data-page="emailServer">
+      <div class="font-['Saira']" data-page="systemAnalysis">
         <div>
           <section class="min-h-screen bg-black text-white pb-10">
             <div class="header-section">
               <Header></Header>
             </div>
-            <div class="container mx-auto px-0 md:px-10">
-              <div class="intro-service has-title-on-image">
-                <!---->
-                <div class="sticker-container">
+            <div>
+              <section
+                data-v-6fa1e004=""
+                class="min-h-screen bg-black text-white pb-10"
+              >
+                <div data-v-6fa1e004="" class="px-0 md:px-10">
                   <div
-                    class="sticker-wrapper"
-                    style="
-                      position: absolute;
-                      top: 15.59vw;
-                      left: 21.81vw;
-                      pointer-events: none;
-                    "
-                  >
-                    <img
-                      src="../../assets/mailservice/sticker_5.png"
-                      alt=""
-                      class="sticker"
-                      style="
-                        width: 46px;
-                        height: 46px;
-                        transform: translateX(0.0518px) translateY(16.0715px);
-                      "
-                    />
-                  </div>
-                  <div
-                    class="sticker-wrapper"
-                    style="
-                      position: absolute;
-                      top: 25.78vw;
-                      left: 22.96vw;
-                      pointer-events: none;
-                    "
-                  >
-                    <img
-                      src="../../assets/mailservice/sticker_7.png"
-                      alt=""
-                      class="sticker"
-                      style="
-                        width: 58px;
-                        height: 50px;
-                        transform: translateX(16.4637px) translateY(-8.5451px);
-                      "
-                    />
-                  </div>
-                  <div
-                    class="sticker-wrapper"
-                    style="
-                      position: absolute;
-                      top: 13.39vw;
-                      left: 32.95vw;
-                      pointer-events: none;
-                    "
-                  >
-                    <img
-                      src="../../assets/mailservice/sticker_8.png"
-                      alt=""
-                      class="sticker"
-                      style="
-                        width: 29px;
-                        height: 41px;
-                        transform: translateX(9.0874px) translateY(-19.9813px);
-                      "
-                    />
-                  </div>
-                  <div
-                    class="sticker-wrapper"
-                    style="
-                      position: absolute;
-                      top: 14.33vw;
-                      left: 64.64vw;
-                      pointer-events: none;
-                    "
-                  >
-                    <img
-                      src="../../assets/mailservice/sticker_9.png"
-                      alt=""
-                      class="sticker"
-                      style="
-                        width: 29px;
-                        height: 41px;
-                        transform: translateX(-19.9482px) translateY(-12.8901px);
-                      "
-                    />
-                  </div>
-                  <div
-                    class="sticker-wrapper"
-                    style="
-                      position: absolute;
-                      top: 13.13vw;
-                      left: 73.9vw;
-                      pointer-events: none;
-                    "
-                  >
-                    <img
-                      src="../../assets/mailservice/sticker_10.png"
-                      alt=""
-                      class="sticker"
-                      style="
-                        width: 46px;
-                        height: 46px;
-                        transform: translateX(-3.5363px) translateY(-1.2731px);
-                      "
-                    />
-                  </div>
-                  <div
-                    class="sticker-wrapper"
-                    style="
-                      position: absolute;
-                      top: 26.36vw;
-                      left: 75.94vw;
-                      pointer-events: none;
-                    "
-                  >
-                    <img
-                      src="../../assets/mailservice/sticker_11.png"
-                      alt=""
-                      class="sticker"
-                      style="
-                        width: 47px;
-                        height: 51px;
-                        transform: translateX(0px) translateY(1.9643px);
-                      "
-                    />
-                  </div>
-                </div>
-                <!----><!----><!----><!---->
-                <div
-                  data-v-5402c78a=""
-                  class="intro-image-wrapper has-title-on-image"
-                >
-                  <!---->
-                  <div data-v-5402c78a="" class="intro-title title-on-image">
-                    Quản trị email server
-                  </div>
-                  <div data-v-5402c78a="" class="title-sub subtitle-on-image">
-                    Hỗ trợ nhanh chóng – Giải quyết triệt để – Vận hành ổn định
-                  </div>
-                  <a
                     data-v-5402c78a=""
-                    href="/lienhe"
-                    class="experience-button button-on-image"
-                    ><span data-v-5402c78a="" class="button-text"
-                      >Trải nghiệm dịch vụ</span
-                    ><img
-                      data-v-5402c78a=""
-                      src="../../assets/mailservice/title_section_1.svg"
-                      alt=""
-                      class="button-icon" /></a
-                  ><img
-                    data-v-5402c78a=""
-                    src="../../assets/mailservice/email-server.png"
-                    alt="Quản trị email server"
-                    class="intro-image"
-                  />
-                </div>
-                <!---->
-              </div>
-              <div class="introduction-section py-10 md:py-20">
-                <div class="intro-bg-overlay"></div>
-                <div class="container mx-auto px-0 md:px-10">
-                  <div class="flex flex-col gap-8 justify-center items-center">
-                    <span class="intro-tag">EMAIL SERVER</span
-                    ><span class="section-title">GIỚI THIỆU DỊCH VỤ</span
-                    ><img
-                      src="../../assets/mailservice/service_background_left.svg"
-                      alt="left-bg"
-                      class="left-bg-svg"
-                      loading="lazy"
-                    /><img
-                      src="../../assets/mailservice/service_background_right.svg"
-                      alt="right-bg"
-                      class="right-bg-svg"
-                      loading="lazy"
-                    /><span class="intro-description text-center type-1"
-                      >Email là công cụ liên lạc không thể thiếu đối với mọi
-                      doanh nghiệp. Tuy nhiên, trong quá trình sử dụng, các sự
-                      cố phát sinh từ phía người dùng như không gửi/nhận được
-                      email, cấu hình sai, hoặc lỗi bảo mật... có thể ảnh hưởng
-                      nghiêm trọng đến công việc.
-                      <span class="highlight-text"
-                        >Dịch vụ Quản trị Email Server</span
-                      >
-                      của chúng tôi giúp xử lý
-                      <span class="highlight-text"
-                        >nhanh chóng, chính xác các sự cố</span
-                      >, đảm bảo hệ thống email luôn thông suốt, an toàn và tối
-                      ưu hiệu suất.</span
-                    ><!---->
-                  </div>
-                </div>
-              </div>
-              <div class="benefit-section py-10 md:py-20">
-                <div class="container mx-auto px-0 md:px-10">
-                  <div class="flex flex-col gap-8 justify-center items-center">
-                    <span class="section-title"
-                      >LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ</span
-                    ><img
-                      src="../../assets/mailservice/section_break_line.svg"
-                      alt="divider"
-                      class="divider"
-                    />
+                    data-v-6fa1e004=""
+                    class="intro-service"
+                  >
+                    <!---->
                     <div
-                      class="grid-wrapper mt-10 flex justify-center items-center wrap-gap"
+                      data-v-2c0a47ab=""
+                      data-v-6fa1e004=""
+                      class="sticker-container"
                     >
-                      <div class="grid-item">
+                      <div
+                        data-v-2c0a47ab=""
+                        class="sticker-wrapper"
+                        style="
+                          position: absolute;
+                          top: 26.15vw;
+                          left: 4.97vw;
+                          pointer-events: none;
+                        "
+                      >
                         <img
-                          src="../../assets/mailservice/1.png"
-                          alt="benefit icon"
-                          loading="lazy"
-                        />
-                        <div class="description" style="white-space: pre-line">
-                          GIỮ CHO HỆ THỐNG EMAIL LUÔN HOẠT ĐỘNG ỔN ĐỊNH.
-                        </div>
-                        <img
-                          class="bottom-svg"
-                          src="../../assets/mailservice/benefit_section_1.svg"
-                          alt="bottom"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div class="grid-item">
-                        <img
-                          src="../../assets/mailservice/2.png"
-                          alt="benefit icon"
-                          loading="lazy"
-                        />
-                        <div class="description" style="white-space: pre-line">
-                          BẢO MẬT CAO, TRÁNH MẤT DỮ LIỆU QUAN TRỌNG
-                        </div>
-                        <img
-                          class="bottom-svg"
-                          src="../../assets/mailservice/benefit_section_1.svg"
-                          alt="bottom"
-                          loading="lazy"
+                          data-v-2c0a47ab=""
+                          src="../../assets/mailservice/sticker_11.png"
+                          alt=""
+                          class="sticker"
+                          style="
+                            width: 47px;
+                            height: 47px;
+                            transform: translateX(0px) translateY(0.0083px);
+                          "
                         />
                       </div>
-                      <div class="grid-item">
+                      <div
+                        data-v-2c0a47ab=""
+                        class="sticker-wrapper"
+                        style="
+                          position: absolute;
+                          top: 17.21vw;
+                          left: 11.51vw;
+                          pointer-events: none;
+                        "
+                      >
                         <img
-                          src="../../assets/mailservice/3.png"
-                          alt="benefit icon"
-                          loading="lazy"
-                        />
-                        <div class="description" style="white-space: pre-line">
-                          TIẾT KIỆM THỜI GIAN &amp; CHI PHÍ CHO DOANH NGHIỆP
-                        </div>
-                        <img
-                          class="bottom-svg"
-                          src="../../assets/mailservice/benefit_section_1.svg"
-                          alt="bottom"
-                          loading="lazy"
+                          data-v-2c0a47ab=""
+                          src="../../assets/mailservice/sticker_5.png"
+                          alt=""
+                          class="sticker"
+                          style="
+                            width: 46px;
+                            height: 46px;
+                            transform: translateX(0px) translateY(6.8691px);
+                          "
                         />
                       </div>
-                      <div class="grid-item">
+                      <div
+                        data-v-2c0a47ab=""
+                        class="sticker-wrapper"
+                        style="
+                          position: absolute;
+                          top: 15.95vw;
+                          left: 67.99vw;
+                          pointer-events: none;
+                        "
+                      >
                         <img
-                          src="../../assets/mailservice/4.png"
-                          alt="benefit icon"
-                          loading="lazy"
+                          data-v-2c0a47ab=""
+                          src="../../assets/mailservice/sticker_9.png"
+                          alt=""
+                          class="sticker"
+                          style="
+                            width: 29px;
+                            height: 41px;
+                            transform: translateX(0px) translateY(18.628px);
+                          "
                         />
-                        <div class="description" style="white-space: pre-line">
-                          ĐƯỢC HỖ TRỢ BỞI ĐỘI NGŨ KỸ THUẬT CHUYÊN MÔN CAO.
-                        </div>
+                      </div>
+                      <div
+                        data-v-2c0a47ab=""
+                        class="sticker-wrapper"
+                        style="
+                          position: absolute;
+                          top: 16.79vw;
+                          left: 86.3vw;
+                          pointer-events: none;
+                        "
+                      >
                         <img
-                          class="bottom-svg"
-                          src="../../assets/mailservice/benefit_section_1.svg"
-                          alt="bottom"
-                          loading="lazy"
+                          data-v-2c0a47ab=""
+                          src="../../assets/mailservice/sticker_10.png"
+                          alt=""
+                          class="sticker"
+                          style="
+                            width: 46px;
+                            height: 46px;
+                            transform: translateX(0.0243px)
+                              translateY(16.3089px);
+                          "
                         />
                       </div>
                     </div>
+                    <div data-v-5402c78a="" class="top-text-wrapper">
+                      <img
+                        data-v-5402c78a=""
+                        src="../../assets/analyst/star.svg"
+                        alt=""
+                        class="star-icon"
+                      />
+                      <div data-v-5402c78a="" class="top-text-box">
+                        <span data-v-5402c78a="" class="top-text"
+                          >SYSTEM ANALYSIS AND DESIGN</span
+                        >
+                      </div>
+                      <img
+                        data-v-5402c78a=""
+                        src="../../assets/analyst/star.svg"
+                        alt=""
+                        class="star-icon"
+                      />
+                    </div>
+                    <div data-v-5402c78a="" class="intro-title">
+                      Phân tích, thiết kế hệ thống
+                    </div>
+                    <!----><a
+                      data-v-5402c78a=""
+                      href="/lienhe"
+                      class="experience-button"
+                      ><span data-v-5402c78a="" class="button-text"
+                        >Trải nghiệm dịch vụ</span
+                      ><img
+                        data-v-5402c78a=""
+                        src="../../assets/mailservice/title_section_1.svg"
+                        alt=""
+                        class="button-icon"
+                    /></a>
+                    <div data-v-5402c78a="" class="intro-image-wrapper">
+                      <!----><!----><!----><!----><img
+                        data-v-5402c78a=""
+                        src="../../assets/analyst/system-analysis.png"
+                        alt="Phân tích, thiết kế hệ thống"
+                        class="intro-image w-full"
+                      />
+                      <div data-v-6fa1e004="" class="bottom-cover-wrapper">
+                        <img
+                          data-v-6fa1e004=""
+                          src="../../assets/analyst/bg-cover-bottom-1.png"
+                          alt=""
+                          class="bottom-cover-image"
+                        />
+                      </div>
+                    </div>
+                    <!---->
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="pricing-section">
-              <div class="container mx-auto">
-                <h2 class="pricing-title">
-                  Bảng giá dịch vụ Quản trị Email Server
-                </h2>
-                <div class="line-break">
-                  <img
-                    src="../../assets/mailservice/section_break_line.svg"
-                    alt=""
-                  />
-                </div>
-                <div class="pricing-subtitle">
-                  Hỗ trợ theo sự cố lẻ:
-                  <span>Từ 200.000 – 500.000 VNĐ/lần</span> (tùy mức độ phức
-                  tạp).
-                </div>
-              </div>
-              <div class="pricing-base">
-                <div class="container mx-auto">
-                  <div class="pricing-grid">
-                    <div class="pricing-box">
-                      <div class="pricing-box-inner">
-                        <div class="best-deal-badge">
-                          <!---->
-                        </div>
-                        <div class="pricing-card">
-                          <img
-                            src="../../assets/mailservice/price_list_section_1.svg"
-                            alt=""
-                            class="plan-icon"
-                            loading="lazy"
-                          />
-                          <h3 class="plan-name">Free</h3>
-                          <div class="plan-price">
-                            <span class="price-value">$0</span
-                            ><span class="price-slash">/</span
-                            ><span class="price-period">month</span>
+                  <div
+                    data-v-6fa1e004=""
+                    class="introduction-section py-10 md:py-20"
+                  >
+                    <div class="intro-bg-overlay"></div>
+                    <div class="container mx-auto px-0 md:px-10">
+                      <div
+                        class="flex flex-col gap-8 justify-center items-center"
+                      >
+                        <span class="intro-tag"
+                          >PHÂN TÍCH - THIẾT KẾ HỆ THỐNG</span
+                        ><span class="section-title">GIỚI THIỆU DỊCH VỤ</span
+                        ><img
+                          src="../../assets/mailservice/service_background_left.svg"
+                          alt="left-bg"
+                          class="left-bg-svg"
+                          loading="lazy"
+                        /><span class="intro-description text-center type-2"
+                          >Phân tích và thiết kế hệ thống là bước quan trọng
+                          trong quá trình phát triển phần mềm và triển khai giải
+                          pháp CNTT. Dịch vụ của chúng tôi giúp doanh nghiệp
+                          <span class="highlight-text"
+                            >hiểu rõ yêu cầu, xây dựng kiến trúc hệ thống phù
+                            hợp</span
+                          >
+                          và
+                          <span class="highlight-text"
+                            >tối ưu hóa quy trình</span
+                          >
+                          để đảm bảo giải pháp CNTT hoạt động hiệu quả, dễ mở
+                          rộng và bảo trì.</span
+                        >
+                        <div class="intro-grid-wrapper mt-10">
+                          <div class="intro-grid-container">
+                            <div class="intro-grid-title">
+                              Hỗ trợ doanh nghiệp
+                            </div>
+                            <div class="intro-grid-item">
+                              <div class="grid-item-title">
+                                XÁC ĐỊNH YÊU CẦU
+                              </div>
+                              <img
+                                src="../../assets/analyst/introduction_box_section_2.svg"
+                                alt="sperate"
+                                loading="lazy"
+                              />
+                              <div class="grid-item-description">
+                                Xác định yêu cầu chính xác từ người dùng và
+                                khách hàng.
+                              </div>
+                            </div>
+                            <div class="grid-connector">
+                              <img
+                                src="../../assets/analyst/introduction_box_section_1.svg"
+                                alt="connector"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div class="intro-grid-item">
+                              <div class="grid-item-title">
+                                ĐỀ XUẤT GIẢI PHÁP
+                              </div>
+                              <img
+                                src="../../assets/analyst/introduction_box_section_2.svg"
+                                alt="sperate"
+                                loading="lazy"
+                              />
+                              <div class="grid-item-description">
+                                Đề xuất giải pháp tối ưu về kiến trúc hệ thống,
+                                cơ sở dữ liệu, quy trình vận hành.
+                              </div>
+                            </div>
+                            <div class="grid-connector">
+                              <img
+                                src="../../assets/analyst/introduction_box_section_1.svg"
+                                alt="connector"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div class="intro-grid-item">
+                              <div class="grid-item-title">
+                                THIẾT KẾ MÔ HÌNH
+                              </div>
+                              <img
+                                src="../../assets/analyst/introduction_box_section_2.svg"
+                                alt="sperate"
+                                loading="lazy"
+                              />
+                              <div class="grid-item-description">
+                                Thiết kế mô hình trực quan để các bên liên quan
+                                dễ hiểu và thống nhất trước khi triển khai.
+                              </div>
+                            </div>
+                            <!---->
                           </div>
-                          <!---->
-                          <div class="divider"></div>
-                          <ul class="features-list">
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Hỗ trợ xử lý sự cố</span>
-                            </li>
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Hướng dẫn cấu hình cơ bản</span>
-                            </li>
-                          </ul>
-                          <button class="cta-button">Bắt đầu</button>
                         </div>
                       </div>
                     </div>
-                    <div class="pricing-box">
-                      <div class="pricing-box-inner has-best-deal">
-                        <div class="best-deal-badge">
-                          <img
-                            src="../../assets/mailservice/enter.svg"
-                            alt=""
-                          /><span>Best deal</span>
-                        </div>
-                        <div class="pricing-card">
-                          <img
-                            src="../../assets/mailservice/price_list_section_3.svg"
-                            alt=""
-                            class="plan-icon"
-                            loading="lazy"
-                          />
-                          <h3 class="plan-name">Pro</h3>
-                          <div class="plan-price">
-                            <span class="price-value">$29</span
-                            ><span class="price-slash">/</span
-                            ><span class="price-period">month</span>
+                  </div>
+                  <div
+                    data-v-4cf61cd5=""
+                    data-v-6fa1e004=""
+                    class="benefit-section py-10 md:py-20"
+                  >
+                    <div
+                      data-v-4cf61cd5=""
+                      class="container mx-auto px-0 md:px-10"
+                    >
+                      <div
+                        data-v-4cf61cd5=""
+                        class="flex flex-col gap-8 justify-center items-center"
+                      >
+                        <span data-v-4cf61cd5="" class="section-title"
+                          >LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ</span
+                        ><img
+                          data-v-4cf61cd5=""
+                          src="../../assets/mailservice/section_break_line.svg"
+                          alt="divider"
+                          class="divider"
+                        />
+                        <div
+                          data-v-4cf61cd5=""
+                          class="grid-wrapper mt-10 flex justify-center items-center wrap-gap"
+                        >
+                          <div data-v-4cf61cd5="" class="grid-item">
+                            <img
+                              data-v-4cf61cd5=""
+                              src="../../assets/analyst/1.png"
+                              alt="benefit icon"
+                              loading="lazy"
+                            />
+                            <div
+                              data-v-4cf61cd5=""
+                              class="description"
+                              style="white-space: pre-line"
+                            >
+                              GIẢM RỦI RO DO PHÂN TÍCH KỸ LƯỠNG TRƯỚC KHI PHÁT
+                              TRIỂN.
+                            </div>
+                            <img
+                              data-v-4cf61cd5=""
+                              class="bottom-svg"
+                              src="../../assets/mailservice/benefit_section_1.svg"
+                              alt="bottom"
+                              loading="lazy"
+                            />
                           </div>
-                          <!---->
-                          <div class="divider"></div>
-                          <ul class="features-list">
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Hỗ trợ TeamViewer/UltraViewer</span>
-                            </li>
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Phân tích lỗi chuyên sâu</span>
-                            </li>
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Cấu hình nâng cao</span>
-                            </li>
-                          </ul>
-                          <button class="cta-button cta-button-highlight">
-                            Bắt đầu dùng thử miễn phí
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="pricing-box">
-                      <div class="pricing-box-inner">
-                        <div class="best-deal-badge">
-                          <!---->
-                        </div>
-                        <div class="pricing-card">
-                          <img
-                            src="../../assets/mailservice/price_list_section_1.svg"
-                            alt=""
-                            class="plan-icon"
-                            loading="lazy"
-                          />
-                          <h3 class="plan-name">Enterprise</h3>
-                          <div class="plan-price">
-                            <span class="price-value"></span
-                            ><!---->
+                          <div data-v-4cf61cd5="" class="grid-item">
+                            <img
+                              data-v-4cf61cd5=""
+                              src="../../assets/analyst/2.png"
+                              alt="benefit icon"
+                              loading="lazy"
+                            />
+                            <div
+                              data-v-4cf61cd5=""
+                              class="description"
+                              style="white-space: pre-line"
+                            >
+                              TIẾT KIỆM CHI PHÍ BẰNG CÁCH TRÁNH SỬA ĐỔI NHIỀU
+                              LẦN SAU TRIỂN KHAI.
+                            </div>
+                            <img
+                              data-v-4cf61cd5=""
+                              class="bottom-svg"
+                              src="../../assets/mailservice/benefit_section_1.svg"
+                              alt="bottom"
+                              loading="lazy"
+                            />
                           </div>
-                          <!---->
-                          <div class="divider"></div>
-                          <ul class="features-list">
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Toàn bộ dịch vụ</span>
-                            </li>
-                            <li class="feature-item">
-                              <img
-                                src="../../assets/mailservice/price_list_section_2.svg"
-                                alt=""
-                                loading="lazy"
-                              /><span>Hỗ trợ ưu tiên cao 24/7</span>
-                            </li>
-                          </ul>
-                          <button class="cta-button">Liên hệ</button>
+                          <div data-v-4cf61cd5="" class="grid-item">
+                            <img
+                              data-v-4cf61cd5=""
+                              src="../../assets/analyst/3.png"
+                              alt="benefit icon"
+                              loading="lazy"
+                            />
+                            <div
+                              data-v-4cf61cd5=""
+                              class="description"
+                              style="white-space: pre-line"
+                            >
+                              ĐẢM BẢO TÍNH KHẢ THI CỦA DỰ ÁN VÀ KHẢ NĂNG MỞ RỘNG
+                              TRONG TƯƠNG LAI.
+                            </div>
+                            <img
+                              data-v-4cf61cd5=""
+                              class="bottom-svg"
+                              src="../../assets/mailservice/benefit_section_1.svg"
+                              alt="bottom"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div data-v-4cf61cd5="" class="grid-item">
+                            <img
+                              data-v-4cf61cd5=""
+                              src="../../assets/analyst/4.png"
+                              alt="benefit icon"
+                              loading="lazy"
+                            />
+                            <div
+                              data-v-4cf61cd5=""
+                              class="description"
+                              style="white-space: pre-line"
+                            >
+                              TĂNG HIỆU QUẢ PHỐI HỢP GIỮA NHÓM KỸ THUẬT, QUẢN LÝ
+                              DỰ ÁN VÀ KHÁCH HÀNG.
+                            </div>
+                            <img
+                              data-v-4cf61cd5=""
+                              class="bottom-svg"
+                              src="../../assets/mailservice/benefit_section_1.svg"
+                              alt="bottom"
+                              loading="lazy"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="container mx-auto px-0 md:px-10">
-              <div class="service-content-section">
-                <h2 class="section-title">Nội dung dịch vụ</h2>
-                <div class="line-break">
-                  <img
-                    src="../../assets/mailservice/section_break_line.svg"
-                    alt=""
-                  />
+                <div
+                  data-v-b1f94cc2=""
+                  data-v-6fa1e004=""
+                  class="pricing-section"
+                >
+                  <div data-v-b1f94cc2="" class="container mx-auto">
+                    <h2 data-v-b1f94cc2="" class="pricing-title">
+                      Bảng Giá Dịch Vụ Phân Tích Và Thiết Kế Hệ Thống
+                    </h2>
+                    <div data-v-b1f94cc2="" class="line-break">
+                      <img
+                        data-v-b1f94cc2=""
+                        src="../../assets/mailservice/section_break_line.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div data-v-b1f94cc2="" class="pricing-subtitle"></div>
+                  </div>
+                  <div data-v-b1f94cc2="" class="pricing-base">
+                    <div data-v-b1f94cc2="" class="container mx-auto">
+                      <div data-v-b1f94cc2="" class="pricing-grid">
+                        <div data-v-b1f94cc2="" class="pricing-box">
+                          <div data-v-b1f94cc2="" class="pricing-box-inner">
+                            <div data-v-b1f94cc2="" class="best-deal-badge">
+                              <!---->
+                            </div>
+                            <div data-v-b1f94cc2="" class="pricing-card">
+                              <img
+                                data-v-b1f94cc2=""
+                                src="../../assets/mailservice/price_list_section_1.svg"
+                                alt=""
+                                class="plan-icon"
+                                loading="lazy"
+                              />
+                              <h3 data-v-b1f94cc2="" class="plan-name">
+                                Cơ Bản
+                              </h3>
+                              <div data-v-b1f94cc2="" class="plan-price">
+                                <span data-v-b1f94cc2="" class="price-value"
+                                  >$0</span
+                                ><span data-v-b1f94cc2="" class="price-slash"
+                                  >/</span
+                                ><span data-v-b1f94cc2="" class="price-period"
+                                  >month</span
+                                >
+                              </div>
+                              <div data-v-b1f94cc2="" class="plan-subtitle">
+                                Dự án nhỏ, startup
+                              </div>
+                              <div data-v-b1f94cc2="" class="divider"></div>
+                              <ul data-v-b1f94cc2="" class="features-list">
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Thu thập yêu cầu</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Vẽ sơ đồ quy trình nghiệp vụ (BPMN)</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Báo cáo phân tích yêu cầu</span
+                                  >
+                                </li>
+                              </ul>
+                              <a
+                                href="/lienhe"
+                                data-v-b1f94cc2=""
+                                class="cta-button"
+                              >
+                                <button>Liên hệ</button></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div data-v-b1f94cc2="" class="pricing-box">
+                          <div
+                            data-v-b1f94cc2=""
+                            class="pricing-box-inner has-best-deal"
+                          >
+                            <div data-v-b1f94cc2="" class="best-deal-badge">
+                              <img
+                                data-v-b1f94cc2=""
+                                src="../../assets/mailservice/enter.svg"
+                                alt=""
+                              /><span data-v-b1f94cc2="">Best deal</span>
+                            </div>
+                            <div data-v-b1f94cc2="" class="pricing-card">
+                              <img
+                                data-v-b1f94cc2=""
+                                src="../../assets/mailservice/price_list_section_3.svg"
+                                alt=""
+                                class="plan-icon"
+                                loading="lazy"
+                              />
+                              <h3 data-v-b1f94cc2="" class="plan-name">
+                                Nâng Cao
+                              </h3>
+                              <div data-v-b1f94cc2="" class="plan-price">
+                                <span data-v-b1f94cc2="" class="price-value"
+                                  >$29</span
+                                ><span data-v-b1f94cc2="" class="price-slash"
+                                  >/</span
+                                ><span data-v-b1f94cc2="" class="price-period"
+                                  >month</span
+                                >
+                              </div>
+                              <div data-v-b1f94cc2="" class="plan-subtitle">
+                                Doanh nghiệp vừa, dự án phần mềm web/app
+                              </div>
+                              <div data-v-b1f94cc2="" class="divider"></div>
+                              <ul data-v-b1f94cc2="" class="features-list">
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Phân tích yêu cầu chi tiết</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Thiết kế mô hình dữ liệu</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Sơ đồ kiến trúc hệ thống</span
+                                  >
+                                </li>
+                              </ul>
+                              <a
+                                href="/lienhe"
+                                data-v-b1f94cc2=""
+                                class="cta-button cta-button-highlight"
+                              >
+                                <button>Bắt đầu dùng thử miễn phí</button></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div data-v-b1f94cc2="" class="pricing-box">
+                          <div data-v-b1f94cc2="" class="pricing-box-inner">
+                            <div data-v-b1f94cc2="" class="best-deal-badge">
+                              <!---->
+                            </div>
+                            <div data-v-b1f94cc2="" class="pricing-card">
+                              <img
+                                data-v-b1f94cc2=""
+                                src="../../assets/mailservice/price_list_section_1.svg"
+                                alt=""
+                                class="plan-icon"
+                                loading="lazy"
+                              />
+                              <h3 data-v-b1f94cc2="" class="plan-name">
+                                Chuyên Nghiệp
+                              </h3>
+                              <div data-v-b1f94cc2="" class="plan-price">
+                                <span data-v-b1f94cc2="" class="price-value"
+                                  >Liên hệ</span
+                                ><span data-v-b1f94cc2="" class="price-slash"
+                                  >/</span
+                                ><span data-v-b1f94cc2="" class="price-period"
+                                  >month</span
+                                >
+                              </div>
+                              <div data-v-b1f94cc2="" class="plan-subtitle">
+                                Doanh nghiệp lớn, dự án phức tạp
+                              </div>
+                              <div data-v-b1f94cc2="" class="divider"></div>
+                              <ul data-v-b1f94cc2="" class="features-list">
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Phân tích &amp; thiết kế toàn diện</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Tài liệu SRS (Software Requirement
+                                    Specification)</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Mô hình UML đầy đủ (Use Case, Sequence,
+                                    Class Diagram…)</span
+                                  >
+                                </li>
+                                <li data-v-b1f94cc2="" class="feature-item">
+                                  <img
+                                    data-v-b1f94cc2=""
+                                    src="../../assets/mailservice/price_list_section_2.svg"
+                                    alt=""
+                                    loading="lazy"
+                                  /><span data-v-b1f94cc2=""
+                                    >Tư vấn kiến trúc &amp; bảo mật hệ
+                                    thống</span
+                                  >
+                                </li>
+                              </ul>
+                              <a
+                                href="/lienhe"
+                                data-v-b1f94cc2=""
+                                class="cta-button"
+                              >
+                                <button>Liên hệ</button></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="content-grid">
-                  <div class="content-box box-5-12">
-                    <div class="box-top">
-                      <img
-                        src="../../assets/mailservice/email-server-content-1.png"
-                        alt=""
-                        class="box-image box-image-5-12"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="box-number">01</div>
-                    <h3 class="box-title">
-                      Hỗ trợ khách hàng xử lý sự cố email
-                    </h3>
-                    <div class="box-text-list">
-                      <ul>
-                        <li>Tiếp nhận và phân tích lỗi từ phía người dùng.</li>
-                        <li>
-                          Đưa ra giải pháp khắc phục nhanh, giảm thiểu thời gian
-                          gián đoạn.
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="content-box box-7-12">
-                    <div class="box-top">
-                      <img
-                        src="../../assets/mailservice/email-server-content-2.png"
-                        alt=""
-                        class="box-image box-image-7-12"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="box-number">02</div>
-                    <h3 class="box-title">
-                      Kiểm tra &amp; phân tích lỗi chuyên sâu
-                    </h3>
-                    <div class="box-text-list box-text-list-7-12">
-                      <ul>
-                        <li>
-                          Xác định nguyên nhân gốc rễ (cấu hình, phần mềm, bảo
-                          mật…).
-                        </li>
-                        <li>
-                          Đưa ra hướng xử lý triệt để, ngăn ngừa tái phát.
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="content-box box-equal">
-                    <div class="box-top">
-                      <img
-                        src="../../assets/mailservice/email-server-content-3.png"
-                        alt=""
-                        class="box-image box-image-equal"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="box-number">03</div>
-                    <h3 class="box-title">
-                      Hướng dẫn cấu hình &amp; sử dụng email
-                    </h3>
-                    <div class="box-text-list">
-                      <ul>
-                        <li>
-                          Cài đặt email trên các thiết bị và ứng dụng quản lý.
-                        </li>
-                        <li>
-                          Hướng dẫn sử dụng các tính năng nâng cao (lọc thư rác,
-                          sao lưu, nhóm người nhận…).
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="content-box box-equal">
-                    <div class="box-top">
-                      <img
-                        src="../../assets/mailservice/email-server-content-4.png"
-                        alt=""
-                        class="box-image box-image-equal"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="box-number">04</div>
-                    <h3 class="box-title">
-                      Hỗ trợ từ xa qua TeamViewer / UltraViewer
-                    </h3>
-                    <div class="box-text-list">
-                      <ul>
-                        <li>
-                          Kết nối và xử lý trực tiếp trên thiết bị của khách
-                          hàng.
-                        </li>
-                        <li>Tiết kiệm thời gian, đảm bảo hiệu quả.</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="content-box box-equal">
-                    <div class="box-top">
-                      <img
-                        src="../../assets/mailservice/email-server-content-5.png"
-                        alt=""
-                        class="box-image box-image-equal"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="box-number">05</div>
-                    <h3 class="box-title">Hỗ trợ kỹ thuật ưu tiên cao</h3>
-                    <div class="box-text-list">
-                      <ul>
-                        <li>
-                          Phản hồi nhanh, tiếp nhận yêu cầu khẩn cấp 24/7.
-                        </li>
-                      </ul>
+                <div data-v-6fa1e004="" class="px-0 md:px-10">
+                  <div
+                    data-v-f1290138=""
+                    data-v-6fa1e004=""
+                    class="flex flex-col gap-8 justify-center items-center process-section py-10 md:py-20"
+                  >
+                    <span data-v-f1290138="" class="section-title"
+                      >QUY TRÌNH TRIỂN KHAI</span
+                    >
+                    <div
+                      data-v-f1290138=""
+                      class="process-container mt-10 w-full"
+                    >
+                      <div
+                        data-v-f1290138=""
+                        class="hidden md:block process-stepper"
+                      >
+                        <div data-v-f1290138="" class="timeline-line"></div>
+                        <div data-v-f1290138="" class="steps-wrapper">
+                          <div data-v-f1290138="" class="step-item">
+                            <img
+                              data-v-f1290138=""
+                              class="step-dot"
+                              src="../../assets/analyst/deploy_process_section_1.svg"
+                              alt="Step Dot"
+                              loading="lazy"
+                            />
+                            <div data-v-f1290138="" class="step-badge">
+                              Step 1
+                            </div>
+                            <div data-v-f1290138="" class="step-content">
+                              <h3 data-v-f1290138="" class="step-title">
+                                Tiếp nhận &amp; khảo sát
+                              </h3>
+                              <p data-v-f1290138="" class="step-description">
+                                Thu thập thông tin, mục tiêu, yêu cầu từ khách
+                                hàng.
+                              </p>
+                            </div>
+                          </div>
+                          <div data-v-f1290138="" class="step-item">
+                            <img
+                              data-v-f1290138=""
+                              class="step-dot"
+                              src="../../assets/analyst/deploy_process_section_1.svg"
+                              alt="Step Dot"
+                              loading="lazy"
+                            />
+                            <div data-v-f1290138="" class="step-badge">
+                              Step 2
+                            </div>
+                            <div data-v-f1290138="" class="step-content">
+                              <h3 data-v-f1290138="" class="step-title">
+                                Phân tích hệ thống
+                              </h3>
+                              <p data-v-f1290138="" class="step-description">
+                                Đánh giá hiện trạng, xác định nhu cầu &amp; giải
+                                pháp.
+                              </p>
+                            </div>
+                          </div>
+                          <div data-v-f1290138="" class="step-item">
+                            <img
+                              data-v-f1290138=""
+                              class="step-dot"
+                              src="../../assets/analyst/deploy_process_section_1.svg"
+                              alt="Step Dot"
+                              loading="lazy"
+                            />
+                            <div data-v-f1290138="" class="step-badge">
+                              Step 3
+                            </div>
+                            <div data-v-f1290138="" class="step-content">
+                              <h3 data-v-f1290138="" class="step-title">
+                                Thiết kế mô hình
+                              </h3>
+                              <p data-v-f1290138="" class="step-description">
+                                Lập sơ đồ, kiến trúc, tài liệu mô tả.
+                              </p>
+                            </div>
+                          </div>
+                          <div data-v-f1290138="" class="step-item">
+                            <img
+                              data-v-f1290138=""
+                              class="step-dot"
+                              src="../../assets/analyst/deploy_process_section_1.svg"
+                              alt="Step Dot"
+                              loading="lazy"
+                            />
+                            <div data-v-f1290138="" class="step-badge">
+                              Step 4
+                            </div>
+                            <div data-v-f1290138="" class="step-content">
+                              <h3 data-v-f1290138="" class="step-title">
+                                Bàn giao &amp; tư vấn triển khai
+                              </h3>
+                              <p data-v-f1290138="" class="step-description">
+                                Hỗ trợ nhóm phát triển đưa hệ thống vào hoạt
+                                động.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div data-v-f1290138="" class="block md:hidden">
+                        <div
+                          data-v-f1290138=""
+                          class="swiper swiper-initialized swiper-horizontal process-swiper process-stepper"
+                        >
+                          <div
+                            class="swiper-wrapper"
+                            style="transition-duration: 10000ms"
+                          >
+                            <div data-v-f1290138="" class="swiper-slide">
+                              <div data-v-f1290138="" class="step-item">
+                                <img
+                                  data-v-f1290138=""
+                                  class="step-dot"
+                                  src="../../assets/analyst/deploy_process_section_1.svg"
+                                  alt="Step Dot"
+                                  loading="lazy"
+                                />
+                                <div data-v-f1290138="" class="step-badge">
+                                  Step 1
+                                </div>
+                                <div data-v-f1290138="" class="step-content">
+                                  <h3 data-v-f1290138="" class="step-title">
+                                    Tiếp nhận &amp; khảo sát
+                                  </h3>
+                                  <p
+                                    data-v-f1290138=""
+                                    class="step-description"
+                                  >
+                                    Thu thập thông tin, mục tiêu, yêu cầu từ
+                                    khách hàng.
+                                  </p>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div data-v-f1290138="" class="swiper-slide">
+                              <div data-v-f1290138="" class="step-item">
+                                <img
+                                  data-v-f1290138=""
+                                  class="step-dot"
+                                  src="../../assets/analyst/deploy_process_section_1.svg"
+                                  alt="Step Dot"
+                                  loading="lazy"
+                                />
+                                <div data-v-f1290138="" class="step-badge">
+                                  Step 2
+                                </div>
+                                <div data-v-f1290138="" class="step-content">
+                                  <h3 data-v-f1290138="" class="step-title">
+                                    Phân tích hệ thống
+                                  </h3>
+                                  <p
+                                    data-v-f1290138=""
+                                    class="step-description"
+                                  >
+                                    Đánh giá hiện trạng, xác định nhu cầu &amp;
+                                    giải pháp.
+                                  </p>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div data-v-f1290138="" class="swiper-slide">
+                              <div data-v-f1290138="" class="step-item">
+                                <img
+                                  data-v-f1290138=""
+                                  class="step-dot"
+                                  src="../../assets/analyst/deploy_process_section_1.svg"
+                                  alt="Step Dot"
+                                  loading="lazy"
+                                />
+                                <div data-v-f1290138="" class="step-badge">
+                                  Step 3
+                                </div>
+                                <div data-v-f1290138="" class="step-content">
+                                  <h3 data-v-f1290138="" class="step-title">
+                                    Thiết kế mô hình
+                                  </h3>
+                                  <p
+                                    data-v-f1290138=""
+                                    class="step-description"
+                                  >
+                                    Lập sơ đồ, kiến trúc, tài liệu mô tả.
+                                  </p>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div data-v-f1290138="" class="swiper-slide">
+                              <div data-v-f1290138="" class="step-item">
+                                <img
+                                  data-v-f1290138=""
+                                  class="step-dot"
+                                  src="../../assets/analyst/deploy_process_section_1.svg"
+                                  alt="Step Dot"
+                                  loading="lazy"
+                                />
+                                <div data-v-f1290138="" class="step-badge">
+                                  Step 4
+                                </div>
+                                <div data-v-f1290138="" class="step-content">
+                                  <h3 data-v-f1290138="" class="step-title">
+                                    Bàn giao &amp; tư vấn triển khai
+                                  </h3>
+                                  <p
+                                    data-v-f1290138=""
+                                    class="step-description"
+                                  >
+                                    Hỗ trợ nhóm phát triển đưa hệ thống vào hoạt
+                                    động.
+                                  </p>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                          </div>
+                          <!----><!----><!---->
+                          <div data-v-f1290138="" class="timeline-line"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </div>
           </section>
         </div>
@@ -591,5 +929,42 @@ const jobOptions = [
 .bg-color {
   background-color: black;
   overflow: hidden;
+}
+[data-page="systemAnalysis"] .bottom-cover-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  height: auto;
+  z-index: 1;
+}
+[data-page="systemAnalysis"] .bottom-cover-image {
+  width: 100%;
+  display: block;
+}
+.introduction-section .intro-description.type-2 .highlight-text {
+  font-family: Saira;
+  font-weight: 500;
+  font-style: SemiBold;
+  line-height: 28px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #ffd279;
+}
+.introduction-section .intro-grid-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+.introduction-section .grid-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+@media (max-width: 1535px) {
+  .introduction-section .intro-grid-container .grid-connector {
+    display: none;
+  }
 }
 </style>

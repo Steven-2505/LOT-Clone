@@ -2,19 +2,46 @@
 import Header from "../Header.vue";
 import Mailservice from "../../assets/mailservice/email-server.png";
 import Footer from "../footer.vue";
-import { ref } from "vue";
 import Select from "primevue/select";
-
+import { ref, onMounted } from "vue";
+import { animate, stagger } from "animejs";
 const selectedJob = ref(null);
 
-const jobOptions = [
-  { label: "UXUI", value: "uxui" },
-  { label: "DEV", value: "dev" },
-  { label: "Nhân viên kinh doanh", value: "business" },
-];
+onMounted(() => {
+  animateSticker();
+});
+function animateSticker() {
+  import("animejs").then(({ animate }) => {
+    document.querySelectorAll(".sticker").forEach((el, i) => {
+      const x = 40 + Math.random() * 40;
+      const y = 40 + Math.random() * 40;
+      const dir = i % 2 === 0 ? 1 : -1;
+
+      animate(el, {
+        translateX: [
+          { to: 0, duration: 3000, easing: "inOutSine" },
+          { to: dir * x, duration: 3000, easing: "inOutSine" },
+          { to: 0, duration: 3000, easing: "inOutSine" },
+        ],
+        translateY: [
+          { to: -y, duration: 3000, easing: "inOutSine" },
+          { to: 0, duration: 3000, easing: "inOutSine" },
+          { to: 0, duration: 3000, easing: "inOutSine" },
+        ],
+        loop: true,
+        delay: i * 500,
+      });
+    });
+  });
+}
 </script>
 <template>
-  <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <body
+    data-aos-easing="ease"
+    data-aos-duration="400"
+    data-aos-delay="0"
+    class="overlay-hiden"
+  >
     <div id="app" data-v-app="">
       <div class="font-['Saira']" data-page="emailServer">
         <div>
@@ -39,11 +66,7 @@ const jobOptions = [
                       src="../../assets/mailservice/sticker_5.png"
                       alt=""
                       class="sticker"
-                      style="
-                        width: 46px;
-                        height: 46px;
-                        transform: translateX(0.0518px) translateY(16.0715px);
-                      "
+                      style="width: 46px; height: 46px"
                     />
                   </div>
                   <div
@@ -59,11 +82,7 @@ const jobOptions = [
                       src="../../assets/mailservice/sticker_7.png"
                       alt=""
                       class="sticker"
-                      style="
-                        width: 58px;
-                        height: 50px;
-                        transform: translateX(16.4637px) translateY(-8.5451px);
-                      "
+                      style="width: 58px; height: 50px"
                     />
                   </div>
                   <div
@@ -79,11 +98,7 @@ const jobOptions = [
                       src="../../assets/mailservice/sticker_8.png"
                       alt=""
                       class="sticker"
-                      style="
-                        width: 29px;
-                        height: 41px;
-                        transform: translateX(9.0874px) translateY(-19.9813px);
-                      "
+                      style="width: 29px; height: 41px"
                     />
                   </div>
                   <div
@@ -99,11 +114,7 @@ const jobOptions = [
                       src="../../assets/mailservice/sticker_9.png"
                       alt=""
                       class="sticker"
-                      style="
-                        width: 29px;
-                        height: 41px;
-                        transform: translateX(-19.9482px) translateY(-12.8901px);
-                      "
+                      style="width: 29px; height: 41px"
                     />
                   </div>
                   <div
@@ -119,11 +130,7 @@ const jobOptions = [
                       src="../../assets/mailservice/sticker_10.png"
                       alt=""
                       class="sticker"
-                      style="
-                        width: 46px;
-                        height: 46px;
-                        transform: translateX(-3.5363px) translateY(-1.2731px);
-                      "
+                      style="width: 46px; height: 46px"
                     />
                   </div>
                   <div
@@ -139,39 +146,28 @@ const jobOptions = [
                       src="../../assets/mailservice/sticker_11.png"
                       alt=""
                       class="sticker"
-                      style="
-                        width: 47px;
-                        height: 51px;
-                        transform: translateX(0px) translateY(1.9643px);
-                      "
+                      style="width: 47px; height: 51px"
                     />
                   </div>
                 </div>
+
                 <!----><!----><!----><!---->
-                <div
-                  data-v-5402c78a=""
-                  class="intro-image-wrapper has-title-on-image"
-                >
+
+                <div class="intro-image-wrapper has-title-on-image">
                   <!---->
-                  <div data-v-5402c78a="" class="intro-title title-on-image">
+                  <div class="intro-title title-on-image">
                     Quản trị email server
                   </div>
-                  <div data-v-5402c78a="" class="title-sub subtitle-on-image">
+                  <div class="title-sub subtitle-on-image">
                     Hỗ trợ nhanh chóng – Giải quyết triệt để – Vận hành ổn định
                   </div>
-                  <a
-                    data-v-5402c78a=""
-                    href="/lienhe"
-                    class="experience-button button-on-image"
-                    ><span data-v-5402c78a="" class="button-text"
-                      >Trải nghiệm dịch vụ</span
+                  <a href="/lienhe" class="experience-button button-on-image"
+                    ><span class="button-text">Trải nghiệm dịch vụ</span
                     ><img
-                      data-v-5402c78a=""
                       src="../../assets/mailservice/title_section_1.svg"
                       alt=""
                       class="button-icon" /></a
                   ><img
-                    data-v-5402c78a=""
                     src="../../assets/mailservice/email-server.png"
                     alt="Quản trị email server"
                     class="intro-image"
@@ -216,7 +212,7 @@ const jobOptions = [
               <div class="benefit-section py-10 md:py-20">
                 <div class="container mx-auto px-0 md:px-10">
                   <div class="flex flex-col gap-8 justify-center items-center">
-                    <span class="section-title"
+                    <span class="section-title text-nowrap"
                       >LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ</span
                     ><img
                       src="../../assets/mailservice/section_break_line.svg"
@@ -351,7 +347,9 @@ const jobOptions = [
                               /><span>Hướng dẫn cấu hình cơ bản</span>
                             </li>
                           </ul>
-                          <button class="cta-button">Bắt đầu</button>
+                          <a href="/lienhe" class="cta-button"
+                            ><button>Bắt Đầu</button></a
+                          >
                         </div>
                       </div>
                     </div>
@@ -401,9 +399,11 @@ const jobOptions = [
                               /><span>Cấu hình nâng cao</span>
                             </li>
                           </ul>
-                          <button class="cta-button cta-button-highlight">
-                            Bắt đầu dùng thử miễn phí
-                          </button>
+                          <a
+                            href="/lienhe"
+                            class="cta-button cta-button-highlight"
+                            ><button>Bắt đầu dùng thử miễn phí</button></a
+                          >
                         </div>
                       </div>
                     </div>
@@ -442,7 +442,9 @@ const jobOptions = [
                               /><span>Hỗ trợ ưu tiên cao 24/7</span>
                             </li>
                           </ul>
-                          <button class="cta-button">Liên hệ</button>
+                          <a href="/lienhe" class="cta-button"
+                            ><button>Liên hệ</button></a
+                          >
                         </div>
                       </div>
                     </div>
@@ -591,5 +593,23 @@ const jobOptions = [
 .bg-color {
   background-color: black;
   overflow: hidden;
+}
+.intro-service > *:not(.intro-bg-cover):not(.sticker-container) {
+  position: relative;
+  z-index: 2;
+}
+[data-page="emailServer"] .intro-image {
+  max-width: 1368px;
+  width: 100%;
+}
+[data-page="emailServer"] .intro-image-wrapper {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  max-width: none;
+}
+[data-page="emailServer"] header {
+  z-index: 10;
+  height: auto;
 }
 </style>

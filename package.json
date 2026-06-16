@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animejs": "^4.4.1",
     "aos": "^2.3.4",
     "image-compare-viewer": "^1.6.2",
     "primevue": "^4.5.5",

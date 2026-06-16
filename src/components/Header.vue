@@ -6,41 +6,43 @@ import iconen from "../assets/icon-en.svg";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const servicesOpen = ref(false);
+const isOpen = ref(false);
 
-function toggleServices() {
+function toggleServices(e) {
+  e.stopPropagation();
   servicesOpen.value = !servicesOpen.value;
+  isOpen.value = false; // đóng dropdown ngôn ngữ nếu đang mở
+}
+
+function toggleDropdown(e) {
+  e.stopPropagation();
+  isOpen.value = !isOpen.value;
+  servicesOpen.value = false; // đóng dropdown dịch vụ nếu đang mở
 }
 
 function handleClickOutside(e) {
   if (!e.target.closest(".services-menu-wrapper")) {
     servicesOpen.value = false;
   }
+  if (!e.target.closest(".relative")) {
+    isOpen.value = false;
+  }
+}
+
+function handleScroll() {
+  servicesOpen.value = false;
+  isOpen.value = false;
 }
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside);
-  window.addEventListener("click", closeDropdown);
+  window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
 onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
-  window.removeEventListener("click", closeDropdown);
+  window.removeEventListener("scroll", handleScroll);
 });
-
-// Reactive state to manage menu visibility
-const isOpen = ref(false);
-
-// Function to toggle menu visibility
-const toggleDropdown = () => {
-  isOpen.value = !isOpen.value;
-};
-
-// Function to close the dropdown if a user clicks outside the component
-const closeDropdown = (element) => {
-  if (!element.target.closest(".relative")) {
-    isOpen.value = false;
-  }
-};
 </script>
 <template>
   <header class="navbar">
@@ -163,44 +165,44 @@ const closeDropdown = (element) => {
                   Phân tích, thiết kế kiến trúc phần mềm.
                 </div>
               </div></a
-            ><a href="/services/cdn-infrastructure" class="service-item"
+            ><a href="/services/cdn" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-cdn-infrastructure.svg"
                 alt="Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)"
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/cdn">
                   Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Xây dựng hạ tầng CDN, phân phối nội dung nhanh.
                 </div>
               </div></a
-            ><a href="/services/international-datacenter" class="service-item"
+            ><a href="/services/international" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-international-datacenter.svg"
                 alt="Hạ tầng dịch vụ datacenter quốc tế"
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title">
                   Hạ tầng dịch vụ datacenter quốc tế
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Cung cấp datacenter quốc tế hiệu suất cao.
                 </div>
               </div></a
-            ><a href="/services/smart-alert-ai" class="service-item"
+            ><a href="/services/AI" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-smart-alert-ai.svg"
                 alt="Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI"
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Giám sát an toàn, dự đoán rủi ro
                 </div>
@@ -208,16 +210,16 @@ const closeDropdown = (element) => {
             >
           </div>
           <div class="services-column">
-            <a href="/services/domestic-datacenter" class="service-item"
+            <a href="/services/domestic" class="service-item"
               ><img
                 src="../assets/icondichvu/icon-domestic-datacenter.svg"
                 alt="Hạ tầng dịch vụ datacenter nội địa"
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Hạ tầng dịch vụ datacenter nội địa
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Xây dựng datacenter tại Việt Nam.
                 </div>
@@ -229,9 +231,9 @@ const closeDropdown = (element) => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Giải pháp thu thập dữ liệu phục vụ xây dựng cơ sở dữ liệu số
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Công cụ thu thập dữ liệu cho CSDL số.
                 </div>
@@ -243,7 +245,9 @@ const closeDropdown = (element) => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">Dịch vụ tích hợp hệ thống</div>
+                <Routerlink class="service-title" to="/"
+                  >Dịch vụ tích hợp hệ thống</Routerlink
+                >
                 <div class="service-subtitle">
                   Tích hợp hệ thống, tối ưu quy trình.
                 </div>
