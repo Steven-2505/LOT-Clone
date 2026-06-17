@@ -68,7 +68,7 @@ onUnmounted(() => {
         <img :src="iconheader" alt="" />
         <RouterLink class="menu" to="/tuyendung">Tuyển Dụng</RouterLink>
         <img :src="iconheader" alt="" />
-        <a class="menu" href="https://lotviet.com/blogs">Tin Tức</a>
+        <RouterLink class="menu" to="/blogs">Tin Tức</RouterLink>
         <img :src="iconheader" alt="" />
         <RouterLink class="menu" to="/lienhe">Liên Hệ</RouterLink>
         <img :src="iconheader" alt="" />

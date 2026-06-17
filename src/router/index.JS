@@ -13,6 +13,7 @@ import Domestic from "../components/Dichvu/domestic.vue";
 import Datacollection from "../components/Dichvu/datacollection.vue";
 import Integration from "../components/Dichvu/integration.vue";
 import Design from "../components/Dichvu/design.vue";
+import Blogs from "../components/blogs.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -33,6 +34,7 @@ const router = createRouter({
     { path: "/services/data-collection", component: Datacollection },
     { path: "/services/system-integration", component: Integration },
     { path: "/services/wireframe-design", component: Design },
+    { path: "/blogs", component: Blogs },
   ],
 });
 
