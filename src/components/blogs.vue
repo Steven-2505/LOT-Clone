@@ -434,7 +434,7 @@ function selectBlogs(name, component) {
             </div>
           </div>
         </div>
-        <Footer></Footer>
+        <div class="max-md:text-center"><Footer></Footer></div>
       </div>
     </div>
 

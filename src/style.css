@@ -2224,3 +2224,63 @@ code {
   );
   transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
+@media (max-width: 1024px) {
+  .contact-title-wrap {
+    width: 100%;
+    min-width: 0;
+    padding-right: 0;
+  }
+  .contact-title {
+    font-size: 38px;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="emailServer"] .intro-image-wrapper.has-title-on-image {
+    padding-top: 15rem;
+  }
+}
+@media (max-width: 768px) {
+  .intro-title[data-v-5402c78a] {
+    font-size: 32px;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="emailServer"]
+    .intro-image-wrapper.has-title-on-image[data-v-ff9c9975] {
+    padding-top: 15rem;
+  }
+}
+@media (max-width: 768px) {
+  .intro-service[data-v-5402c78a] {
+    padding: 2.5rem 0 30px;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="emailServer"] .sticker-wrapper {
+    transform: translateY(230px) scale(0.478) !important;
+  }
+}
+@media (max-width: 768px) {
+  .experience-button[data-v-5402c78a] {
+    padding: 2px 2px 2px 10px;
+  }
+}
+@media (max-width: 768px) {
+  .title-sub[data-v-5402c78a] {
+    font-size: 14px;
+  }
+}

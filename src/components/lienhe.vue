@@ -6,30 +6,36 @@ import Headermb from "./Headermb.vue";
 <template>
   <section class="bg-black">
     <Header></Header>
-    <div class="mb-20px">
+    <div class="mb-[20px]">
       <Headermb></Headermb>
     </div>
     <div
-      class="w-full bg-no-repeat bg-cover background-contact sm:pb-auto pb-10 px-evi"
+      class="w-full bg-no-repeat bg-cover background-contact pb-10 px-10 max-md:px-5"
     >
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-10 container px-10 m-auto relative z-10 text-white overlay-hiden"
+        class="grid grid-cols-2 max-lg:grid-cols-1 gap-4 max-md:gap-6 pt-20 max-md:pt-10 container px-10 max-lg:px-5 max-md:px-0 m-auto relative z-10 text-white overlay-hiden max-md:text-center"
       >
-        <div class="w-fit md:pe-5">
-          <div class="text-[20px] text-[#EBC47C] font-medium leading-normal">
+        <div
+          class="contact-title-wrap w-fit pe-5 max-lg:w-full max-lg:pe-0 max-lg:min-w-0"
+        >
+          <div
+            class="text-[20px] max-md:text-[16px] text-[#EBC47C] font-medium leading-normal"
+          >
             Liên hệ với chúng tôi
           </div>
           <div
-            class="text-transparent bg-clip-text uppercase lg:text-[54px] text-[46px] font-bold custom-text-gradient leading-normal"
+            class="contact-title text-transparent bg-clip-text uppercase text-[54px] max-lg:text-[38px] max-md:text-[28px] font-bold custom-text-gradient leading-normal max-md:leading-tight break-words"
           >
             Chúng tôi có thể <br />
             giúp gì cho bạn?
           </div>
-          <div class="py-1 leading-normal">
+          <div class="py-1 leading-normal max-md:text-[14px]">
             Điền vào mẫu để gửi tin nhắn hoặc báo cáo cho chúng tôi. Hoặc, gửi
             email cho chúng tôi tới
           </div>
-          <div class="bg-linear-gradient relative w-fit -z-1 p-[1px] mt-2">
+          <div
+            class="bg-linear-gradient relative w-fit -z-1 p-[1px] mt-2 max-md:mx-auto"
+          >
             <svg
               class="bottom-0 end-0 translate-y-1/2 translate-x-1/2 absolute z-30"
               width="5"
@@ -155,18 +161,23 @@ import Headermb from "./Headermb.vue";
                 </linearGradient>
               </defs>
             </svg>
-            <div class="uppercase underline py-2 px-3 relative z-1 bg-black">
+            <div
+              class="uppercase underline py-2 px-3 relative z-1 bg-black max-md:text-[13px] max-md:break-all"
+            >
               contact@lotviet.com
             </div>
           </div>
         </div>
-        <div class="relative z-1 p-[1px] rounded-md bg-linear-gradient">
+        <div
+          class="relative z-1 p-[1px] rounded-md bg-linear-gradient max-lg:w-full max-lg:min-w-0"
+        >
           <form
             novalidate=""
-            class="relative z-2 rounded rounded-md bg-[#000] p-5"
+            class="relative z-2 rounded rounded-md bg-[#000] p-5 max-md:p-4"
           >
-            <div class="pb-3">
-              Tầm nhìn của bạn, Sứ mệnh của chúng tôi: Hãy cùng nhau <br />
+            <div class="pb-3 max-md:text-[14px]">
+              Tầm nhìn của bạn, Sứ mệnh của chúng tôi: Hãy cùng nhau
+              <br class="max-md:hidden" />
               định hình thành công.
             </div>
             <div>
@@ -215,10 +226,11 @@ import Headermb from "./Headermb.vue";
             </div>
             <button
               type="submit"
-              class="ms-auto block bg-linear-gradient rounded-full py-3 px-8 text-dark w-fit mt-3"
+              class="ms-auto block bg-linear-gradient rounded-full py-3 px-8 max-md:px-6 text-dark w-fit mt-3"
             >
               <div class="flex items-center gap-2">
-                <span class="text-black font-medium">Gửi</span
+                <span class="text-black font-medium max-md:text-[14px]"
+                  >Gửi</span
                 ><span
                   ><svg
                     width="25"
@@ -252,21 +264,23 @@ import Headermb from "./Headermb.vue";
         </div>
       </div>
       <div
-        class="hidden grid-cols-2 gap-4 container px-10 m-auto mt-10 text-white"
+        class="grid grid-cols-2 max-sm:grid-cols-1 gap-4 max-md:gap-6 container px-10 max-lg:px-5 max-md:px-0 m-auto mt-10 text-white max-md:text-center"
       >
         <div>
-          <div class="text-[20px] font-medium mb-3">
+          <div class="text-[20px] max-md:text-[17px] font-medium mb-3">
             Trụ sở chính (Văn phòng tại Mỹ)
           </div>
-          <div class="text-[14px]">
+          <div class="text-[14px] max-md:text-[13px]">
             782 Archer Dr<br />
             Marion, Iowa, United States<br />
             Chăm sóc khách hàng: (028) 7777 7999 ext 3
           </div>
         </div>
         <div>
-          <div class="text-[20px] font-medium mb-3">Văn phòng tại Việt Nam</div>
-          <div class="text-[14px]">
+          <div class="text-[20px] max-md:text-[17px] font-medium mb-3">
+            Văn phòng tại Việt Nam
+          </div>
+          <div class="text-[14px] max-md:text-[13px]">
             56 Quang Trung<br />
             Phường Tăng Nhơn Phú B, TP. Thủ Đức<br />
             Chăm sóc khách hàng: (028) 7777 7999

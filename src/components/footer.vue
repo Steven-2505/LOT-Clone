@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <footer class="bg-[#1E1E1E]">
-    <div class="container px-10 m-auto pb-4">
+    <div class="container px-10 m-auto pb-4 max-md:text-center">
       <div
         class="bg-gradient-to-r from-transparent via-[#6d562a] to-transparent"
       >
