@@ -1,6 +1,7 @@
 <script setup>
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
+import Headermb from "../Headermb.vue";
 import { ref, onMounted } from "vue";
 import { animate, stagger } from "animejs";
 const selectedJob = ref(null);
@@ -48,6 +49,7 @@ function animateSticker() {
             class="min-h-screen bg-black text-white pb-10"
           >
             <div class="header-section">
+              <Headermb></Headermb>
               <Header></Header>
             </div>
             <div data-v-6ece03d3="" class="container mx-auto px-0 md:px-10">
@@ -171,7 +173,7 @@ function animateSticker() {
                 </div>
                 <!----><a
                   data-v-5402c78a=""
-                  href="/vi/contact"
+                  href="/contact"
                   class="experience-button"
                   ><span data-v-5402c78a="" class="button-text"
                     >Trải nghiệm dịch vụ</span
@@ -516,9 +518,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button data-v-b1f94cc2="" class="cta-button">
+                          <a
+                            href="/contact"
+                            data-v-b1f94cc2=""
+                            class="cta-button-1"
+                          >
                             Liên hệ
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -598,12 +604,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button
+                          <a
+                            href="/contact"
                             data-v-b1f94cc2=""
-                            class="cta-button cta-button-highlight"
+                            class="cta-button cta-button-1 cta-button-highlight"
                           >
                             Bắt đầu dùng thử miễn phí
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -678,9 +685,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button data-v-b1f94cc2="" class="cta-button">
+                          <a
+                            href="/contact"
+                            data-v-b1f94cc2=""
+                            class="cta-button-1"
+                          >
                             Liên hệ
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

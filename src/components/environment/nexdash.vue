@@ -67,7 +67,7 @@
           Tại sao doanh nghiệp của bạn nên chọn <br />
           NEX DASHBOARD?
         </div>
-        <div class="scale-75 origin-top text-left">
+        <div class="mt-20px origin-top text-left">
           <div
             class="flex lg:gap-32 bg-[#171717] rounded-xl p-8 mb-6 item-nth lg:flex-row flex-col gap-10"
           >

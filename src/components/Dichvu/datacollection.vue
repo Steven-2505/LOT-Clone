@@ -1,6 +1,7 @@
 <script setup>
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
+import Headermb from "../Headermb.vue";
 import { ref, onMounted } from "vue";
 import { animate, stagger } from "animejs";
 const selectedJob = ref(null);
@@ -34,256 +35,21 @@ function animateSticker() {
 }
 </script>
 <template>
-  <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <body
+    data-aos-easing="ease"
+    data-aos-duration="400"
+    data-aos-delay="0"
+    class="overlay-hiden"
+  >
     <div id="app" data-v-app="">
       <div class="font-['Saira']" data-page="dataCollection">
-        <section
-          data-v-20b9afde=""
-          class="translate-x-[100%] bg-[#1b1b1b] fixed top-0 right-0 h-screen z-[99999] transition overflow-y-auto mobile-nav"
-        >
-          <div data-v-20b9afde="" class="w-fit ms-auto me-4 mt-2">
-            <svg
-              data-v-20b9afde=""
-              width="20px"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-            >
-              <path
-                data-v-20b9afde=""
-                fill="white"
-                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-              ></path>
-            </svg>
-          </div>
-          <div data-v-20b9afde="">
-            <div
-              data-v-20b9afde=""
-              class="flex text-white flex-col text-start px-3 pt-4 navbar"
-            >
-              <a
-                data-v-20b9afde=""
-                href="/vi/about-us"
-                class="flex items-center"
-                data-name="about"
-                >Về LOT</a
-              ><a
-                data-v-20b9afde=""
-                href="/vi/environment"
-                class="flex items-center"
-                data-name="environment"
-                >Hệ sinh thái LOT</a
-              ><button
-                data-v-20b9afde=""
-                class="w-full text-left p-3 ps-2 rounded bg-transparent border-0 flex items-center justify-between gap-3 active"
-              >
-                Dịch vụ
-                <svg
-                  data-v-20b9afde=""
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  data-slot="icon"
-                  aria-hidden="true"
-                  class="-mr-1 size-5 text-gray-400 transition-transform duration-300"
-                >
-                  <path
-                    data-v-20b9afde=""
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                    fill-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-              <div
-                data-v-20b9afde=""
-                class="pl-10 transition-all duration-200"
-                style="display: none"
-              ></div>
-              <div
-                data-v-20b9afde=""
-                class="pl-3 mt-1 flex flex-col gap-1"
-                style="display: none"
-              >
-                <a
-                  data-v-20b9afde=""
-                  href="/vi/services/email-server"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">Quản trị email server</div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/system-analysis"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Phân tích, thiết kế hệ thống
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/cdn-infrastructure"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/international-datacenter"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Hạ tầng dịch vụ datacenter quốc tế
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/smart-alert-ai"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/domestic-datacenter"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Hạ tầng dịch vụ datacenter nội địa
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/data-collection"
-                  class="router-link-active router-link-exact-active service-item active"
-                  aria-current="page"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Giải pháp thu thập dữ liệu phục vụ xây dựng cơ sở dữ liệu
-                      số
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/system-integration"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ tích hợp hệ thống
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/wireframe-design"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ thiết kế wireframe / mockup / prototype chuyên
-                      nghiệp
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/ios-development"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ phát triển ứng dụng dành cho IOS
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/android-development"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ phát triển ứng dụng dành cho Android
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/cloud-platform"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ nền tảng điện toán đám mây (CLOUD)
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/technical-support"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ hỗ trợ kỹ thuật
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/cloud-computing"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ điện toán đám mây
-                    </div>
-                  </div></a
-                ><a
-                  data-v-20b9afde=""
-                  href="/vi/services/website-maintenance"
-                  class="service-item"
-                  style="padding: 8px !important"
-                  ><div data-v-20b9afde="" class="service-text">
-                    <div data-v-20b9afde="" class="">
-                      Dịch vụ chăm sóc website chuyên nghiệp
-                    </div>
-                  </div></a
-                >
-              </div>
-              <a
-                data-v-20b9afde=""
-                href="/vi/recruitment"
-                class="flex items-center"
-                data-name="recruitment"
-                >Tuyển dụng</a
-              ><a
-                data-v-20b9afde=""
-                href="/vi/blogs"
-                class="flex items-center"
-                data-name="blogs"
-                >Tin tức</a
-              ><a
-                data-v-20b9afde=""
-                href="/vi/contact"
-                class="flex items-center"
-                data-name="contact"
-                >Liên hệ</a
-              >
-            </div>
-          </div>
-        </section>
         <div>
           <section
             data-v-4ef2f574=""
             class="min-h-screen bg-black text-white pb-10"
           >
             <div class="header-section">
+              <Headermb></Headermb>
               <Header></Header>
             </div>
             <div data-v-4ef2f574="" class="container mx-auto px-0 md:px-10">
@@ -389,7 +155,7 @@ function animateSticker() {
                 </div>
                 <!----><a
                   data-v-5402c78a=""
-                  href="/lienhe"
+                  href="/contact"
                   class="experience-button"
                   ><span data-v-5402c78a="" class="button-text"
                     >Trải nghiệm dịch vụ</span
@@ -701,9 +467,9 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button data-v-b1f94cc2="" class="cta-button">
+                          <a href="" data-v-b1f94cc2="" class="cta-button-1">
                             Liên hệ
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -774,12 +540,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button
+                          <a
+                            href="/contact"
                             data-v-b1f94cc2=""
-                            class="cta-button cta-button-highlight"
+                            class="cta-button cta-button-1 cta-button-highlight"
                           >
                             Bắt đầu dùng thử miễn phí
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -845,9 +612,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button data-v-b1f94cc2="" class="cta-button">
+                          <a
+                            href="/contact"
+                            data-v-b1f94cc2=""
+                            class="cta-button-1"
+                          >
                             Liên hệ
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

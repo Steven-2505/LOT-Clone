@@ -8,6 +8,7 @@ import { ref, shallowRef, onMounted } from "vue";
 import nifehub from "../assets/nifehub.svg";
 import nex from "../assets/nex.svg";
 import ndashboard from "../assets/ndashboard.svg";
+import Headermb from "./Headermb.vue";
 
 const activeApp = ref("nhub");
 const currentComponentApp = shallowRef(Nhub);
@@ -25,6 +26,9 @@ function selectApp(name, component) {
     class="video-container"
   >
     <Header> </Header>
+    <div class="mb-20px">
+      <Headermb></Headermb>
+    </div>
     <video autoplay muted loop playsinline>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>

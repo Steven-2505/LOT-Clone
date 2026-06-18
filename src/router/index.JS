@@ -14,13 +14,19 @@ import Datacollection from "../components/Dichvu/datacollection.vue";
 import Integration from "../components/Dichvu/integration.vue";
 import Design from "../components/Dichvu/design.vue";
 import Blogs from "../components/blogs.vue";
+import Ios from "../components/Dichvu/ios.vue";
+import Android from "../components/Dichvu/android.vue";
+import Cloud from "../components/Dichvu/cloud.vue";
+import Technical from "../components/Dichvu/technical.vue";
+import Computing from "../components/Dichvu/computing.vue";
+import Maintenance from "../components/Dichvu/maintenance.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", component: Home },
     { path: "/about-us", component: AboutUs },
     { path: "/environment", component: Environment },
-    { path: "/lienhe", component: Lienhe },
+    { path: "/contact", component: Lienhe },
     { path: "/tuyendung", component: Tuyendung },
     { path: "/services/email-server", component: Quantriemail },
     { path: "/services/system-analysis", component: SystemAnalysis },
@@ -34,6 +40,12 @@ const router = createRouter({
     { path: "/services/data-collection", component: Datacollection },
     { path: "/services/system-integration", component: Integration },
     { path: "/services/wireframe-design", component: Design },
+    { path: "/services/ios-development", component: Ios },
+    { path: "/services/android-development", component: Android },
+    { path: "/services/cloud-platform", component: Cloud },
+    { path: "/services/technical-support", component: Technical },
+    { path: "/services/cloud-computing", component: Computing },
+    { path: "/services/website-maintenance", component: Maintenance },
     { path: "/blogs", component: Blogs },
   ],
 });

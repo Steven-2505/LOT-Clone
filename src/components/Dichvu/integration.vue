@@ -1,6 +1,7 @@
 <script setup>
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
+import Headermb from "../Headermb.vue";
 import { ref, onMounted } from "vue";
 import { animate, stagger } from "animejs";
 const selectedJob = ref(null);
@@ -34,7 +35,12 @@ function animateSticker() {
 }
 </script>
 <template>
-  <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <body
+    data-aos-easing="ease"
+    data-aos-duration="400"
+    data-aos-delay="0"
+    class="overlay-hiden"
+  >
     <div id="app" data-v-app="">
       <div class="font-['Saira']" data-page="systemIntegration">
         <!---->
@@ -63,13 +69,13 @@ function animateSticker() {
             >
               <a
                 data-v-20b9afde=""
-                href="/vi/about-us"
+                href="/about-us"
                 class="flex items-center"
                 data-name="about"
                 >Về LOT</a
               ><a
                 data-v-20b9afde=""
-                href="/vi/environment"
+                href="/environment"
                 class="flex items-center"
                 data-name="environment"
                 >Hệ sinh thái LOT</a
@@ -106,7 +112,7 @@ function animateSticker() {
               >
                 <a
                   data-v-20b9afde=""
-                  href="/vi/services/email-server"
+                  href="/services/email-server"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -114,7 +120,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/system-analysis"
+                  href="/services/system-analysis"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -124,7 +130,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/cdn-infrastructure"
+                  href="/services/cdn-infrastructure"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -134,7 +140,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/international-datacenter"
+                  href="/services/international-datacenter"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -144,7 +150,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/smart-alert-ai"
+                  href="/services/smart-alert-ai"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -154,7 +160,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/domestic-datacenter"
+                  href="/services/domestic-datacenter"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -164,7 +170,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/data-collection"
+                  href="/services/data-collection"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -175,7 +181,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/system-integration"
+                  href="/services/system-integration"
                   class="router-link-active router-link-exact-active service-item active"
                   aria-current="page"
                   style="padding: 8px !important"
@@ -186,7 +192,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/wireframe-design"
+                  href="/services/wireframe-design"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -197,7 +203,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/ios-development"
+                  href="/services/ios-development"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -207,7 +213,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/android-development"
+                  href="/services/android-development"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -217,7 +223,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/cloud-platform"
+                  href="/services/cloud-platform"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -227,7 +233,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/technical-support"
+                  href="/services/technical-support"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -237,7 +243,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/cloud-computing"
+                  href="/services/cloud-computing"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -247,7 +253,7 @@ function animateSticker() {
                   </div></a
                 ><a
                   data-v-20b9afde=""
-                  href="/vi/services/website-maintenance"
+                  href="/services/website-maintenance"
                   class="service-item"
                   style="padding: 8px !important"
                   ><div data-v-20b9afde="" class="service-text">
@@ -259,19 +265,19 @@ function animateSticker() {
               </div>
               <a
                 data-v-20b9afde=""
-                href="/vi/recruitment"
+                href="/recruitment"
                 class="flex items-center"
                 data-name="recruitment"
                 >Tuyển dụng</a
               ><a
                 data-v-20b9afde=""
-                href="/vi/blogs"
+                href="/blogs"
                 class="flex items-center"
                 data-name="blogs"
                 >Tin tức</a
               ><a
                 data-v-20b9afde=""
-                href="/vi/contact"
+                href="/contact"
                 class="flex items-center"
                 data-name="contact"
                 >Liên hệ</a
@@ -285,6 +291,7 @@ function animateSticker() {
             class="min-h-screen bg-black text-white pb-10"
           >
             <div class="header-section">
+              <Headermb></Headermb>
               <Header></Header>
             </div>
             <div data-v-e0dc8393="" class="container mx-auto px-0 md:px-10">
@@ -467,7 +474,7 @@ function animateSticker() {
                   </div>
                   <a
                     data-v-5402c78a=""
-                    href="/vi/contact"
+                    href="/contact"
                     class="experience-button button-on-image"
                     ><span data-v-5402c78a="" class="button-text"
                       >Trải nghiệm dịch vụ</span
@@ -800,9 +807,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button data-v-b1f94cc2="" class="cta-button">
+                          <a
+                            href="/contact"
+                            data-v-b1f94cc2=""
+                            class="cta-button-1"
+                          >
                             Liên hệ
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -872,12 +883,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button
+                          <a
+                            href="/contact"
                             data-v-b1f94cc2=""
-                            class="cta-button cta-button-highlight"
+                            class="cta-button cta-button-1 cta-button-highlight"
                           >
                             Bắt đầu dùng thử miễn phí
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -952,9 +964,13 @@ function animateSticker() {
                               >
                             </li>
                           </ul>
-                          <button data-v-b1f94cc2="" class="cta-button">
+                          <a
+                            href="/contact"
+                            data-v-b1f94cc2=""
+                            class="cta-button-1"
+                          >
                             Liên hệ
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>

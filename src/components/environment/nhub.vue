@@ -66,7 +66,7 @@
       NHUB?
     </div>
   </div>
-  <div class="px-4rem origin-top text-left">
+  <div class="origin-top text-left">
     <div
       class="flex lg:gap-32 bg-[#171717] rounded-xl p-8 mb-6 item-nth lg:flex-row flex-col gap-10"
     >

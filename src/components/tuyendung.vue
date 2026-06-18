@@ -4,7 +4,7 @@ import bgtuyendung from "../assets/banner-recruitment.svg";
 import Footer from "./footer.vue";
 import { ref } from "vue";
 import Select from "primevue/select";
-
+import Headermb from "./Headermb.vue";
 const selectedJob = ref(null);
 
 const jobOptions = [
@@ -26,6 +26,9 @@ const jobOptions = [
       :style="{ backgroundImage: `url(${bgtuyendung})` }"
     >
       <Header></Header>
+      <div class="mb-20px">
+        <Headermb></Headermb>
+      </div>
       <div class="relative top-[60px]">
         <div class="text-[#EBC47C] text-center text-[18px]">Who We Are</div>
         <div

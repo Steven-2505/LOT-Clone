@@ -2,6 +2,7 @@
 import Header from "../Header.vue";
 import Mailservice from "../../assets/mailservice/email-server.png";
 import Footer from "../footer.vue";
+import Headermb from "../Headermb.vue";
 import Select from "primevue/select";
 import { ref, onMounted } from "vue";
 import { animate, stagger } from "animejs";
@@ -47,6 +48,7 @@ function animateSticker() {
         <div>
           <section class="min-h-screen bg-black text-white pb-10">
             <div class="header-section">
+              <Headermb></Headermb>
               <Header></Header>
             </div>
             <div class="container mx-auto px-0 md:px-10">
@@ -161,7 +163,7 @@ function animateSticker() {
                   <div class="title-sub subtitle-on-image">
                     Hỗ trợ nhanh chóng – Giải quyết triệt để – Vận hành ổn định
                   </div>
-                  <a href="/lienhe" class="experience-button button-on-image"
+                  <a href="/contact" class="experience-button button-on-image"
                     ><span class="button-text">Trải nghiệm dịch vụ</span
                     ><img
                       src="../../assets/mailservice/title_section_1.svg"
@@ -347,9 +349,7 @@ function animateSticker() {
                               /><span>Hướng dẫn cấu hình cơ bản</span>
                             </li>
                           </ul>
-                          <a href="/lienhe" class="cta-button"
-                            ><button>Bắt Đầu</button></a
-                          >
+                          <a href="/contact" class="cta-button-1">Bắt Đầu</a>
                         </div>
                       </div>
                     </div>
@@ -400,9 +400,9 @@ function animateSticker() {
                             </li>
                           </ul>
                           <a
-                            href="/lienhe"
-                            class="cta-button cta-button-highlight"
-                            ><button>Bắt đầu dùng thử miễn phí</button></a
+                            href="/contact"
+                            class="cta-button cta-button-1 cta-button-highlight"
+                            >Bắt đầu dùng thử miễn phí</a
                           >
                         </div>
                       </div>
@@ -442,9 +442,7 @@ function animateSticker() {
                               /><span>Hỗ trợ ưu tiên cao 24/7</span>
                             </li>
                           </ul>
-                          <a href="/lienhe" class="cta-button"
-                            ><button>Liên hệ</button></a
-                          >
+                          <a href="/contact" class="cta-button-1">Liên hệ</a>
                         </div>
                       </div>
                     </div>

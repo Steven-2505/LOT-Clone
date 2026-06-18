@@ -26,6 +26,7 @@ import Qlnv from "./Chucnang/qlnv.vue";
 import Tuychinhmatbang from "./Chucnang/tuychinhmatbang.vue";
 import Tuychinhmenu from "./Chucnang/tuychinhmenu.vue";
 import Footer from "./footer.vue";
+import Headermb from "./Headermb.vue";
 
 const activeCard = ref("nifehub");
 const currentComponent = shallowRef(Nifehub);
@@ -65,6 +66,7 @@ onMounted(() => {
     class="video-container"
   >
     <Header> </Header>
+    <Headermb></Headermb>
     <video autoplay muted loop playsinline>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>

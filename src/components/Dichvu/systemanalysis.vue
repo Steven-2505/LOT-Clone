@@ -1,6 +1,7 @@
 <script setup>
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
+import Headermb from "../Headermb.vue";
 import Select from "primevue/select";
 import { ref, onMounted } from "vue";
 import { animate, stagger } from "animejs";
@@ -47,6 +48,7 @@ function animateSticker() {
           <section class="min-h-screen bg-black text-white pb-10">
             <div class="header-section">
               <Header></Header>
+              <Headermb></Headermb>
             </div>
             <div>
               <section
@@ -179,7 +181,7 @@ function animateSticker() {
                     </div>
                     <!----><a
                       data-v-5402c78a=""
-                      href="/lienhe"
+                      href="/contact"
                       class="experience-button"
                       ><span data-v-5402c78a="" class="button-text"
                         >Trải nghiệm dịch vụ</span
@@ -511,11 +513,11 @@ function animateSticker() {
                                 </li>
                               </ul>
                               <a
-                                href="/lienhe"
+                                href="/contact"
                                 data-v-b1f94cc2=""
-                                class="cta-button"
+                                class="cta-button-1"
                               >
-                                <button>Liên hệ</button></a
+                                Liên hệ</a
                               >
                             </div>
                           </div>
@@ -589,11 +591,11 @@ function animateSticker() {
                                 </li>
                               </ul>
                               <a
-                                href="/lienhe"
+                                href="/contact"
                                 data-v-b1f94cc2=""
-                                class="cta-button cta-button-highlight"
+                                class="cta-button cta-button-1 cta-button-highlight"
                               >
-                                <button>Bắt đầu dùng thử miễn phí</button></a
+                                Bắt đầu dùng thử miễn phí</a
                               >
                             </div>
                           </div>
@@ -673,11 +675,11 @@ function animateSticker() {
                                 </li>
                               </ul>
                               <a
-                                href="/lienhe"
+                                href="/contact"
                                 data-v-b1f94cc2=""
-                                class="cta-button"
+                                class="cta-button-1"
                               >
-                                <button>Liên hệ</button></a
+                                Liên hệ</a
                               >
                             </div>
                           </div>

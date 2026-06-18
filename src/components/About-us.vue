@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import Footer from "./footer.vue";
+import Headermb from "./Headermb.vue";
 
 import doitac1 from "../assets/doitac/doitac1.png";
 import doitac2 from "../assets/doitac/doitac2.png";
@@ -52,7 +53,8 @@ const partners = [
       :style="{ backgroundImage: `url(${bgabout})` }"
     >
       <Header></Header>
-      <div class="relative top-[60px]">
+      <Headermb></Headermb>
+      <div class="relative top-[60px] mt-20px">
         <div class="text-[#EBC47C] text-center text-[18px]">Who We Are</div>
         <div
           class="text-transparent bg-clip-text text-center uppercase lg:text-[50px] text-[32px] font-bold custom-text-gradient leading-normal"

@@ -1,10 +1,14 @@
 <script setup>
 import Header from "./Header.vue";
 import AppFooter from "./footer.vue";
+import Headermb from "./Headermb.vue";
 </script>
 <template>
   <section class="bg-black">
     <Header></Header>
+    <div class="mb-20px">
+      <Headermb></Headermb>
+    </div>
     <div
       class="w-full bg-no-repeat bg-cover background-contact sm:pb-auto pb-10 px-evi"
     >

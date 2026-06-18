@@ -4,7 +4,10 @@ import iconheader from "../assets/icon-header.svg";
 import iconvi from "../assets/icon-vi.svg";
 import iconen from "../assets/icon-en.svg";
 import { ref, onMounted, onUnmounted } from "vue";
-
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+const route = useRoute();
+const isServicesActive = computed(() => route.path.startsWith("/services"));
 const servicesOpen = ref(false);
 const isOpen = ref(false);
 
@@ -58,7 +61,8 @@ onUnmounted(() => {
         <img :src="iconheader" alt="" />
         <div class="relative flex items-center services-menu-wrapper">
           <span
-            class="cursor-pointer"
+            :class="{ 'is-active': isServicesActive }"
+            class="cursor-pointer dich-vu-link"
             data-name="services"
             @click="toggleServices"
           >
@@ -70,7 +74,7 @@ onUnmounted(() => {
         <img :src="iconheader" alt="" />
         <RouterLink class="menu" to="/blogs">Tin Tức</RouterLink>
         <img :src="iconheader" alt="" />
-        <RouterLink class="menu" to="/lienhe">Liên Hệ</RouterLink>
+        <RouterLink class="menu" to="/contact">Liên Hệ</RouterLink>
         <img :src="iconheader" alt="" />
       </nav>
       <div class="flex items-center gap-3">
@@ -130,8 +134,6 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-  </header>
-  <Teleport to="body">
     <div class="services-dropdown" v-show="servicesOpen">
       <div class="services-dropdown-container">
         <div class="services-dropdown-header">DỊCH VỤ LOT SOFTWARE</div>
@@ -273,9 +275,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Dịch vụ phát triển ứng dụng dành cho IOS
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">Phát triển ứng dụng cho iOS.</div>
               </div></a
             >
@@ -288,9 +290,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Dịch vụ phát triển ứng dụng dành cho Android
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Phát triển ứng dụng cho Android.
                 </div>
@@ -302,9 +304,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Dịch vụ nền tảng điện toán đám mây (CLOUD)
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Triển khai và quản lý dịch vụ đám mây.
                 </div>
@@ -316,7 +318,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">Dịch vụ hỗ trợ kỹ thuật</div>
+                <Routerlink class="service-title" to="/"
+                  >Dịch vụ hỗ trợ kỹ thuật</Routerlink
+                >
                 <div class="service-subtitle">Hỗ trợ kỹ thuật 24/7.</div>
               </div></a
             ><a href="/services/cloud-computing" class="service-item"
@@ -326,7 +330,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">Dịch vụ điện toán đám mây</div>
+                <Routerlink class="service-title" to="/"
+                  >Dịch vụ điện toán đám mây</Routerlink
+                >
                 <div class="service-subtitle">
                   Tư vấn, triển khai giải pháp đám mây.
                 </div>
@@ -338,9 +344,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <div class="service-title">
+                <Routerlink class="service-title" to="/">
                   Dịch vụ chăm sóc website chuyên nghiệp
-                </div>
+                </Routerlink>
                 <div class="service-subtitle">
                   Bảo trì, tối ưu và bảo mật website.
                 </div>
@@ -350,7 +356,12 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-  </Teleport>
+    <div
+      data-v-20b9afde=""
+      class="absolute h-[3px] bottom-aim bottom-0"
+      style="left: 373.562px; width: 53px; transition: 0.5s"
+    ></div>
+  </header>
 </template>
 <style scoped>
 .services-dropdown {
@@ -444,5 +455,14 @@ onUnmounted(() => {
   color: #fff;
   padding: 20px;
   border-bottom: 1px solid rgb(86, 79, 64);
+}
+
+.navbar {
+  position: relative;
+}
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
 }
 </style>
