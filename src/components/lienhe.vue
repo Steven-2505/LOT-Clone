@@ -13,7 +13,7 @@ import Headermb from "./Headermb.vue";
       class="w-full bg-no-repeat bg-cover background-contact sm:pb-auto pb-10 px-evi"
     >
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:pt-20 pt-10 container px-10 m-auto relative z-10 text-white"
+        class="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-10 container px-10 m-auto relative z-10 text-white overlay-hiden"
       >
         <div class="w-fit md:pe-5">
           <div class="text-[20px] text-[#EBC47C] font-medium leading-normal">
