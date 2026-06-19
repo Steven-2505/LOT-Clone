@@ -2,6 +2,29 @@
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
+import { ref, onMounted, nextTick } from "vue";
+import { Autoplay } from "swiper/modules";
+import Swiper from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+const selectedJob = ref(null);
+
+onMounted(async () => {
+  await nextTick();
+  initSwiper();
+});
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
 </script>
 <template>
   <body
@@ -765,7 +788,7 @@ import Headermb from "../Headermb.vue";
     <!---->
   </body>
 </template>
-<style>
+<style scoped>
 [data-page="technicalSupport"] .bottom-cover-wrapper {
   position: absolute;
   left: 0px;
@@ -778,5 +801,21 @@ import Headermb from "../Headermb.vue";
 [data-page="technicalSupport"] .bottom-cover-image {
   width: 100%;
   display: block;
+}
+@media (max-width: 768px) {
+  .intro-image {
+    margin-top: 0;
+  }
+  [data-page="technicalSupport"] .bottom-cover-image {
+    margin-top: 10px;
+  }
+  .advantages-footer {
+    display: none;
+  }
+  .mobile-cta {
+    display: block;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
 }
 </style>

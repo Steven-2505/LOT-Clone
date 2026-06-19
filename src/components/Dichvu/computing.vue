@@ -350,6 +350,11 @@ import Headermb from "../Headermb.vue";
                     />
                   </div>
                 </div>
+                <div data-v-c615a816="" class="mobile-cta">
+                  <button data-v-c615a816="" class="cta-button cta-button-1">
+                    Liên hệ ngay
+                  </button>
+                </div>
               </div>
             </div>
             <div data-v-b1f94cc2="" data-v-40f12908="" class="pricing-section">
@@ -831,5 +836,52 @@ import Headermb from "../Headermb.vue";
 .advantage-box-tall {
   grid-row: span 2;
   aspect-ratio: 375 / 456;
+}
+@media (max-width: 768px) {
+  .intro-image {
+    margin-top: 0;
+  }
+  [data-page="cloudComputing"] .bottom-cover-image {
+    margin-top: 10px;
+  }
+  .introduction-section .intro-grid-title {
+    font-size: 14px;
+    width: 85%;
+    padding: 7px 15px;
+  }
+  .advantages-footer {
+    display: none;
+  }
+  .advantages-content[data-v-c615a816] {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    gap: 8px;
+  }
+  .advantage-box[data-v-c615a816] {
+    padding: 14px;
+    aspect-ratio: 158 / 175;
+  }
+  .advantage-title[data-v-c615a816] {
+    font-size: 12px;
+  }
+  .advantage-description[data-v-c615a816] {
+    font-size: 12px;
+    line-height: 16.8px;
+  }
+  .advantage-image[data-v-c615a816] {
+    top: auto;
+    bottom: 0;
+    height: auto;
+    max-height: 60%;
+  }
+  .advantage-box-last-odd[data-v-c615a816] {
+    grid-column: span 2;
+    aspect-ratio: 322 / 175;
+  }
+  .mobile-cta[data-v-c615a816] {
+    display: block;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
 }
 </style>
