@@ -2,14 +2,35 @@
 import Header from "../Header.vue";
 import footer from "../footer.vue";
 import Select from "primevue/select";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
 import Headermb from "../Headermb.vue";
+import Swiper from "swiper";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+
 const selectedJob = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  initSwiper();
 });
+
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
+
 function animateSticker() {
   import("animejs").then(({ animate }) => {
     document.querySelectorAll(".sticker").forEach((el, i) => {
@@ -714,7 +735,7 @@ function animateSticker() {
                   <div data-v-f1290138="" class="block md:hidden">
                     <div
                       data-v-f1290138=""
-                      class="swiper swiper-initialized swiper-horizontal process-swiper process-stepper"
+                      class="swiper process-swiper process-stepper"
                     >
                       <div
                         class="swiper-wrapper"
@@ -834,5 +855,10 @@ function animateSticker() {
   > *:not(.intro-bg-cover):not(.sticker-container) {
   position: relative;
   z-index: 2;
+}
+@media (max-width: 768px) {
+  [data-page="cdnInfrastructure"] .sticker-wrapper {
+    transform: translateY(230px) scale(0.478) !important;
+  }
 }
 </style>

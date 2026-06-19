@@ -3,6 +3,10 @@ import ndashboard1 from "../assets/ndashboard1.png";
 import ndashboard2 from "../assets/ndashboard2.png";
 import ndashboard3 from "../assets/ndashboard3.png";
 import ndashboard4 from "../assets/ndashboard4.png";
+
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 </script>
 <template>
   <div>
@@ -11,7 +15,7 @@ import ndashboard4 from "../assets/ndashboard4.png";
         <!----><!---->
         <div id="pageBusiness">
           <div class="bg-[#1e1e1e]">
-            <div class="container px-40 py-10 pb-32 mx-auto">
+            <div class="container md:px-40 py-10 pb-32 mx-auto">
               <div class="mt-8">
                 <div class="w-100 flex-1 rounded-lg p-4">
                   <div
@@ -29,7 +33,7 @@ import ndashboard4 from "../assets/ndashboard4.png";
                   </div>
                 </div>
               </div>
-              <div>
+              <div class="ml-10 mr-10">
                 <div class="background-content-group mb-4">
                   <div class="right-aim">
                     <div
@@ -187,7 +191,38 @@ import ndashboard4 from "../assets/ndashboard4.png";
               <div></div>
             </div>
           </div>
-          <div class="container px-50 mx-auto -mt-25">
+          <Swiper
+            :modules="[Autoplay]"
+            :breakpoints="{
+              0: { slidesPerView: 2 },
+              480: { slidesPerView: 2 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }"
+            :space-between="10"
+            :loop="true"
+            :autoplay="{ delay: 2000, disableOnInteraction: false }"
+            class="container md:mx-auto md:-mt-25"
+          >
+            <SwiperSlide
+              v-for="(img, i) in [
+                ndashboard2,
+                ndashboard1,
+                ndashboard3,
+                ndashboard4,
+              ]"
+              :key="i"
+            >
+              <div class="h-full mx-auto">
+                <div
+                  class="h-[425px] bg-center bg-no-repeat rounded-2xl"
+                  :style="{ backgroundImage: `url(${img})` }"
+                ></div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+
+          <!--<div class="container md:mx-auto md:-mt-25">
             <div
               class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden"
             >
@@ -210,7 +245,6 @@ import ndashboard4 from "../assets/ndashboard4.png";
                       :style="{ backgroundImage: `url(${ndashboard2})` }"
                     ></div>
                   </div>
-                  <!---->
                 </div>
                 <div
                   class="swiper-slide swiper-slide-next"
@@ -223,7 +257,7 @@ import ndashboard4 from "../assets/ndashboard4.png";
                       :style="{ backgroundImage: `url(${ndashboard1})` }"
                     ></div>
                   </div>
-                  <!---->
+                  <
                 </div>
                 <div
                   class="swiper-slide"
@@ -236,7 +270,6 @@ import ndashboard4 from "../assets/ndashboard4.png";
                       :style="{ backgroundImage: `url(${ndashboard3})` }"
                     ></div>
                   </div>
-                  <!---->
                 </div>
                 <div
                   class="swiper-slide"
@@ -249,14 +282,19 @@ import ndashboard4 from "../assets/ndashboard4.png";
                       :style="{ backgroundImage: `url(${ndashboard4})` }"
                     ></div>
                   </div>
-                  <!---->
                 </div>
               </div>
-              <!----><!----><!---->
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
   </div>
 </template>
+<style>
+.p-timeline {
+  height: 100%;
+  align-items: start;
+  justify-content: center;
+}
+</style>

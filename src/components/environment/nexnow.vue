@@ -2,7 +2,7 @@
   <div>
     <!----><!---->
     <div>
-      <div class="my-6">
+      <div class="lg:my-6">
         <div
           class="lg:grid-cols-4 grid-cols-1 section-time grid grid-rows-1 text-center flex-wrap py-[10px] xl:w-auto w-fit m-auto lg:mx-16"
         >

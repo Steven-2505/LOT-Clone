@@ -2,13 +2,34 @@
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
+import "swiper/css";
+import "swiper/css/pagination";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
+
 const selectedJob = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  initSwiper();
 });
+
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
 function animateSticker() {
   import("animejs").then(({ animate }) => {
     document.querySelectorAll(".sticker").forEach((el, i) => {
@@ -829,6 +850,7 @@ function animateSticker() {
                 </div>
               </div>
             </div>
+            <Footer></Footer>
           </section>
         </div>
       </div>
@@ -853,5 +875,15 @@ function animateSticker() {
 .intro-service > *:not(.intro-bg-cover):not(.sticker-container) {
   position: relative;
   z-index: 2;
+}
+@media (max-width: 768px) {
+  [data-page="dataCollection"] .sticker-wrapper {
+    transform: translateY(120px) scale(0.478) !important;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="dataCollection"] .bottom-cover-wrapper {
+    top: 50%;
+  }
 }
 </style>

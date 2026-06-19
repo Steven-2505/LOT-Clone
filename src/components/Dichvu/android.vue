@@ -1,15 +1,33 @@
 <script setup>
 import Header from "../Header.vue";
-import footer from "../footer.vue";
+import Footer from "../footer.vue";
 import Select from "primevue/select";
 import Headermb from "../Headermb.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
+import { Autoplay } from "swiper/modules";
+import Swiper from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 const selectedJob = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  initSwiper();
 });
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
 function animateSticker() {
   import("animejs").then(({ animate }) => {
     document.querySelectorAll(".sticker").forEach((el, i) => {
@@ -1035,7 +1053,7 @@ function animateSticker() {
     <!---->
   </body>
 </template>
-<style>
+<style scoped>
 [data-page="androidDevelopment"] .bottom-cover-wrapper {
   position: absolute;
   left: 0;
@@ -1047,5 +1065,22 @@ function animateSticker() {
 [data-page="androidDevelopment"] .bottom-cover-image {
   width: 100%;
   display: block;
+}
+@media (max-width: 768px) {
+  [data-page="androidDevelopment"] .sticker-wrapper {
+    transform: translateY(230px) scale(0.478) !important;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="androidDevelopment"] .intro-image {
+    min-width: 600px;
+    max-width: none;
+  }
+  .intro-image {
+    margin-top: 60px;
+  }
+  [data-page="androidDevelopment"] .bottom-cover-image {
+    margin-top: 70px;
+  }
 }
 </style>

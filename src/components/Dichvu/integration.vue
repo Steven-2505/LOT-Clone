@@ -2,13 +2,34 @@
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
+import "swiper/css";
+import "swiper/css/pagination";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
+
 const selectedJob = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  initSwiper();
 });
+
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
 function animateSticker() {
   import("animejs").then(({ animate }) => {
     document.querySelectorAll(".sticker").forEach((el, i) => {
@@ -1206,5 +1227,21 @@ function animateSticker() {
 [data-page="systemIntegration"] .bottom-cover-image {
   width: 100%;
   display: block;
+}
+@media (max-width: 768px) {
+  [data-page="systemIntegration"] .top-text-on-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  [data-page="systemIntegration"] .sticker-wrapper {
+    transform: translateY(150px) scale(0.478) !important;
+  }
+  .intro-image {
+    margin-top: 160px;
+  }
+  [data-page="systemIntegration"] .bottom-cover-wrapper {
+    margin-top: 170px;
+  }
 }
 </style>

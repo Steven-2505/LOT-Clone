@@ -82,11 +82,11 @@ const partners = [
     <!--business-->
     <div id="pageBusiness">
       <div>
-        <div class="container px-40 pb-32 mx-auto">
+        <div class="container md:pb-32 mx-auto">
           <div class="mt-8">
             <div class="w-100 flex-1 rounded-lg p-4">
               <div
-                class="mb-20px text-transparent w-fit bg-clip-text uppercase lg:text-[48px] text-[32px] font-bold custom-text-gradient whitespace-nowrap"
+                class="max-md:mx-auto mb-20px text-transparent w-fit bg-clip-text uppercase lg:text-[48px] text-[32px] font-bold custom-text-gradient whitespace-nowrap"
               >
                 giá trị cốt lõi
               </div>
@@ -279,18 +279,28 @@ const partners = [
             delay: 2000,
             disableOnInteraction: false,
           }"
+          :breakpoints="{
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 12,
+            },
+            768: {
+              slidesPerView: 5,
+              spaceBetween: 16,
+            },
+          }"
         >
           <SwiperSlide v-for="(item, index) in partners" :key="index">
             <div
               class="flex items-center bg-[#0f0f0f] gap-2 border-[#454134] border rounded-xl p-4"
             >
               <img
-                class="h-[70px] w-[70px] min-w-[70px] rounded-full object-cover"
+                class="h-[50px] w-[50px] min-w-[50px] md:h-[70px] md:w-[70px] md:min-w-[70px] rounded-full object-cover"
                 :src="item.img"
                 :alt="item.name"
               />
               <div
-                class="uppercase font-bold font-['Saira'] text-[16px] text-white whitespace-nowrap"
+                class="uppercase font-bold font-['Saira'] text-[14px] md:text-[16px] text-white md:whitespace-nowrap"
               >
                 {{ item.name }}
               </div>
@@ -301,23 +311,22 @@ const partners = [
     </div>
     <!-- Đội Ngũ Nhân Viên-->
     <div>
-      <div class="section-partner pb-10 m-auto mb-60px">
+      <div class="section-partner pb-10 m-auto md:mb-60px">
         <div
-          class="text-transparent w-fit bg-clip-text text-center mx-auto uppercase text-[54px] font-bold custom-text-gradient mb-1 mt-20px mb-20px"
+          class="text-transparent w-fit bg-clip-text text-center mx-auto uppercase text-[30px] md:text-[54px] font-bold custom-text-gradient mb-1 mt-20px mb-20px"
         >
           Đội ngũ chúng tôi
         </div>
         <div
-          class="relative z-0 h-200 aos-init aos-animate"
+          class="relative z-0 aos-init aos-animate"
           data-aos="fade-up"
           data-aos-duration="2500"
         >
-          <div
-            class="bg-2"
-            style="
-              background-image: url(&quot;/src/assets/slideabout/aboutcty.png&quot;);
-            "
-          ></div>
+          <img
+            src="/src/assets/slideabout/aboutcty.png"
+            alt="Đội ngũ LOT Software"
+            class="w-full h-auto block rounded-xl"
+          />
         </div>
       </div>
     </div>
@@ -433,7 +442,6 @@ const partners = [
 .marquee-item {
   flex-shrink: 0;
   width: calc((100vw - 32px - 16px * 4) / 5);
-  /* 100vw - padding ngoài (px-4 = 16px*2) - tổng gap (16px * 4 khoảng) / 5 item */
   box-sizing: border-box;
 }
 </style>

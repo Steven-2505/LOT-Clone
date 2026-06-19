@@ -3,12 +3,20 @@ import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
 import Select from "primevue/select";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
-const selectedJob = ref(null);
+import Swiper from "swiper";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
-onMounted(() => {
+const selectedJob = ref(null);
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  const el = document.querySelector(".process-swiper");
+  console.log("Swiper element:", el); // kiểm tra có tìm thấy không
+  initSwiper();
 });
 function animateSticker() {
   import("animejs").then(({ animate }) => {
@@ -32,6 +40,19 @@ function animateSticker() {
         delay: i * 500,
       });
     });
+  });
+}
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
   });
 }
 </script>
@@ -214,7 +235,7 @@ function animateSticker() {
                     class="introduction-section py-10 md:py-20"
                   >
                     <div class="intro-bg-overlay"></div>
-                    <div class="container mx-auto px-0 md:px-10">
+                    <div class="container md:mx-auto md:px-0 md:px-10">
                       <div
                         class="flex flex-col gap-8 justify-center items-center"
                       >
@@ -323,12 +344,14 @@ function animateSticker() {
                       >
                         <span data-v-4cf61cd5="" class="section-title"
                           >LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ</span
-                        ><img
-                          data-v-4cf61cd5=""
-                          src="../../assets/mailservice/section_break_line.svg"
-                          alt="divider"
-                          class="divider"
-                        />
+                        >
+                        <div data-v-b1f94cc2="" class="line-break">
+                          <img
+                            data-v-b1f94cc2=""
+                            src="../../assets/mailservice/section_break_line.svg"
+                            alt=""
+                          />
+                        </div>
                         <div
                           data-v-4cf61cd5=""
                           class="grid-wrapper mt-10 flex justify-center items-center wrap-gap"
@@ -701,6 +724,7 @@ function animateSticker() {
                       data-v-f1290138=""
                       class="process-container mt-10 w-full"
                     >
+                      <!-- Desktop: hiện từ md trở lên -->
                       <div
                         data-v-f1290138=""
                         class="hidden md:block process-stepper"
@@ -792,15 +816,14 @@ function animateSticker() {
                           </div>
                         </div>
                       </div>
+
+                      <!-- Mobile: hiện dưới md -->
                       <div data-v-f1290138="" class="block md:hidden">
                         <div
                           data-v-f1290138=""
-                          class="swiper swiper-initialized swiper-horizontal process-swiper process-stepper"
+                          class="swiper process-swiper process-stepper"
                         >
-                          <div
-                            class="swiper-wrapper"
-                            style="transition-duration: 10000ms"
-                          >
+                          <div class="swiper-wrapper">
                             <div data-v-f1290138="" class="swiper-slide">
                               <div data-v-f1290138="" class="step-item">
                                 <img
@@ -826,7 +849,6 @@ function animateSticker() {
                                   </p>
                                 </div>
                               </div>
-                              <!---->
                             </div>
                             <div data-v-f1290138="" class="swiper-slide">
                               <div data-v-f1290138="" class="step-item">
@@ -853,7 +875,6 @@ function animateSticker() {
                                   </p>
                                 </div>
                               </div>
-                              <!---->
                             </div>
                             <div data-v-f1290138="" class="swiper-slide">
                               <div data-v-f1290138="" class="step-item">
@@ -879,7 +900,6 @@ function animateSticker() {
                                   </p>
                                 </div>
                               </div>
-                              <!---->
                             </div>
                             <div data-v-f1290138="" class="swiper-slide">
                               <div data-v-f1290138="" class="step-item">
@@ -906,10 +926,11 @@ function animateSticker() {
                                   </p>
                                 </div>
                               </div>
-                              <!---->
                             </div>
                           </div>
-                          <!----><!----><!---->
+
+                          <!-- Thêm pagination và timeline -->
+                          <div class="swiper-pagination"></div>
                           <div data-v-f1290138="" class="timeline-line"></div>
                         </div>
                       </div>
@@ -927,7 +948,7 @@ function animateSticker() {
     <!---->
   </body>
 </template>
-<style scoped>
+<style>
 .bg-color {
   background-color: black;
   overflow: hidden;
@@ -963,10 +984,5 @@ function animateSticker() {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-@media (max-width: 1535px) {
-  .introduction-section .intro-grid-container .grid-connector {
-    display: none;
-  }
 }
 </style>

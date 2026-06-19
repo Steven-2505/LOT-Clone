@@ -614,6 +614,11 @@ import Headermb from "../Headermb.vue";
                     />
                   </div>
                 </div>
+                <div data-v-c615a816="" class="mobile-cta">
+                  <button data-v-c615a816="" class="cta-button cta-button-1">
+                    Liên hệ ngay
+                  </button>
+                </div>
               </div>
               <div
                 data-v-4cf61cd5=""
@@ -979,7 +984,7 @@ import Headermb from "../Headermb.vue";
     <!---->
   </body>
 </template>
-<style>
+<style scoped>
 [data-page="cloudPlatform"] .bottom-cover-wrapper {
   position: absolute;
   left: 0px;
@@ -997,5 +1002,60 @@ import Headermb from "../Headermb.vue";
 }
 [data-page="cloudPlatform"] .button-on-image {
   top: 315px;
+}
+@media (max-width: 768px) {
+  [data-page="androidDevelopment"] .sticker-wrapper {
+    transform: translateY(230px) scale(0.478) !important;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="cloudPlatform"] .intro-image {
+    min-width: 485px;
+    max-width: none;
+  }
+  .intro-image {
+    margin-top: 100px;
+  }
+  [data-page="cloudPlatform"] .bottom-cover-image {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .key-advantages-section {
+    margin-top: 30px;
+  }
+  .advantages-content {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    gap: 8px;
+  }
+  .advantage-box {
+    padding: 14px;
+    aspect-ratio: 158 / 175;
+  }
+  .advantage-title {
+    font-size: 12px;
+  }
+  .advantage-description {
+    font-size: 12px;
+    line-height: 16.8px;
+  }
+  .advantage-image {
+    top: auto;
+    bottom: 0;
+    height: auto;
+    max-height: 60%;
+  }
+  .advantages-footer {
+    display: none;
+  }
+  .mobile-cta[data-v-c615a816] {
+    display: block;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}
+.mobile-cta {
+  display: none;
 }
 </style>

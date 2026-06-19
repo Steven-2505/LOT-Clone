@@ -2,17 +2,49 @@
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
 import wireframe1 from "../../assets/design/wireframe-commitment-1.png";
 import wireframe2 from "../../assets/design/wireframe-commitment-2.png";
 import wireframe3 from "../../assets/design/wireframe-commitment-3.png";
 import wireframe4 from "../../assets/design/wireframe-commitment-4.png";
+import "swiper/css";
+import "swiper/css/pagination";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
+
 const selectedJob = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  initSwiper();
 });
+
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+  new Swiper(".commitment-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1.5,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+  });
+}
 function animateSticker() {
   import("animejs").then(({ animate }) => {
     document.querySelectorAll(".sticker").forEach((el, i) => {
@@ -56,7 +88,10 @@ function animateSticker() {
               <Header></Header>
               <Headermb></Headermb>
             </div>
-            <div data-v-f7e9f39d="" class="container mx-auto px-0 md:px-10">
+            <div
+              data-v-f7e9f39d=""
+              class="container md:mx-auto md:px-0 md:px-10"
+            >
               <div data-v-5402c78a="" data-v-f7e9f39d="" class="intro-service">
                 <!---->
                 <div
@@ -1155,5 +1190,67 @@ function animateSticker() {
   font-style: Regular;
   line-height: 25px;
   font-size: 15px;
+}
+@media (max-width: 768px) {
+  [data-page="systemAnalysis"] .sticker-wrapper {
+    transform: translateY(230px) scale(0.478) !important;
+  }
+  [data-page="systemAnalysis"] .intro-image-wrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  [data-page="wireframeDesign"] .sticker-wrapper {
+    transform: translateY(220px) scale(0.478) !important;
+  }
+}
+.commitment-section .grid-wrapper[data-v-c460166a] {
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  padding: 0 20px;
+}
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  );
+  box-sizing: content-box;
+}
+.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+}
+.swiper-backface-hidden .swiper-slide {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.swiper-type .grid-item {
+  padding: 191px 20px 20px;
+  width: 214px;
+  height: 304px;
+  background-size: cover;
 }
 </style>

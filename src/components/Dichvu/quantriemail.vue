@@ -211,10 +211,10 @@ function animateSticker() {
                   </div>
                 </div>
               </div>
-              <div class="benefit-section py-10 md:py-20">
+              <div class="benefit-section py-10 md:py-20 text-wrap">
                 <div class="container mx-auto px-0 md:px-10">
                   <div class="flex flex-col gap-8 justify-center items-center">
-                    <span class="section-title text-nowrap"
+                    <span class="section-title text-wrap"
                       >LỢI ÍCH KHI SỬ DỤNG DỊCH VỤ</span
                     ><img
                       src="../../assets/mailservice/section_break_line.svg"
@@ -587,7 +587,7 @@ function animateSticker() {
     <!---->
   </body>
 </template>
-<style scoped>
+<style>
 .bg-color {
   background-color: black;
   overflow: hidden;

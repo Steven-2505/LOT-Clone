@@ -63,10 +63,12 @@ onMounted(() => {
     data-aos-easing="ease"
     data-aos-duration="400"
     data-aos-delay="0"
-    class="video-container"
+    class="video-container overlay-hiden"
   >
-    <Header> </Header>
-    <Headermb></Headermb>
+    <div class="overlay-hiden">
+      <Header> </Header>
+      <Headermb></Headermb>
+    </div>
     <video autoplay muted loop playsinline>
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>
@@ -225,8 +227,8 @@ onMounted(() => {
                     );
                   "
                 >
-                  <span class="title-info pl-20px">50+</span
-                  ><span class="flex pt-1 content-infor">Thành viên IT</span
+                  <span class="title-info md:pl-20px">50+</span
+                  ><span class="flex content-infor">Thành viên IT</span
                   ><img
                     class="sm:w-10 w-7.5"
                     src="../assets/about-icon.svg"
@@ -247,8 +249,8 @@ onMounted(() => {
                     );
                   "
                 >
-                  <span class="title-info pl-20px">100+</span
-                  ><span class="flex pt-1 content-infor">Đối tác</span
+                  <span class="title-info md:pl-20px">100+</span
+                  ><span class="flex content-infor">Đối tác</span
                   ><img
                     class="sm:w-10 w-7.5"
                     src="../assets/about-icon.svg"
@@ -272,7 +274,7 @@ onMounted(() => {
                     src="../assets/about-icon.svg"
                     alt=""
                   /><span class="title-info">5</span
-                  ><span class="flex pt-1 content-infor pr-20px"
+                  ><span class="flex content-infor md:pr-20px"
                     >Năm sản xuất</span
                   >
                 </div>
@@ -295,7 +297,7 @@ onMounted(() => {
                     src="../assets/about-icon.svg"
                     alt=""
                   /><span class="title-info">24/7</span
-                  ><span class="flex sm:pt-1 content-infor pr-20px"
+                  ><span class="flex sm:pt-1 content-infor md:pr-20px"
                     >Đội ngũ hỗ trợ</span
                   >
                 </div>
@@ -339,37 +341,40 @@ onMounted(() => {
     <!--Phần quánh trình hình thành app -->
     <div data-aos="fade-up" data-aos-duration="2500" class="bg-black pb-60px">
       <div class="max-w-7xl mx-auto w-full px-10">
-        <div class="grid grid-cols-9 grid-rows-3 gap-3 pt-8 px-10">
-          <div
-            class="relative grow overplay-display cursor-pointer"
-            :class="{ active: activeCard === 'nifehub' }"
-            @click="selectCard('nifehub', Nifehub)"
-          >
+        <div class="flex flex-col md:grid md:grid-cols-9 md:grid-rows-3 gap-3">
+          <div class="grid grid-cols-2 gap-3 md:contents">
+            <!-- N-HUB -->
             <div
-              class="grid-item flex flex-col items-center gap-2 bg-[#232323] min-h-33.5 p-2 rounded-md justify-center"
+              class="relative overplay-display cursor-pointer md:row-start-1 md:col-start-1"
+              :class="{ active: activeCard === 'nifehub' }"
+              @click="selectCard('nifehub', Nifehub)"
             >
               <div
-                class="shadow-[0_5px_20px_3px_#FFD25F] line bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
-              ></div>
-              <img width="50px" :src="nifehub" alt="" />
-              <div class="text-[14px]">N-HUB</div>
+                class="grid-item flex flex-col items-center gap-2 bg-[#232323] min-h-33.5 p-2 rounded-md justify-center relative"
+              >
+                <div
+                  class="shadow-[0_5px_20px_3px_#FFD25F] bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
+                ></div>
+                <img width="50px" :src="nifehub" alt="" />
+                <div class="text-[14px]">N-HUB</div>
+              </div>
             </div>
-          </div>
 
-          <!-- th NEX -->
-          <div
-            class="grow col-start-1 row-start-2 relative overplay-display cursor-pointer"
-            :class="{ active: activeCard === 'nex' }"
-            @click="selectCard('nex', Nex)"
-          >
+            <!-- NEX -->
             <div
-              class="grid-item flex flex-col items-center gap-2 bg-[#232323] p-2 min-h-33.5 p-4 rounded-md justify-center"
+              class="relative overplay-display cursor-pointer md:col-start-1 md:row-start-2"
+              :class="{ active: activeCard === 'nex' }"
+              @click="selectCard('nex', Nex)"
             >
-              <img width="50px" :src="nex" alt="" />
-              <div class="text-[14px]">NEX</div>
               <div
-                class="line bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
-              ></div>
+                class="grid-item flex flex-col items-center gap-2 bg-[#232323] min-h-33.5 p-2 rounded-md justify-center relative"
+              >
+                <img width="50px" :src="nex" alt="" />
+                <div class="text-[14px]">NEX</div>
+                <div
+                  class="bg-[#F6CD7E] h-1.25 w-15 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2"
+                ></div>
+              </div>
             </div>
           </div>
 
@@ -417,12 +422,12 @@ onMounted(() => {
               class="flex lg:justify-center m-auto gap-2 md:gap-4 md:px-0 container pb-10 aos-init aos-animate"
               data-aos="fade-left"
               data-aos-duration="2500"
-              style="overflow: auto"
+              style="overflow: hidden"
             >
               <div
                 :class="{ active: activeApp === 'ndashboardApp' }"
                 @click="selectApp('ndashboardApp', NdashboardApp)"
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+                class="flex items-center justify-center cursor-pointer min-w-0 transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
                   <div class="flex items-center gap-3">
@@ -438,7 +443,7 @@ onMounted(() => {
               <div
                 :class="{ active: activeApp === 'nifehubApp' }"
                 @click="selectApp('nifehubApp', NifehubApp)"
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+                class="flex items-center justify-center cursor-pointer min-w-0 transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
                   <div class="flex items-center gap-3">
@@ -454,7 +459,7 @@ onMounted(() => {
               <div
                 :class="{ active: activeApp === 'nexApp' }"
                 @click="selectApp('nexApp', NexApp)"
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+                class="flex items-center justify-center cursor-pointer min-w-0 transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
                   <div class="flex items-center gap-3">
@@ -475,6 +480,7 @@ onMounted(() => {
         </div>
       </section>
     </div>
+    <!-- Sáng tối-->
     <div
       data-aos="fade-up"
       data-aos-duration="2500"
@@ -607,12 +613,13 @@ onMounted(() => {
         </div>
       </div>
     </div>
+    <!--chức năng-->
     <div
       data-aos="fade-up"
       data-aos-duration="2500"
       class="aos-init aos-animate"
     >
-      <div class="grid-gradient">
+      <div class="function-dsk grid-gradient">
         <div class="container mx-auto xl:px-10 px-6 mt-10 py-6">
           <div class="xl:flex">
             <div class="xl:flex grow w-full justify-end">
@@ -1664,3 +1671,10 @@ onMounted(() => {
     <Footer></Footer>
   </section>
 </template>
+<style>
+@media (max-width: 768px) {
+  .function-dsk {
+    display: none;
+  }
+}
+</style>

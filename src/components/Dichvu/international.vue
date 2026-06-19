@@ -2,13 +2,34 @@
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { animate, stagger } from "animejs";
+import Swiper from "swiper";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
 const selectedJob = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
   animateSticker();
+  await nextTick();
+  initSwiper();
 });
+
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
 function animateSticker() {
   import("animejs").then(({ animate }) => {
     document.querySelectorAll(".sticker").forEach((el, i) => {
@@ -789,7 +810,7 @@ function animateSticker() {
                   <div data-v-f1290138="" class="block md:hidden">
                     <div
                       data-v-f1290138=""
-                      class="swiper swiper-initialized swiper-horizontal process-swiper process-stepper"
+                      class="swiper process-swiper process-stepper"
                     >
                       <div
                         class="swiper-wrapper"
@@ -907,3 +928,10 @@ function animateSticker() {
     <!---->
   </body>
 </template>
+<style>
+@media (max-width: 768px) {
+  [data-page="internationalDatacenter"] .sticker-wrapper {
+    transform: translateY(230px) scale(0.478) !important;
+  }
+}
+</style>

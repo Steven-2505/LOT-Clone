@@ -1,5 +1,5 @@
 <template>
-  <div class="my-6">
+  <div class="lg:my-6">
     <div>
       <div
         class="lg:grid-cols-4 grid-cols-1 section-time grid grid-rows-1 text-center flex-wrap py-[10px] xl:w-auto w-fit m-auto lg:mx-16"
@@ -66,7 +66,7 @@
       NHUB?
     </div>
   </div>
-  <div class="origin-top text-left">
+  <div class="origin-top text-left lg:mx-40">
     <div
       class="flex lg:gap-32 bg-[#171717] rounded-xl p-8 mb-6 item-nth lg:flex-row flex-col gap-10"
     >

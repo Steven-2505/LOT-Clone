@@ -58,101 +58,176 @@ const partners2 = [...partners].reverse();
 </script>
 <template>
   <div data-aos="fade-up" data-aos-duration="2500" class="aos-init aos-animate">
-    <div class="container mx-auto py-20">
-      <div>
-        <div class="leading-normal text-[#EBC47C] text-center text-[18px]">
+    <div data-v-90a935dd="" class="container mx-auto py-20">
+      <div data-v-90a935dd="">
+        <div data-v-90a935dd="" class="text-[#EBC47C] text-center text-[18px]">
           Trải nghiệm kết hợp
         </div>
         <div
-          class="leading-normal mb-4 text-transparent bg-clip-text text-center uppercase lg:text-[54px] text-[32px] font-bold custom-text-gradient line-"
+          data-v-90a935dd=""
+          class="mb-4 text-transparent bg-clip-text text-center uppercase lg:text-[54px] text-[32px] font-bold custom-text-gradient"
         >
           Trải nghiệm sự kết hợp giữa hệ thống<br />
           booking và POS trong một ứng dụng
         </div>
       </div>
       <div
+        data-v-90a935dd=""
         class="flex justify-center lg:flex-row gap-10 mt-14 flex-col-reverse lg:ms-[150px]"
       >
-        <div
-          class="flex justify-center lg:flex-row gap-10 mt-14 flex-col-reverse"
-        >
-          <!-- Slide chính -->
-          <div class="w-full max-w-[900px] bg-circle relative">
-            <Swiper
-              :modules="[Thumbs]"
-              :thumbs="{ swiper: thumbsSwiper }"
-              @swiper="setMainSwiper"
-              style="height: 100%"
-            >
-              <SwiperSlide
-                v-for="(slide, i) in [slide1, slide2, slide3]"
-                :key="i"
-              >
-                <div class="h-full mx-auto">
-                  <div
-                    class="lg:h-[350px] bg-center h-[150px] bg-contain bg-no-repeat mt-[30px]"
-                    :style="{ backgroundImage: 'url(' + slide + ')' }"
-                  ></div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-
-          <!-- Thumbnail dọc + nút prev/next -->
+        <div data-v-90a935dd="" class="w-full max-w-[900px] bg-circle relative">
           <div
-            class="lg:h-[300px] lg:w-[120px] h-full lg:p-0 px-10 relative flex flex-col items-center"
+            data-v-90a935dd=""
+            class="swiper swiper-initialized swiper-horizontal swiper-ios swiper-backface-hidden"
+            style="height: 100%"
           >
-            <!-- Nút prev -->
-            <span
-              class="cursor-pointer flex items-center justify-center pb-4"
-              @click="thumbSwiper?.slidePrev()"
+            <div
+              class="swiper-wrapper"
+              style="transform: translate3d(0px, 0px, 0px)"
             >
-              <svg width="21" height="19" viewBox="0 0 21 19" fill="none">
-                <path
-                  d="M8.757 1.23688C9.58758 -0.201731 11.664 -0.201733 12.4946 1.23688L20.5928 15.2634C21.4234 16.702 20.3852 18.5002 18.724 18.5002H2.52762C0.866455 18.5002 -0.171778 16.702 0.658806 15.2634L8.757 1.23688Z"
-                  fill="#FFDE9C"
-                />
-              </svg>
-            </span>
-
-            <!-- Thumbnail dọc -->
-            <Swiper
-              direction="vertical"
-              :modules="[Autoplay]"
-              :autoplay="{ delay: 3000, disableOnInteraction: false }"
-              :loop="true"
-              @swiper="setThumbSwiper"
-              :slides-per-view="3"
-              :space-between="20"
-              class="h-full w-full"
-            >
-              <SwiperSlide
-                v-for="(slide, i) in [slide1, slide2, slide3]"
-                :key="i"
-                style="height: 140px"
+              <div
+                data-v-90a935dd=""
+                class="swiper-slide swiper-slide-active"
+                data-swiper-slide-index="0"
+                style="width: 900px; margin-right: 10px"
               >
-                <div class="w-full h-full">
+                <div data-v-90a935dd="" class="h-full mx-auto">
                   <div
-                    class="h-full bg-contain bg-center bg-no-repeat min-h-[140px]"
-                    :style="{ backgroundImage: 'url(' + slide + ')' }"
+                    data-v-90a935dd=""
+                    class="lg:h-[350px] bg-center h-[150px] bg-contain bg-no-repeat mt-[30px]"
+                    :style="`background-image: url('../assets/slide1.png')`"
                   ></div>
                 </div>
-              </SwiperSlide>
-            </Swiper>
-
-            <!-- Nút next — điều khiển slide đứng -->
-            <span
-              class="cursor-pointer flex items-center justify-center pt-2"
-              @click="thumbSwiper?.slideNext()"
-            >
-              <svg width="21" height="20" viewBox="0 0 21 20" fill="none">
-                <path
-                  d="M8.757 17.9741C9.58758 19.4127 11.664 19.4127 12.4946 17.9741L20.5928 3.94758C21.4234 2.50896 20.3852 0.710693 18.724 0.710693H2.52762C0.866455 0.710693 -0.171778 2.50896 0.658806 3.94757L8.757 17.9741Z"
-                  fill="#FFDE9C"
-                />
-              </svg>
-            </span>
+                <!---->
+              </div>
+              <div
+                data-v-90a935dd=""
+                class="swiper-slide swiper-slide-next"
+                data-swiper-slide-index="1"
+                style="width: 900px; margin-right: 10px"
+              >
+                <div data-v-90a935dd="" class="h-full mx-auto">
+                  <div
+                    data-v-90a935dd=""
+                    class="lg:h-[350px] bg-center h-[150px] bg-contain bg-no-repeat mt-[30px]"
+                    :style="`background-image: url('../assets/slide2.png')`"
+                  ></div>
+                </div>
+                <!---->
+              </div>
+              <div
+                data-v-90a935dd=""
+                class="swiper-slide"
+                data-swiper-slide-index="2"
+                style="width: 900px; margin-right: 10px"
+              >
+                <div data-v-90a935dd="" class="h-full mx-auto">
+                  <div
+                    data-v-90a935dd=""
+                    class="lg:h-[350px] bg-center h-[150px] bg-contain bg-no-repeat mt-[30px]"
+                    :style="`background-image: url('../assets/slide3.png')`"
+                  ></div>
+                </div>
+                <!---->
+              </div>
+            </div>
           </div>
+        </div>
+        <div
+          data-v-90a935dd=""
+          class="lg:h-[300px] lg:w-[120px] h-full lg:p-0 px-10 relative"
+        >
+          <span
+            data-v-90a935dd=""
+            class="cursor-pointer flex items-center justify-center pb-4 prev-icon swiper-button-disabled"
+            ><svg
+              data-v-90a935dd=""
+              width="21"
+              height="19"
+              viewBox="0 0 21 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                data-v-90a935dd=""
+                d="M8.757 1.23688C9.58758 -0.201731 11.664 -0.201733 12.4946 1.23688L20.5928 15.2634C21.4234 16.702 20.3852 18.5002 18.724 18.5002H2.52762C0.866455 18.5002 -0.171778 16.702 0.658806 15.2634L8.757 1.23688Z"
+                fill="#FFDE9C"
+              ></path></svg
+          ></span>
+          <div
+            data-v-90a935dd=""
+            class="swiper swiper-initialized swiper-ios swiper-backface-hidden swiper-thumbs swiper-vertical h-full"
+          >
+            <div
+              class="swiper-wrapper"
+              style="
+                transform: translate3d(0px, 0px, 0px);
+                transition-duration: 0ms;
+                transition-delay: 0ms;
+              "
+            >
+              <div
+                data-v-90a935dd=""
+                class="swiper-slide swiper-slide-visible swiper-slide-active swiper-slide-fully-visible swiper-slide-thumb-active"
+                style="height: 140px; margin-bottom: 20px"
+              >
+                <div data-v-90a935dd="" class="w-full h-full">
+                  <div
+                    data-v-90a935dd=""
+                    class="h-full bg-contain bg-center bg-no-repeat min-h-[140px]"
+                    :style="`background-image: url('../assets/slide1.png')`"
+                  ></div>
+                </div>
+                <!---->
+              </div>
+              <div
+                data-v-90a935dd=""
+                class="swiper-slide swiper-slide-visible swiper-slide-next swiper-slide-fully-visible"
+                style="height: 140px; margin-bottom: 20px"
+              >
+                <div data-v-90a935dd="" class="w-full h-full">
+                  <div
+                    data-v-90a935dd=""
+                    class="h-full bg-contain bg-center bg-no-repeat min-h-[140px]"
+                    :style="`background-image: url('../assets/slide2.png')`"
+                  ></div>
+                </div>
+                <!---->
+              </div>
+              <div
+                data-v-90a935dd=""
+                class="swiper-slide"
+                style="height: 140px; margin-bottom: 20px"
+              >
+                <div data-v-90a935dd="" class="w-full h-full">
+                  <div
+                    data-v-90a935dd=""
+                    class="h-full bg-contain bg-center bg-no-repeat min-h-[140px]"
+                    :style="`background-image: url('../assets/slide3.png')`"
+                  ></div>
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!----><!----><!---->
+          </div>
+          <span
+            data-v-90a935dd=""
+            class="cursor-pointer flex items-center justify-center pt-2 next-icon"
+            ><svg
+              data-v-90a935dd=""
+              width="21"
+              height="20"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                data-v-90a935dd=""
+                d="M8.757 17.9741C9.58758 19.4127 11.664 19.4127 12.4946 17.9741L20.5928 3.94758C21.4234 2.50896 20.3852 0.710693 18.724 0.710693H2.52762C0.866455 0.710693 -0.171778 2.50896 0.658806 3.94757L8.757 17.9741Z"
+                fill="#FFDE9C"
+              ></path></svg
+          ></span>
         </div>
       </div>
       <div
@@ -179,6 +254,12 @@ const partners2 = [...partners].reverse();
     <!-- Slide hàng 1 - chạy sang trái -->
     <Swiper
       :modules="[Autoplay]"
+      :breakpoints="{
+        0: { slidesPerView: 2 },
+        480: { slidesPerView: 2 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 8 },
+      }"
       :autoplay="{
         delay: 0,
         disableOnInteraction: false,

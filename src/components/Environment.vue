@@ -56,7 +56,7 @@ function selectApp(name, component) {
       </div>
     </section>
   </div>
-  <section class="bg-black px-evi">
+  <section class="bg-black">
     <div
       class="text-center bg-black from-[#000000] to-[#1E1E1E] aos-init aos-animate"
       data-aos="fade-right"
@@ -70,15 +70,15 @@ function selectApp(name, component) {
             data-aos-duration="1500"
           >
             <div
-              class="flex lg:justify-center m-auto gap-2 md:gap-4 md:px-0 container pb-10 aos-init aos-animate"
+              class="flex lg:justify-center m-auto gap-2 app-selector md:gap-4 md:px-0 container lg:pb-10 aos-init aos-animate overlay-hiden"
               data-aos="fade-left"
               data-aos-duration="1500"
-              style="overflow: auto"
+              style="overflow: hidden"
             >
               <div
                 :class="{ active: activeApp === 'nexdash' }"
                 @click="selectApp('nexdash', Nexdash)"
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+                class="flex items-center justify-center cursor-pointer min-w-0 transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
                   <div class="flex items-center gap-3">
@@ -94,7 +94,7 @@ function selectApp(name, component) {
               <div
                 :class="{ active: activeApp === 'nhub' }"
                 @click="selectApp('nhub', Nhub)"
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+                class="flex items-center justify-center cursor-pointer min-w-0 transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
                   <div class="flex items-center gap-3">
@@ -110,7 +110,7 @@ function selectApp(name, component) {
               <div
                 :class="{ active: activeApp === 'nexnow' }"
                 @click="selectApp('nexnow', Nexnow)"
-                class="flex items-center justify-center cursor-pointer transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
+                class="flex items-center justify-center cursor-pointer min-w-0 transition bg-[#F0E7CF] rounded rounded-3 w-full hover:bg-[#ffff] over-play"
               >
                 <div class="">
                   <div class="flex items-center gap-3">
@@ -134,3 +134,4 @@ function selectApp(name, component) {
     <AppFooter></AppFooter>
   </section>
 </template>
+<style scoped></style>
