@@ -146,8 +146,8 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/"
-                  >Quản trị email server</Routerlink
+                <RouterLink class="service-title" to="/"
+                  >Quản trị email server</RouterLink
                 >
                 <div class="service-subtitle">
                   Quản lý và bảo mật email server.
@@ -160,8 +160,8 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/"
-                  >Phân tích, thiết kế hệ thống</Routerlink
+                <RouterLink class="service-title" to="/"
+                  >Phân tích, thiết kế hệ thống</RouterLink
                 >
                 <div class="service-subtitle">
                   Phân tích, thiết kế kiến trúc phần mềm.
@@ -174,9 +174,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/cdn">
+                <RouterLink class="service-title" to="/cdn">
                   Hạ tầng dịch vụ mạng lưới phân phối dữ liệu (CDN)
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Xây dựng hạ tầng CDN, phân phối nội dung nhanh.
                 </div>
@@ -188,9 +188,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title">
+                <RouterLink class="service-title">
                   Hạ tầng dịch vụ datacenter quốc tế
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Cung cấp datacenter quốc tế hiệu suất cao.
                 </div>
@@ -202,9 +202,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Hệ thống cảnh báo thông minh, ứng dụng công nghệ AI
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Giám sát an toàn, dự đoán rủi ro
                 </div>
@@ -219,9 +219,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Hạ tầng dịch vụ datacenter nội địa
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Xây dựng datacenter tại Việt Nam.
                 </div>
@@ -233,9 +233,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Giải pháp thu thập dữ liệu phục vụ xây dựng cơ sở dữ liệu số
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Công cụ thu thập dữ liệu cho CSDL số.
                 </div>
@@ -247,8 +247,8 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/"
-                  >Dịch vụ tích hợp hệ thống</Routerlink
+                <RouterLink class="service-title" to="/"
+                  >Dịch vụ tích hợp hệ thống</RouterLink
                 >
                 <div class="service-subtitle">
                   Tích hợp hệ thống, tối ưu quy trình.
@@ -275,9 +275,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Dịch vụ phát triển ứng dụng dành cho IOS
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">Phát triển ứng dụng cho iOS.</div>
               </div></a
             >
@@ -290,9 +290,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Dịch vụ phát triển ứng dụng dành cho Android
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Phát triển ứng dụng cho Android.
                 </div>
@@ -304,9 +304,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Dịch vụ nền tảng điện toán đám mây (CLOUD)
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Triển khai và quản lý dịch vụ đám mây.
                 </div>
@@ -318,8 +318,8 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/"
-                  >Dịch vụ hỗ trợ kỹ thuật</Routerlink
+                <RouterLink class="service-title" to="/"
+                  >Dịch vụ hỗ trợ kỹ thuật</RouterLink
                 >
                 <div class="service-subtitle">Hỗ trợ kỹ thuật 24/7.</div>
               </div></a
@@ -330,8 +330,8 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/"
-                  >Dịch vụ điện toán đám mây</Routerlink
+                <RouterLink class="service-title" to="/"
+                  >Dịch vụ điện toán đám mây</RouterLink
                 >
                 <div class="service-subtitle">
                   Tư vấn, triển khai giải pháp đám mây.
@@ -344,9 +344,9 @@ onUnmounted(() => {
                 class="service-icon"
               />
               <div class="service-text">
-                <Routerlink class="service-title" to="/">
+                <RouterLink class="service-title" to="/">
                   Dịch vụ chăm sóc website chuyên nghiệp
-                </Routerlink>
+                </RouterLink>
                 <div class="service-subtitle">
                   Bảo trì, tối ưu và bảo mật website.
                 </div>

@@ -27,6 +27,70 @@ import Tuychinhmatbang from "./Chucnang/tuychinhmatbang.vue";
 import Tuychinhmenu from "./Chucnang/tuychinhmenu.vue";
 import Footer from "./footer.vue";
 import Headermb from "./Headermb.vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+
+import reportIcon from "../assets/report.svg";
+import paymentIcon from "../assets/payment.svg";
+import modeIcon from "../assets/mode.svg";
+import posIcon from "../assets/pos.svg";
+import staffIcon from "../assets/staff.svg";
+import floorIcon from "../assets/floor.svg";
+import menuIcon from "../assets/menu.svg";
+
+const chucnangList = [
+  {
+    key: "baocao",
+    name: "Báo cáo",
+    desc: "Hệ thống cung cấp khả năng tích hợp thông tin từ các giao dịch đặt lịch",
+    icon: reportIcon,
+    component: Baocao,
+  },
+  {
+    key: "thanhtoan",
+    name: "Thanh toán",
+    desc: "NEX-DASHBOARD hỗ trợ chủ shop kiểm tra chi tiết doanh thu dựa trên mã",
+    icon: paymentIcon,
+    component: Thanhtoan,
+  },
+  {
+    key: "ngoaituyen",
+    name: "Ngoại tuyến",
+    desc: "Tính năng OFFLINE MODE cho phép hệ thống xử lý các giao dịch",
+    icon: modeIcon,
+    component: Ngoaituyen,
+  },
+  {
+    key: "pos",
+    name: "Tích hợp POS",
+    desc: "Tích hợp POS giúp hệ thống kết nối và đồng bộ dữ liệu từ các giao dịch bán lẻ",
+    icon: posIcon,
+    component: Pos,
+  },
+  {
+    key: "qlnv",
+    name: "Quản lý NV",
+    desc: "Tính năng STAFF MANAGEMENT cung cấp các công cụ quản lý nhân sự toàn diện",
+    icon: staffIcon,
+    component: Qlnv,
+  },
+  {
+    key: "tuychinhmatbang",
+    name: "Mặt bằng",
+    desc: "Tính năng CUSTOM FLOOR PLAN cho phép doanh nghiệp tự thiết kế mặt bằng cửa hàng một cách linh hoạt.",
+    icon: floorIcon,
+    component: Tuychinhmatbang,
+  },
+  {
+    key: "tuychinhmenu",
+    name: "Menu",
+    desc: "Tính năng MENU CUSTOMIZE hỗ trợ doanh nghiệp dễ dàng tùy chỉnh danh sách sản phẩm",
+    icon: menuIcon,
+    component: Tuychinhmenu,
+  },
+];
 
 const activeCard = ref("nifehub");
 const currentComponent = shallowRef(Nifehub);
@@ -63,13 +127,13 @@ onMounted(() => {
     data-aos-easing="ease"
     data-aos-duration="400"
     data-aos-delay="0"
-    class="video-container overlay-hiden"
+    class="video-container"
   >
     <div class="overlay-hiden">
       <Header> </Header>
       <Headermb></Headermb>
     </div>
-    <video autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline class="overlay-hiden">
       <source src="../assets/bg.mp4" type="video/mp4" />
     </video>
     <section class="w-full relative header-content">
@@ -96,7 +160,7 @@ onMounted(() => {
       </div>
     </section>
     <div
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center flex-col gap-3 pb-6 mb-20px"
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center flex-col gap-3 pb-6 mb-20px overlay-hiden"
     >
       Cuộn để khám phá
       <span class="scroll-animate"
@@ -117,7 +181,7 @@ onMounted(() => {
       </span>
     </div>
   </div>
-  <section class="bg-black">
+  <section class="bg-black overlay-hiden">
     <div
       class="text-center bg-black from-[#000000] to-[#1E1E1E] pt-60px pb-60px aos-init aos-animate"
       data-aos="fade-right"
@@ -619,6 +683,7 @@ onMounted(() => {
       data-aos-duration="2500"
       class="aos-init aos-animate"
     >
+      <!-- chức năng desktop-->
       <div class="function-dsk grid-gradient">
         <div class="container mx-auto xl:px-10 px-6 mt-10 py-6">
           <div class="xl:flex">
@@ -1664,6 +1729,128 @@ onMounted(() => {
           </div>
         </div>
       </div>
+      <!--chức năng mobile-->
+      <div class="function-mb grid-gradient">
+        <div class="container mx-auto xl:px-10 px-6 mt-10 py-6">
+          <!-- Swiper icon hàng ngang -->
+          <Swiper
+            :modules="[Swiper]"
+            :direction="'horizontal'"
+            :slides-per-view="3"
+            :space-between="60"
+            class="!ps-4 !py-3"
+            @swiper="setChucnangSwiper"
+            @slideChange="onChucnangSlideChange"
+          >
+            <SwiperSlide
+              v-for="(item, index) in chucnangList"
+              :key="item.name"
+              style="width: auto"
+            >
+              <div
+                class="rounded-full border-[#c8bd96] w-fit border p-5 drop-shadow-2xl cursor-pointer"
+                :class="{
+                  'shadow-[0_0px_13px_10px_#ffd25f3d]':
+                    activeChucnang === item.key,
+                }"
+                @click="selectChucnang(item.key, item.component)"
+              >
+                <img width="40" :src="item.icon" alt="" />
+              </div>
+            </SwiperSlide>
+          </Swiper>
+
+          <!-- Description active -->
+          <div class="item-description mt-4">
+            <div class="text-[#c9be97] uppercase text-[14px] font-bold">
+              {{ chucnangList.find((i) => i.key === activeChucnang)?.name }}
+            </div>
+            <div class="text-white text-[12px] line-clamp-1">
+              {{ chucnangList.find((i) => i.key === activeChucnang)?.desc }}
+            </div>
+            <div class="flex items-center justify-end gap-2 mt-2">
+              <span
+                class="font-bold text-[13px] bg-clip-text text-transparent custom-text-gradient capitalize"
+              >
+                Learn More
+              </span>
+              <span>
+                <svg
+                  width="42"
+                  height="26"
+                  viewBox="0 0 42 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter_mb_arrow)">
+                    <path
+                      d="M31.1582 13L26.1582 10.1132V15.8868L31.1582 13ZM10.1582 13.5L26.6582 13.5V12.5L10.1582 12.5V13.5Z"
+                      fill="url(#paint_mb_arrow)"
+                    ></path>
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter_mb_arrow"
+                      x="0.158203"
+                      y="0.113281"
+                      width="41"
+                      height="25.7734"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood
+                        flood-opacity="0"
+                        result="BackgroundImageFix"
+                      ></feFlood>
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      ></feColorMatrix>
+                      <feOffset></feOffset>
+                      <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+                      <feComposite in2="hardAlpha" operator="out"></feComposite>
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 1 0 0 0 0 0.478431 0 0 0 0 0 0 0 0 0.5 0"
+                      ></feColorMatrix>
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_mb_arrow"
+                      ></feBlend>
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_mb_arrow"
+                        result="shape"
+                      ></feBlend>
+                    </filter>
+                    <radialGradient
+                      id="paint_mb_arrow"
+                      cx="0"
+                      cy="0"
+                      r="1"
+                      gradientUnits="userSpaceOnUse"
+                      gradientTransform="translate(22.0589 13.2846) rotate(4.11485) scale(8.46888 1.90236)"
+                    >
+                      <stop offset="0.00502064" stop-color="white"></stop>
+                      <stop offset="0.775" stop-color="#DBCEA0"></stop>
+                      <stop offset="0.98" stop-color="#C9BE97"></stop>
+                    </radialGradient>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Dynamic component -->
+          <div class="mt-6 w-full">
+            <component :is="currentComponentChucnang" />
+          </div>
+        </div>
+      </div>
     </div>
     <div>
       <Slidehome></Slidehome>
@@ -1675,6 +1862,25 @@ onMounted(() => {
 @media (max-width: 768px) {
   .function-dsk {
     display: none;
+  }
+  .function-mb {
+    display: block;
+  }
+  .item-description {
+    position: relative;
+    padding: 16px 20px;
+    z-index: 0;
+  }
+
+  .item-description::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/bg-content.svg") no-repeat center center;
+    background-size: 100% 100%;
+    z-index: -1;
+    margin-top: 40px;
+    pointer-events: none;
   }
 }
 </style>

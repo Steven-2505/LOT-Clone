@@ -2575,3 +2575,9 @@ code {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+.h-desktop {
+  height: 380px;
+}
+.function-mb {
+  display: none;
+}

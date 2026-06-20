@@ -29,7 +29,7 @@ const jobOptions = [
       <div class="mb-20px">
         <Headermb></Headermb>
       </div>
-      <div class="relative top-[60px]">
+      <div class="relative top-[60px] mfr">
         <div class="text-[#EBC47C] text-center text-[18px]">Who We Are</div>
         <div
           class="text-transparent bg-clip-text text-center uppercase lg:text-[50px] text-[32px] font-bold custom-text-gradient leading-normal"
@@ -100,5 +100,11 @@ const jobOptions = [
 .bg-color {
   background-color: black;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .mfr {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 </style>

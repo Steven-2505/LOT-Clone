@@ -2,6 +2,28 @@
 import Header from "../Header.vue";
 import Footer from "../footer.vue";
 import Headermb from "../Headermb.vue";
+import { ref, onMounted, nextTick } from "vue";
+import Swiper from "swiper";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
+onMounted(async () => {
+  await nextTick();
+  initSwiper();
+});
+
+function initSwiper() {
+  new Swiper(".process-swiper", {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    speed: 4000,
+  });
+}
 </script>
 <template>
   <body
@@ -852,36 +874,44 @@ import Headermb from "../Headermb.vue";
   .advantages-footer {
     display: none;
   }
-  .advantages-content[data-v-c615a816] {
+  .advantages-content {
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
     gap: 8px;
   }
-  .advantage-box[data-v-c615a816] {
+  .advantage-box {
     padding: 14px;
     aspect-ratio: 158 / 175;
   }
-  .advantage-title[data-v-c615a816] {
+  .advantage-title {
     font-size: 12px;
   }
-  .advantage-description[data-v-c615a816] {
+  .advantage-description {
     font-size: 12px;
     line-height: 16.8px;
   }
-  .advantage-image[data-v-c615a816] {
+  .advantage-image {
     top: auto;
     bottom: 0;
     height: auto;
     max-height: 60%;
   }
-  .advantage-box-last-odd[data-v-c615a816] {
+  .advantage-box-last-odd {
     grid-column: span 2;
     aspect-ratio: 322 / 175;
   }
-  .mobile-cta[data-v-c615a816] {
+  .mobile-cta {
     display: block;
     margin-right: 40px;
     margin-left: 40px;
+  }
+  .advantage-box-tall {
+    grid-row: span 1;
+    aspect-ratio: 158 / 175;
+  }
+  .advantages-container {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }
 </style>

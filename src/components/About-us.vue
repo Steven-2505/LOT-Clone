@@ -54,7 +54,7 @@ const partners = [
     >
       <Header></Header>
       <Headermb></Headermb>
-      <div class="relative top-[60px] mt-20px">
+      <div class="relative top-[60px] mt-20px mfr">
         <div class="text-[#EBC47C] text-center text-[18px]">Who We Are</div>
         <div
           class="text-transparent bg-clip-text text-center uppercase lg:text-[50px] text-[32px] font-bold custom-text-gradient leading-normal"
@@ -443,5 +443,11 @@ const partners = [
   flex-shrink: 0;
   width: calc((100vw - 32px - 16px * 4) / 5);
   box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .mfr {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 </style>

@@ -66,7 +66,7 @@
           Tại sao bạn nên đặt chỗ với <br />
           NEX NOW?
         </div>
-        <div class="mt-20px origin-top text-left">
+        <div class="mt-20px origin-top text-left lg:mx-40">
           <div
             class="flex lg:gap-32 bg-[#171717] rounded-xl p-8 mb-6 item-nth lg:flex-row flex-col gap-10"
           >
