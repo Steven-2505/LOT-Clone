@@ -1732,7 +1732,6 @@ onMounted(() => {
       <!--chức năng mobile-->
       <div class="function-mb grid-gradient">
         <div class="container mx-auto xl:px-10 px-6 mt-10 py-6">
-          <!-- Swiper icon hàng ngang -->
           <Swiper
             :modules="[Swiper]"
             :direction="'horizontal'"
@@ -1760,7 +1759,6 @@ onMounted(() => {
             </SwiperSlide>
           </Swiper>
 
-          <!-- Description active -->
           <div class="item-description mt-4">
             <div class="text-[#c9be97] uppercase text-[14px] font-bold">
               {{ chucnangList.find((i) => i.key === activeChucnang)?.name }}
