@@ -93,7 +93,6 @@ const jobOptions = [
         class="grid sm:grid-cols-3 sm:mx-auto mx-4 my-[70px] gap-3 career-home"
       ></div>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 <style scoped>
